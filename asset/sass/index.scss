@@ -1,0 +1,52 @@
+//VARIABLE (NƠI ĐỔI MÃ MÀU).
+$color-white1: #f80c0c;
+
+//NESTED (LỒNG NHAU).
+//HEADER
+header{
+    .container{
+        width: 90%;
+        margin: 0 auto;
+        .cart{
+            color: $color-white1;
+            position: relative;
+            top: 30px;
+        }
+    }
+    .logo{
+       position: relative;
+       color: $color-white1;
+       a{
+        position: relative;
+        top: 25px;
+       }
+    }
+    .home{
+        position: absolute;
+        top: 0;
+        left: 300px;
+        a{
+            color: $color-white1;
+            position: relative;
+            top: 30px;
+        }
+       }
+    .admin{
+        position: absolute;
+        top: 0;
+        left: 400px;
+        a{
+            color: $color-white1;
+            position: relative;
+            top: 30px;
+        }
+    }
+}
+
+//BANNER
+.banner{
+    background-image: url("../img/apple-watch-pcq.png");    
+    background-position: center;
+    background-size: cover;
+}
+

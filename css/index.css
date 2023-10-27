@@ -1,0 +1,43 @@
+header .container {
+  width: 90%;
+  margin: 0 auto;
+}
+header .container .cart {
+  color: #f80c0c;
+  position: relative;
+  top: 30px;
+}
+header .logo {
+  position: relative;
+  color: #f80c0c;
+}
+header .logo a {
+  position: relative;
+  top: 25px;
+}
+header .home {
+  position: absolute;
+  top: 0;
+  left: 300px;
+}
+header .home a {
+  color: #f80c0c;
+  position: relative;
+  top: 30px;
+}
+header .admin {
+  position: absolute;
+  top: 0;
+  left: 400px;
+}
+header .admin a {
+  color: #f80c0c;
+  position: relative;
+  top: 30px;
+}
+
+.banner {
+  background-image: url("../img/apple-watch-pcq.png");
+  background-position: center;
+  background-size: cover;
+}/*# sourceMappingURL=index.css.map */
