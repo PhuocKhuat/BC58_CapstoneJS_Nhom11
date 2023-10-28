@@ -1,16 +1,41 @@
 //VARIABLE (NƠI ĐỔI MÃ MÀU).
-$color-white1: #f80c0c;
+//HEADER
+$color-white1: #59D2FE;
+$color-white2: #73FBD3;
+$color-icons: #ffffff;
+//BANNER
+$font-apple: 1.5rem;
+$font-stocks: 0.8rem;
+$color-stocks: #90ee90;
+$width-container: 90%;
+$font-h5wrapper: 0.83em;
+$bradius-cart: 20px;
+$color-pwrapper: #dad7cd;
+$background-footer: #2e2f33;
 
+body{
+    background-color: white;
+}
+body.darkMode {
+    background-color: #121212;
+}
 //NESTED (LỒNG NHAU).
 //HEADER
 header{
+    background: linear-gradient(to left, #8942a8, #ba382f);
     .container{
-        width: 90%;
+        width: $width-container;
         margin: 0 auto;
         .cart{
-            color: $color-white1;
-            position: relative;
-            top: 30px;
+            a{
+                color: $color-white1;
+                position: relative;
+                top: 30px;
+                transition: 0.3s;
+                &:hover{
+                    color: $color-white2;
+                }
+            }
         }
     }
     .logo{
@@ -19,6 +44,10 @@ header{
        a{
         position: relative;
         top: 25px;
+        transition: 0.3s;
+        &:hover{
+          color: $color-white2;
+        }
        }
     }
     .home{
@@ -29,6 +58,10 @@ header{
             color: $color-white1;
             position: relative;
             top: 30px;
+            transition: 0.3s;
+            &:hover{
+                color: $color-white2;
+            }
         }
        }
     .admin{
@@ -39,14 +72,160 @@ header{
             color: $color-white1;
             position: relative;
             top: 30px;
+            transition: 0.3s;
+            &:hover{
+                color: $color-white2;
+            }
         }
     }
 }
 
 //BANNER
 .banner{
-    background-image: url("../img/apple-watch-pcq.png");    
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(to left, #8942a8, #ba382f);
+    .container{
+        width: $width-container;
+        margin: 0 auto;
+        .card{
+            background: #000;
+            overflow: hidden;
+            height: 270px;
+            width: 200px;
+            position: relative;
+            border-radius: $bradius-cart;
+            transition: 0.5s;
+            &:hover{
+                height: 420px;
+                width: 260px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                position: relative;
+                bottom: 30px;
+            }
+            .card-header{
+                i{
+                    font-size: $font-apple;
+                    color: $color-icons;
+                }
+                .stocks{
+                    font-size: $font-stocks;
+                    color: $color-stocks;
+                    font-style: italic;
+                }
+            }
+            .card-body{
+                img{
+                    width: 100%;
+                    height: 150px;
+                    align-self: center;
+                }
+            }
+            .card-footer{
+                background-color: $background-footer;
+                height: 220px;
+                width: 100%;
+                border-radius: 20px;
+                padding: 20px;
+                bottom: -165px;
+                transition: 0.25s;
+                .name-fav{
+                    position: relative;
+                    bottom: 10px;
+                .product-name{
+                        color: $color-icons;
+                     }
+                .heart{
+                        color: $color-icons;
+                     }
+                }
+               
+               .wrapper{
+                //   display: none;
+                  h5{
+                    font-weight: bold;
+                    font-size: $font-h5wrapper;
+                    color: $color-white2;
+                  }
+                  p{
+                    color: $color-pwrapper;
+                    font-size: 0.75em;
+                  }
+               }
+               .purchase{
+                color: $color-icons;
+                .btn-add{
+                    border-radius: $bradius-cart;
+                    border: 1px solid $color-icons;
+                    background: none;
+                    color: $color-icons;
+                    padding: 6px 10px;
+                }
+               }
+            }
+        }
+    }
+}
+// SIDEBAR MINI.
+.sidebarMini.is-opened {
+    transform: translateX(60%);
+}
+.sidebarMini{
+    position: fixed;
+    top: 25%;
+    right: 0;
+    z-index: 500;
+    width: 400px;
+    transform: translateX(100%);
+    background-color: $color-white1;
+    transition: 0.5s;
+    border-left: 1px solid $color-white1;
+    color: $color-icons;
+    .sidebarMini__button {
+        background: $color-white1;
+        padding: 5px 20px;
+        border: 1px solid $color-white1;
+        border-radius: 8px 0 0 8px;
+        letter-spacing: 0.015rem;
+        position: fixed;
+        transform: translateX(-100%);
+        transition: .5s;
+        color: $color-icons;
+    }
+    .sidebarMini__content{
+        width: 170px;
+        padding: 20px;
+        text-align: center;
+        .switch{
+            height: 25px;
+            width: 50px;
+            margin: 0 10px;
+            display: inline-block;
+            position: relative;
+            input:checked, .slider::before {
+                transform: translateX(22px);
+            }
+            .slider{
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: $color-white2;
+                transition: 0.4s;
+                &::before{
+                    content: "";
+                    width: 18px;
+                    height: 18px;
+                    background-color: $color-icons;
+                    border-radius: 50%;
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 4px;
+                    left: 4px;
+                    transition: 0.5s;
+                }
+            }        
+        }
+    }    
 }
 

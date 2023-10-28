@@ -18,9 +18,9 @@
   <link rel="stylesheet" href="../../css/index.css">
 </head>
 
-<body>
+<body class="darkMode">
   <!-- HEADER -->
-  <header class="shadow-xl">
+  <header class="shadow-2xl">
     <div class="container h-20 flex justify-between"> 
         <!-- Có 2 đứa con là p và nav, p và nav chưa chắc cùng cấp -->
         <p class="logo">
@@ -33,15 +33,148 @@
             <a href="#" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa-user-gear"></i><span>Admin Portal</span></a>
            </p>
         </p>
-        <p class="cart flex flex-col space-y-3">
-            <i class="fa-solid fa-xl fa-shopping-cart"></i>
-            <a href="">Cart</a>
+        <p class="cart">
+            <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
         </p>
     </div>
   </header>
   <!-- BANNER -->
-  <section class="banner"></section>
- 
+  <section class="banner">
+    <div class="container">
+    <div class="main-card flex justify-evenly space-x-20 pt-5">
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/product2.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">iPhone X</strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>Wireless Noise Cancelling Earphones</h5>
+            <p>AirPods Pro have been designed to deliver active Noise Cancellation for immersive sound. Transparancy mode so much can hear your surroundings.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 1000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/s22.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">Samsung M51</strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>You’ve never seen a watch like this</h5>
+            <p>The most advanced Apple Watch yet, featuring the Always-On Retina display, the ECG app, international emergency calling, fall detection and a built‑in compass.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 3500</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/s22.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">
+              Samsung M22
+            </strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>The best for the brightest</h5>
+            <p>Designed for those who defy limits and change the world, the new MacBook Pro is by far the most powerful notebook we’ve ever made. it’s the ultimate pro notebook for the ultimate user.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 45000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/iphone-11-pro-midnight-green-select-2019.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">
+              iPhone 11 pro
+            </strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>Pro cameras. Pro display. Pro performance
+            </h5>
+            <p>A mind‑blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 1000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- SIDEBAR MINI -->
+  <div class="sidebarMini is-opened">
+    <button class="sidebarMini__button">
+      <i class="fa fa-cog"></i>
+    </button>
+   <div class="sidebarMini__content">
+    <h2 class="text-sm">Choose Mode</h2>
+    <div class="flex">
+        <span>Light</span>
+        <label class="switch" for="checkbox">
+            <input type="checkbox" name="" id="checkbox">
+            <div class="slider"></div>
+        </label>
+        <span>Dark</span>
+    </div>
+   </div>
+  </div>
   <footer>
     <!-- place footer here -->
   </footer>
