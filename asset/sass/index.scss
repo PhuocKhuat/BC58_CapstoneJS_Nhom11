@@ -20,6 +20,17 @@ body.darkMode {
     background-color: #121212;
 }
 //NESTED (LỒNG NHAU).
+//SPINNER
+#spinner{
+    height: 100vh;
+    width: 100vw;
+    background-color: #90e0ef;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+}
 //HEADER
 header{
     background: linear-gradient(to left, #8942a8, #ba382f);
@@ -63,6 +74,10 @@ header{
                 color: $color-white2;
             }
         }
+        .fa-home:before{
+            position: relative;
+            left: 7px;
+        }
        }
     .admin{
         position: absolute;
@@ -77,9 +92,12 @@ header{
                 color: $color-white2;
             }
         }
+        .fa-user-gear:before{
+            position: relative;
+            left: 32px;
+        }
     }
 }
-
 //BANNER
 .banner{
     background: linear-gradient(to left, #8942a8, #ba382f);
@@ -89,7 +107,7 @@ header{
         .card{
             background: #000;
             overflow: hidden;
-            height: 270px;
+            height: 272px;
             width: 200px;
             position: relative;
             border-radius: $bradius-cart;
@@ -100,6 +118,9 @@ header{
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
                 position: relative;
                 bottom: 30px;
+            }
+            .location{
+                color: $color-white2;
             }
             .card-header{
                 i{

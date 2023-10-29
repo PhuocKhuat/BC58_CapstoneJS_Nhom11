@@ -6,6 +6,17 @@ body.darkMode {
   background-color: #121212;
 }
 
+#spinner {
+  height: 100vh;
+  width: 100vw;
+  background-color: #90e0ef;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
+}
+
 header {
   background: linear-gradient(to left, #8942a8, #ba382f);
 }
@@ -48,6 +59,10 @@ header .home a {
 header .home a:hover {
   color: #73FBD3;
 }
+header .home .fa-home:before {
+  position: relative;
+  left: 7px;
+}
 header .admin {
   position: absolute;
   top: 0;
@@ -62,6 +77,10 @@ header .admin a {
 header .admin a:hover {
   color: #73FBD3;
 }
+header .admin .fa-user-gear:before {
+  position: relative;
+  left: 32px;
+}
 
 .banner {
   background: linear-gradient(to left, #8942a8, #ba382f);
@@ -73,7 +92,7 @@ header .admin a:hover {
 .banner .container .card {
   background: #000;
   overflow: hidden;
-  height: 270px;
+  height: 272px;
   width: 200px;
   position: relative;
   border-radius: 20px;
@@ -85,6 +104,9 @@ header .admin a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   position: relative;
   bottom: 30px;
+}
+.banner .container .card .location {
+  color: #73FBD3;
 }
 .banner .container .card .card-header i {
   font-size: 1.5rem;
