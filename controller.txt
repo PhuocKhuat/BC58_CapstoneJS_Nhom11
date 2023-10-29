@@ -28,3 +28,16 @@ productTypeSelect.addEventListener("change", () => {
 })
 
 // mangKetQua = res.data;
+
+function productBrr(productArr){
+  var products = [productArr];
+  products.forEach((products)=> {
+  const o = document.createElement("option");
+   o.value = products.type;
+   selectList.appendChild(o);
+   console.log(selectList);
+});
+selectList.onchange = function(){
+ phoneList.innerHTML = "render"; 
+}
+}

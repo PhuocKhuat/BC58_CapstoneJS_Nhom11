@@ -22,9 +22,10 @@ function fetchProductList(){
     })
     //B4. Trả then khi thành công.
     .then(function(res){
-        //B7. Để hàm rendderDSSP vào .then.
+        //B7. Để hàm renddrDSSeP vào .then.
         renderDSSP(res.data);
         //B10. Đi sử dụng hàm fetchProductList để ở dưới cùng.
+        productBrr(res.data);
         turnOffLoading();
     })
     //B5. Trả catch khi thất bại.
@@ -34,6 +35,33 @@ function fetchProductList(){
     })
 }
 fetchProductList();
+
+//THÊM SẢN PHẨM VÀO GIỎ HÀNG
+function addItem(e) {
+    //Lấy t là cha của e 4 lần.
+    let t = e.parentElement.parentElement.parentElement.parentElement.parentElement;
+    //Kiểm tra lớp out-of-stock-cover tại vị trí 0 có được hiển thị không.
+    if ("flex" == t.getElementsByClassName("out-of-stock-cover")[0].style.display)
+    //Thì hết hàng, trả về.
+        return;
+    //Lớp này không hiển thị, còn hàng thì thực hiện:
+    let n = t.getElementsByClassName("product-name")[0].innerText
+      , a = parseFloat(t.getElementsByClassName("product-price")[0].innerText.replace("$ ", ""))
+      , s = t.getElementsByClassName("product-img")[0].src;
+    SwitchBtns(t);
+    let i = {
+        name: n,
+        price: a,
+        imgSrc: s,
+        qty: 1
+    };
+    CartItems(i),
+    cartDetails.push(i),
+    RenderCart(),
+    CartItemsTotal()
+}
+
+
 
 function domID(id){
     return document.getElementById(id);

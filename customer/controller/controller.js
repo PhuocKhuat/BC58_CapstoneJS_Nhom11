@@ -65,3 +65,17 @@ function turnOnLoading(){
 function turnOffLoading(){
     document.getElementById('spinner').style.display = "none";
 }
+
+var array =[];
+function productBrr(productArr){
+  var products = [productArr];
+  products.forEach((product)=> {
+  var o = document.createElement("option");
+   o.text = products.type;
+   selectList.appendChild(o);
+});
+selectList.onchange = function(){
+ phoneList.innerHTML = "render"; 
+}
+}
+

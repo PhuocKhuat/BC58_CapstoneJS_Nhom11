@@ -37,7 +37,7 @@ body.darkMode {
 }
 //HEADER
 header{
-    background: linear-gradient(to left, #8942a8, #ba382f);
+    background: white;
     .container{
         width: $width-container;
         margin: 0 auto;
@@ -107,7 +107,7 @@ header{
     background: linear-gradient(to left, #8942a8, #ba382f);
     .container{
         width: $width-container;
-        margin: 0 auto;
+        margin: 0 auto 50px;
         .card{
             background: #000;
             overflow: hidden;
@@ -192,6 +192,8 @@ header{
 //FILTER
 .filter{
     .form-select {
+        top: 50px;
+        position: relative;
         display: block;
         width: 100%;
         padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -207,6 +209,52 @@ header{
         border-radius: 0.25rem;
     }
 }
+//FOOTER
+footer{
+    .footer-top{
+        span{
+          color: $color-white1;
+          &:hover{
+            color: #ff99c8 ;
+        }
+        }
+        .fab{
+          color: $color-white1;
+          &:hover{
+            color: #ff99c8 ;
+        }
+        }
+    }
+    .footer-middle{
+        .fa-solid{
+            color: $color-white1;
+            &:hover{
+              color: #ff99c8 ;
+          } 
+        }
+        p{
+            color: $color-white1;
+          &:hover{
+            color: #ff99c8 ;
+        }
+        }
+        h6{
+            color: $color-white1;
+            &:hover{
+              color: #ff99c8 ;
+          }   
+        }
+
+    }
+    .copyright{
+        color: $color-white1;
+          &:hover{
+            color: #ff99c8 ;
+        }
+    }
+}
+
+
 // SIDEBAR MINI.
 .sidebarMini.is-opened {
     transform: translateX(60%);
@@ -243,10 +291,15 @@ header{
             margin: 0 10px;
             display: inline-block;
             position: relative;
+            input:checked{
+                position: relative;
+                right: 10px;
+            }
             input:checked, .slider::before {
                 transform: translateX(22px);
             }
             .slider{
+                border-radius: 15px;
                 position: absolute;
                 cursor: pointer;
                 top: 0;
