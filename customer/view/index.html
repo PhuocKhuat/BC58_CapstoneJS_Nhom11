@@ -161,6 +161,17 @@
     </div> -->
     <div class="tblSanPham" id="tblSanPham"></div>
   </section>
+  <!-- FILTER -->
+  <section class="filter">
+    <div class="container">
+      <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="productTypeSelect()">
+        <option value="all">All Brands</option>
+        <option value="iphone">iPhone</option>
+        <option value="Samsung">Samsung</option>
+      </select>
+      <div class="row mx-0 gy-4" id="phoneList"></div>
+    </div>
+  </section>
   <!-- SIDEBAR MINI -->
   <div class="sidebarMini is-opened">
     <button class="sidebarMini__button">

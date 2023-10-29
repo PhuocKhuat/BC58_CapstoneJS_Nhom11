@@ -34,3 +34,7 @@ function fetchProductList(){
     })
 }
 fetchProductList();
+
+function domID(id){
+    return document.getElementById(id);
+}

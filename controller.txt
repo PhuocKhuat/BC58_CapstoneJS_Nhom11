@@ -1,0 +1,30 @@
+var mangKetQua = [productArr];
+// function mangKetQua(productArr){};
+// function productTypeSelect(){
+//   domID('selectList');
+//   if(select == 'iPhone'){
+//     domID('phoneList').innerHTML = mangKetQua;
+//   }
+//   else if(select == 'Samsung'){
+//     domID('phoneList').innerHTML = mangKetQua;
+//   }
+// }
+//
+// renderDSSP(productArr);
+
+//
+function filterProductByType(){
+  if(type === 'all'){
+    return mangKetQua;
+  } else{
+    return mangKetQua.filter((mangKetQua) => mangKetQua.type === type);
+  }
+}
+const productTypeSelect = domID('selectList');
+productTypeSelect.addEventListener("change", () => {
+  const selectedType = productTypeSelect.value;
+  const filteredProducts = filterProductByType(selectedType);
+  renderDSSP(filteredProducts);
+})
+
+// mangKetQua = res.data;
