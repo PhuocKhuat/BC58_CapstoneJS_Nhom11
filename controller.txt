@@ -41,3 +41,28 @@ selectList.onchange = function(){
  phoneList.innerHTML = "render"; 
 }
 }
+
+//THÊM VÀO GIỎ
+function addItem(e) {
+    //Lấy t là cha của e 4 lần.
+    let t = e.parentElement.parentElement.parentElement.parentElement.parentElement;
+    //Kiểm tra lớp out-of-stock-cover tại vị trí 0 có được hiển thị không.
+    if ("flex" == t.getElementsByClassName("out-of-stock-cover")[0].style.display)
+    //Thì hết hàng, trả về.
+        return;
+    //Lớp này không hiển thị, còn hàng thì thực hiện:
+    let n = t.getElementsByClassName("product-name")[0].innerText
+      , a = parseFloat(t.getElementsByClassName("product-price")[0].innerText.replace("$ ", ""))
+      , s = t.getElementsByClassName("product-img")[0].src;
+    SwitchBtns(t);
+    let i = {
+        name: n,
+        price: a,
+        imgSrc: s,
+        qty: 1
+    };
+    CartItems(i),
+    cartDetails.push(i),
+    RenderCart(),
+    CartItemsTotal()
+}

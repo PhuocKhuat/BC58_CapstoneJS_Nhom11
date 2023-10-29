@@ -22,15 +22,15 @@ function renderDSSP(productArr){
     <div class="card ">
         <div class="card-header flex justify-between">
           <i class="fab fa-apple"></i>
-          <p class="location">${sP.id}</p>
+          <p class="location" id="location">${sP.id}</p>
           <em class="stocks">In Stock</em>
         </div>
         <div class="card-body">
-          <img src="${sP.img}" alt="">
+          <img id="product-img" src="${sP.img}" alt="">
         </div>
         <div class="card-footer">
           <div class="name-fav flex justify-between">
-            <strong class="product-name">${sP.name}</strong>
+            <strong class="product-name" id="product-name">${sP.name}</strong>
             <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
           </div>
           <div class="wrapper">
@@ -38,11 +38,11 @@ function renderDSSP(productArr){
             <p>Product details: ${sP.screen}, back camera: ${sP.backCamera}, font camera: ${sP.frontCamera}</p>
           </div>
           <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold">$ ${sP.price}</p>
+            <p class="product-price font-bold" id="product-price">$ ${sP.price}</p>
             <p>${sP.type}</p>
             <span class="btn-add">
               <div>
-              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              <button onclick="themSP('${sP}')" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
               </div>
            </span>
           </div>
@@ -66,6 +66,7 @@ function turnOffLoading(){
     document.getElementById('spinner').style.display = "none";
 }
 
+//FILTER.
 var array =[];
 function productBrr(productArr){
   var products = [productArr];
@@ -78,4 +79,6 @@ selectList.onchange = function(){
  phoneList.innerHTML = "render"; 
 }
 }
+
+//
 

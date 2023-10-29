@@ -36,31 +36,59 @@ function fetchProductList(){
 }
 fetchProductList();
 
-//THÊM SẢN PHẨM VÀO GIỎ HÀNG
-function addItem(e) {
-    //Lấy t là cha của e 4 lần.
-    let t = e.parentElement.parentElement.parentElement.parentElement.parentElement;
-    //Kiểm tra lớp out-of-stock-cover tại vị trí 0 có được hiển thị không.
-    if ("flex" == t.getElementsByClassName("out-of-stock-cover")[0].style.display)
-    //Thì hết hàng, trả về.
-        return;
-    //Lớp này không hiển thị, còn hàng thì thực hiện:
-    let n = t.getElementsByClassName("product-name")[0].innerText
-      , a = parseFloat(t.getElementsByClassName("product-price")[0].innerText.replace("$ ", ""))
-      , s = t.getElementsByClassName("product-img")[0].src;
-    SwitchBtns(t);
-    let i = {
-        name: n,
-        price: a,
-        imgSrc: s,
-        qty: 1
-    };
-    CartItems(i),
-    cartDetails.push(i),
-    RenderCart(),
-    CartItemsTotal()
-}
+//THÊM SẢN PHẨM VÀO GIỎ HÀNG. ~ 6 BƯỚC.
+/**
+ * B1. Tạo 1 mảng giỏ hàng.
+ * B2. Xây dựng đối tượng cartItem mock API (để lấy thông tin đưa vào giỏ hàng).
+ * B3. Khởi tạo biến gán bằng lớp đối tượng.
+ * B4. Dùng axios POST, "",có thêm key data bằng biến gán lớp đối tượng.
+ * B5. Trả then khi thành công.
+ * B6. Trả catch khi thất bại.
+ */
 
+//Tạo 1 mảng giỏ hàng.
+var cartArray = [];
+// function themSP(){
+//   //B2. Xây dựng đối tượng cart.
+//   axios({
+//     url: "https://653e7b249e8bd3be29df5d3a.mockapi.io/cartItem",
+//     method: "POST",
+//     data: 123,
+//   })
+//   .then(function(res){
+
+//   })
+//   .catch(function(err){
+
+//   })
+// }
+
+
+
+
+//THÊM SẢN PHẨM VÀO GIỎ HÀNG
+
+//
+
+function themSP(sanPham){
+    //Lấy các thuộc tính cần thiết trên giao diện.
+    var _id = domID('location').value;
+    var _name = domID('product-name').value;
+    var _price = domID('product-price').value;
+    var _img = domID('product-img').value; 
+    //Tạo lớp đối tượng, thêm thuộc tính quantity.
+    var cardItem1 = {
+       id: _id,
+       name: _name,
+       price: _price,
+       img: _img,
+    }
+    cardItem1.quantity = 1;
+    //Thêm vào mảng cartArray:
+    cartArray.push(cardItem1);
+    //Lấy array đi xử lý tiếp.
+    renderDSSP(cartArray);
+}
 
 
 function domID(id){
