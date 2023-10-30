@@ -35,131 +35,35 @@
             <a href="#" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa-user-gear"></i><span>Admin Portal</span></a>
            </p>
         </p>
-        <p class="cart">
+        <!-- <p class="cart">
             <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
-        </p>
+        </p> -->
     </div>
   </header>
   <!-- BANNER -->
   <section class="banner flex justify-evenly">
-    <!-- <div class="container">
-    <div class="main-card flex justify-evenly space-x-20 pt-5">
-      <div class="card ">
-        <div class="card-header flex justify-between">
-          <i class="fab fa-apple"></i>
-          <em class="stocks">In Stock</em>
-        </div>
-        <div class="card-body">
-          <img src="../../asset/img/iphone-x-64gb-hh-600x600.jpg" alt="">
-        </div>
-        <div class="card-footer">
-          <div class="name-fav flex justify-between">
-            <strong class="product-name">iPhone X</strong>
-            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
-          </div>
-          <div class="wrapper">
-            <h5>Wireless Noise Cancelling Earphones</h5>
-            <p>AirPods Pro have been designed to deliver active Noise Cancellation for immersive sound. Transparancy mode so much can hear your surroundings.</p>
-          </div>
-          <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold">$ 1000</p>
-            <span class="btn-add">
-              <div>
-              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
-              </div>
-           </span>
-          </div>
-        </div>
-      </div>
-      <div class="card ">
-        <div class="card-header flex justify-between">
-          <i class="fab fa-apple"></i>
-          <em class="stocks">In Stock</em>
-        </div>
-        <div class="card-body">
-          <img src="../../asset/img/samsung-galaxy-m51-trang-new-600x600-600x600.jpg" alt="">
-        </div>
-        <div class="card-footer">
-          <div class="name-fav flex justify-between">
-            <strong class="product-name">Samsung M51</strong>
-            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
-          </div>
-          <div class="wrapper">
-            <h5>You’ve never seen a watch like this</h5>
-            <p>The most advanced Apple Watch yet, featuring the Always-On Retina display, the ECG app, international emergency calling, fall detection and a built‑in compass.</p>
-          </div>
-          <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold">$ 3500</p>
-            <span class="btn-add">
-              <div>
-              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
-              </div>
-           </span>
-          </div>
-        </div>
-      </div>
-      <div class="card ">
-        <div class="card-header flex justify-between">
-          <i class="fab fa-apple"></i>
-          <em class="stocks">In Stock</em>
-        </div>
-        <div class="card-body">
-          <img src="../../asset/img/s22.png" alt="">
-        </div>
-        <div class="card-footer">
-          <div class="name-fav flex justify-between">
-            <strong class="product-name">
-              Samsung M22
-            </strong>
-            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
-          </div>
-          <div class="wrapper">
-            <h5>The best for the brightest</h5>
-            <p>Designed for those who defy limits and change the world, the new MacBook Pro is by far the most powerful notebook we’ve ever made. it’s the ultimate pro notebook for the ultimate user.</p>
-          </div>
-          <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold">$ 45000</p>
-            <span class="btn-add">
-              <div>
-              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
-              </div>
-           </span>
-          </div>
-        </div>
-      </div>
-      <div class="card ">
-        <div class="card-header flex justify-between">
-          <i class="fab fa-apple"></i>
-          <em class="stocks">In Stock</em>
-        </div>
-        <div class="card-body">
-          <img src="../../asset/img/iphone-11-pro-midnight-green-select-2019.png" alt="">
-        </div>
-        <div class="card-footer">
-          <div class="name-fav flex justify-between">
-            <strong class="product-name">
-              iPhone 11 pro
-            </strong>
-            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
-          </div>
-          <div class="wrapper">
-            <h5>Pro cameras. Pro display. Pro performance
-            </h5>
-            <p>A mind‑blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro.</p>
-          </div>
-          <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold">$ 1000</p>
-            <span class="btn-add">
-              <div>
-              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
-              </div>
-           </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> -->
     <div class="tblSanPham" id="tblSanPham"></div>
+    <div class="cart">
+      <!-- Bảng render cart -->
+      <div class="side-nav" style="right: -100%;">
+        <button onclick="sideNav(0)"><i class="fas fa-times"></i></button>
+        <h2>Cart</h2>
+        <div class="cart-items"><span class="empty-cart">Looks Like You Haven't Added Any Product In The Cart</span></div>
+        <div class="final">
+          <strong>Total: $ <span class="total">0</span></strong>
+          <div class="action">
+            <button onclick="buy(1)" class="btn buy">Purchase <i class="fas fa-credit-card" style="color:#6665dd;"></i></button>
+            <button onclick="clearCart()" class="btn clear">Clear Cart <i class="fas fa-trash" style="color:#bb342f;"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <button onclick="sideNav(1)"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
+        <span class="total-qty">0</span>
+      </div>
+      <div onclick="sideNav(0)" class="cover" style="display: none;"></div>
+      <div class="cover purchase-cover"></div>
+    </div>
   </section>
   <!-- FILTER -->
   <section class="filter h-36">

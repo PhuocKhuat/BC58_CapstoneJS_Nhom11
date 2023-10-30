@@ -46,8 +46,6 @@ fetchProductList();
  * B6. Trả catch khi thất bại.
  */
 
-//Tạo 1 mảng giỏ hàng.
-var cartArray = [];
 // function themSP(){
 //   //B2. Xây dựng đối tượng cart.
 //   axios({
@@ -63,20 +61,23 @@ var cartArray = [];
 //   })
 // }
 
-
-
-
 //THÊM SẢN PHẨM VÀO GIỎ HÀNG
-
-//
-
+/**
+ * B1. Tạo 1 mảng giỏ hàng rỗng.
+ * B2. Lấy các thuộc tính cần thiết trên giao diện.
+ * B3. Tạo lớp đối tượng, thêm thuộc tính quantity.
+ * B4. Thêm vào mảng cartArray.
+ * B5. Lấy array đi xử lý tiếp.
+ */
+//B1. Tạo 1 mảng giỏ hàng rỗng.
+var cartArray = [];
 function themSP(sanPham){
-    //Lấy các thuộc tính cần thiết trên giao diện.
+    //B2. Lấy các thuộc tính cần thiết trên giao diện.
     var _id = domID('location').value;
     var _name = domID('product-name').value;
     var _price = domID('product-price').value;
     var _img = domID('product-img').value; 
-    //Tạo lớp đối tượng, thêm thuộc tính quantity.
+    //B3. Tạo lớp đối tượng, thêm thuộc tính quantity.
     var cardItem1 = {
        id: _id,
        name: _name,
@@ -84,13 +85,15 @@ function themSP(sanPham){
        img: _img,
     }
     cardItem1.quantity = 1;
-    //Thêm vào mảng cartArray:
+    //B4. Thêm vào mảng cartArray:
     cartArray.push(cardItem1);
-    //Lấy array đi xử lý tiếp.
-    renderDSSP(cartArray);
+    //B5. Lấy array đi xử lý tiếp.
+    renderCart(cartArray);
 }
-
 
 function domID(id){
     return document.getElementById(id);
+}
+function domCLASS(id){
+    return document.getElementsByClassName(id);
 }

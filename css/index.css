@@ -165,6 +165,15 @@ header .admin .fa-user-gear:before {
   color: #ffffff;
   padding: 6px 10px;
 }
+.banner .nav .fa-shopping-cart {
+  left: 550px;
+  position: relative;
+  bottom: 192px;
+  color: #59D2FE;
+}
+.banner .nav .fa-shopping-cart:hover {
+  color: #73FBD3;
+}
 
 .filter .form-select {
   top: 50px;

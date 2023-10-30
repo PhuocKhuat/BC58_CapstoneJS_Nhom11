@@ -42,7 +42,7 @@ function renderDSSP(productArr){
             <p>${sP.type}</p>
             <span class="btn-add">
               <div>
-              <button onclick="themSP('${sP}')" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              <button onclick="themSP('${sP.id}')" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
               </div>
            </span>
           </div>
@@ -80,5 +80,57 @@ selectList.onchange = function(){
 }
 }
 
-//
+//Tạo renderCart
+/**
+ * B1. Tạo 1 chuỗi rỗng.
+ * B2. Tạo 1 vòng lặp for.
+ * B3. Khởi tạo biến và gán bằng vị trí i trong dSSP.
+ * B4. Tạo 1 chuỗi string dòng tr.
+ * B5. Chuỗi rỗng += chuỗi string.
+ * B6. dom lên giao diện.
+ */
+function renderCart(cartArray){
+//B1. Tạo 1 chuỗi rỗng.
+let contentHTML = "";
+//B2. Tạo 1 vòng lặp for.
+for(i=0; i< cartArray.length; i++){
+//B3. Khởi tạo biến và gán bằng vị trí i trong dSSP.
+let sP = cartArray[i];
+//B4. Tạo 1 chuỗi string dòng tr.
+let string = `
+<tr>
+  <td>${sP.img}</td>
+  <td>${sP.name}</td>
+  <td>${sP.quantity}</td>
+  <td>${sP.img}</td>
+  <td>${sP.price}</td>
+</tr>
+`
+//B5. Chuỗi rỗng += chuỗi string.
+contentHTML += string;
+}
+//B6. dom lên giao diện.
+domCLASS('cart-items').innerHTML = contentHTML;
+}
+
+//MÀN HÌNH MỞ KHI ẤN VÀO NÚT
+function sideNav(thamSo){
+  let side = domCLASS('side-nav')[0];
+  let cover = domCLASS('cover')[0];
+  if(thamSo == 0){
+    side.style.right = 0;
+    cover.style.display = "block";
+  } else{
+    side.style.right = -1;
+    cover.style.display = "none";
+  }
+  CartIsEmpty();
+}
+
+//KIỂM TRA GIỎ TRỐNG
+function CartIsEmpty() {
+  if(cartArray.length == 0){
+    (document.getElementsByClassName("cart-items")[0].innerHTML = "<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>")
+  }
+}
 

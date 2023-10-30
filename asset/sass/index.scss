@@ -188,6 +188,17 @@ header{
             }
         }
     }
+    .nav{
+        .fa-shopping-cart{
+            left: 550px;
+            position: relative;
+            bottom: 192px;
+            color: $color-white1;
+            &:hover{
+                color: $color-white2;
+            }
+        }
+    }
 }
 //FILTER
 .filter{
