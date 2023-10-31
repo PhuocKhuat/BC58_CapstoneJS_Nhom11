@@ -151,7 +151,7 @@ function getDataForm(){
  */
 function renderCart(cartArray){
 //B1. Tạo 1 chuỗi rỗng.
-let contentHTML = "";
+var contentHTML = "";
 //B2. Tạo 1 vòng lặp for.
 for(i=0; i< cartArray.length; i++){
 //B3. Khởi tạo biến và gán bằng vị trí i trong dSSP.
@@ -170,7 +170,8 @@ let string = `
 contentHTML += string;
 }
 //B6. dom lên giao diện.
-domCLASS('cart-items').innerHTML = contentHTML;
+// domCLASS('cart-items').innerHTML = contentHTML;
+document.getElementById('tblSanPham').innerHTML = contentHTML;
 }
 
 //MÀN HÌNH MỞ KHI ẤN VÀO NÚT
