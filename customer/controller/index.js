@@ -46,20 +46,21 @@ fetchProductList();
  * B6. Trả catch khi thất bại.
  */
 
-// function themSP(){
-//   //B2. Xây dựng đối tượng cart.
-//   axios({
-//     url: "https://653e7b249e8bd3be29df5d3a.mockapi.io/cartItem",
-//     method: "POST",
-//     data: 123,
-//   })
-//   .then(function(res){
+function themSP(){
+   var info = getDataForm();
+  //B2. Xây dựng đối tượng cart.
+  axios({
+    url: "https://653122dc4d4c2e3f333c71dd.mockapi.io/QDDT",
+    method: "POST",
+    data: info,
+  })
+  .then(function(res){
+    
+  })
+  .catch(function(err){
 
-//   })
-//   .catch(function(err){
-
-//   })
-// }
+  })
+}
 
 //THÊM SẢN PHẨM VÀO GIỎ HÀNG
 /**
@@ -70,26 +71,26 @@ fetchProductList();
  * B5. Lấy array đi xử lý tiếp.
  */
 //B1. Tạo 1 mảng giỏ hàng rỗng.
-var cartArray = [];
-function themSP(sanPham){
-    //B2. Lấy các thuộc tính cần thiết trên giao diện.
-    var _id = domID('location').value;
-    var _name = domID('product-name').value;
-    var _price = domID('product-price').value;
-    var _img = domID('product-img').value; 
-    //B3. Tạo lớp đối tượng, thêm thuộc tính quantity.
-    var cardItem1 = {
-       id: _id,
-       name: _name,
-       price: _price,
-       img: _img,
-    }
-    cardItem1.quantity = 1;
-    //B4. Thêm vào mảng cartArray:
-    cartArray.push(cardItem1);
-    //B5. Lấy array đi xử lý tiếp.
-    renderCart(cartArray);
-}
+// var cartArray = [];
+// function themSP(sanPham){
+//     //B2. Lấy các thuộc tính cần thiết trên giao diện.
+//     var _id = domID('location').value;
+//     var _name = domID('product-name').value;
+//     var _price = domID('product-price').value;
+//     var _img = domID('product-img').value; 
+//     //B3. Tạo lớp đối tượng, thêm thuộc tính quantity.
+//     var cardItem1 = {
+//        id: _id,
+//        name: _name,
+//        price: _price,
+//        img: _img,
+//     }
+//     cardItem1.quantity = 1;
+//     //B4. Thêm vào mảng cartArray:
+//     cartArray.push(cardItem1);
+//     //B5. Lấy array đi xử lý tiếp.
+//     renderCart(cartArray);
+// }
 
 function domID(id){
     return document.getElementById(id);
