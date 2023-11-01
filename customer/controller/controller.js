@@ -42,7 +42,7 @@ function renderDSSP(productArr){
             <p>${sP.type}</p>
             <span class="btn-add">
               <div>
-              <button onclick="themSP('${sP.id}')" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              <button onclick="themSP()" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
               </div>
            </span>
           </div>
@@ -159,11 +159,14 @@ let sP = cartArray[i];
 //B4. Tạo 1 chuỗi string dòng tr.
 let string = `
 <tr>
-  <td>${sP.img}</td>
-  <td>${sP.name}</td>
+  <td><img src="${sP.img}" class="w-20"/></td>
+  <td>${sP.names}</td>
   <td>${sP.quantity}</td>
-  <td>${sP.img}</td>
+  <td>${sP.id}</td>
   <td>${sP.price}</td>
+  <td>
+  <button class="btn btn-danger">Clear</button>
+  </td>
 </tr>
 `
 //B5. Chuỗi rỗng += chuỗi string.
