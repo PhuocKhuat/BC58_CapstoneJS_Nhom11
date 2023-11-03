@@ -46,7 +46,8 @@
   </header>
   <!-- BANNER -->
   <section class="banner flex justify-evenly hero">
-    <div class="tblSanPham" id="tblSanPham">
+    <div class="container">
+      <div class="row" class="tblSanPham" id="tblSanPham"></div>
     </div>
     <div class="cover" style="display: none;" ></div>
       <div class="cover purchase-cover" id="cover"></div>
@@ -57,8 +58,22 @@
           <i class="fa fa-times-circle"></i>
         </button>
         <h2>Cart</h2>
-        <div class="cart-items">
-          <p class="empty-cart flex justify-evenly items-center" id="tblCart">
+        <!-- B1. Tạo container. -->
+        <!-- B2. Tạo row trước. -->
+        <!-- B3. Tạo các thuộc tính (flex, justify). -->
+        <!-- B4. Tạo các col sau. -->
+        <div class="cart-items container">
+          <div class="flex justify-evenly items-center thProduct">
+            <tr>
+              <th><span>Image</span></th>
+              <th><span>Name</span></th>
+              <th><span>Quantity</span></th>
+              <th><span>Identify</span></th>
+              <th><span>Price</span></th>
+              <th><span>Action</span></th>
+            </tr>
+            </div>
+          <p class="empty-cart row" id="tblCart">
             Looks Like You Haven't Added Any Product In The Cart
           </p>
         </div>
@@ -219,8 +234,10 @@
   </script>
   <!-- AXIOS JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js" integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- CONTROLLER -->
+  <!-- CONTROLLER JS -->
   <script src="../controller/controller.js"></script>
+  <!-- CART JS -->
+  <script src="../controller/cart.js"></script>
   <!-- MAIN JS -->
   <script src="../controller/index.js"></script>
 </body>

@@ -297,7 +297,7 @@ footer .copyright:hover {
   transform: translateX(100%);
   position: absolute;
   width: 100%;
-  height: 294%;
+  height: 130%;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(5px);
   z-index: 9;
@@ -331,11 +331,27 @@ footer .copyright:hover {
 .hero #content .cart-items {
   border-bottom: 1px solid whitesmoke;
 }
+.hero #content .cart-items .thProduct span {
+  font-size: 1.75rem;
+  color: #90ee90;
+}
 .hero #content .cart-items .empty-cart {
   font-size: 1.5rem;
   color: #414141;
   position: relative;
   left: 15px;
+}
+.hero #content .cart-items .empty-cart .sPcom {
+  position: relative;
+  right: 30px;
+}
+.hero #content .cart-items .empty-cart .sPcom2 {
+  position: relative;
+  left: 15px;
+}
+.hero #content .cart-items .empty-cart .sPcom3 {
+  position: relative;
+  left: 42px;
 }
 .hero #content .final {
   font-size: 1.5rem;

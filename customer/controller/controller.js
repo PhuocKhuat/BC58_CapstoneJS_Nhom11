@@ -7,17 +7,17 @@
  * B5. Chuỗi rỗng += chuỗi string.
  * B6. dom lên giao diện
  */
-//
+//B1. Tạo 1 chuỗi rỗng.
 function renderDSSP(productArr){
-   //
+   //B2. Tạo 1 vòng lặp for.
     var contentHTML = "";
-   //
+   //B3. Khởi tạo biến và gán bằng vị trí i trong productArr.
    for(i =0; i< productArr.length; i++){
-    //
+    //B4. Tạo 1 chuỗi string chứa div cho từng sản phẩm.
     var sP = productArr[i];
     //
     var string = `
-    <div class="container">
+    <div class="col">
     <div class="main-card flex justify-evenly space-x-20 pt-5">
     <div class="card">
         <div class="card-header flex justify-between">
@@ -159,17 +159,19 @@ let sP = cartArray[i];
 //B4. Tạo 1 chuỗi string dòng tr.
 //Để 1 thẻ bao bọc các object thì td mới hiểu, giãn cách các ô được.
 let string = `
-<tr>
-  <td><img src="${sP.img}" class="w-16" style="display: inline-block"/></td>
-  <td><span>${sP.names}</span></td>
-  <td><span>${sP.quantity}</span></td>
-  <td><span>${sP.id}</span></td>
-  <td><span>$${sP.price}</span></td>
+<div class="flex justify-evenly items-center">
+<tr class="col w-24">
+  <td><img src="${sP.img}" class="w-16 sPcom" style="display: inline-block"/></td>
+  <td><span class="sPcom">${sP.names}</span></td>
+  <td><input type="number" class="w-11 h-7 p-2 sPcom" value="${sP.quantity}"/></td>
+  <td><span class="sPcom2">${sP.id}</span></td>
+  <td><span class="sPcom3">$${sP.price}</span></td>
   <td>
-  <button class="btn btn-danger">Clear</button>
+  <button class="btn btn-danger sPcom3" onclick="xoaSP('${sP.id}')">Clear</button>
   </td>
   <br>
 </tr>
+</div>
 `
 //B5. Chuỗi rỗng += chuỗi string.
 contentHTML += string;
@@ -197,7 +199,7 @@ const content = domID('content');
 const cover = domID('cover');
 const sideNav = () => {
   content.style.transition = "0.3s";  
-  content.style.transform = "translateX(-50%)";
+  content.style.transform = "translateX(-100%)";
   cover.style.transform = "translateX(0px)";
 }
 const closes = () => {

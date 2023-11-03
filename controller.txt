@@ -184,3 +184,19 @@ function addItem(e) {
       </div>
     </div>
     </div> -->
+
+    // function themSP(){
+//    var info = getDataForm();
+//   //B2. Xây dựng đối tượng cart.
+//   axios({
+//     url: "https://653122dc4d4c2e3f333c71dd.mockapi.io/QDDT",
+//     method: "POST",
+//     data: info,
+//   })
+//   .then(function(res){
+    
+//   })
+//   .catch(function(err){
+
+//   })
+// }
