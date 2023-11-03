@@ -19,7 +19,7 @@ function renderDSSP(productArr){
     var string = `
     <div class="container">
     <div class="main-card flex justify-evenly space-x-20 pt-5">
-    <div class="card ">
+    <div class="card">
         <div class="card-header flex justify-between">
           <i class="fab fa-apple"></i>
           <p class="location" id="location">${sP.id}</p>
@@ -55,15 +55,15 @@ function renderDSSP(productArr){
     contentHTML += string;
     //
    }
-   document.getElementById('tblSanPham').innerHTML = contentHTML;
+   domID('tblSanPham').innerHTML = contentHTML;
 }
 
 //SPINNER ~ tạo 2 nút turnOnLoading, turnOffLoading
 function turnOnLoading(){
-    document.getElementById('spinner').style.display = "block";
+    domID('spinner').style.display = "block";
 }
 function turnOffLoading(){
-    document.getElementById('spinner').style.display = "none";
+    domID('spinner').style.display = "none";
 }
 
 //FILTER.
@@ -157,16 +157,18 @@ for(i=0; i< cartArray.length; i++){
 //B3. Khởi tạo biến và gán bằng vị trí i trong dSSP.
 let sP = cartArray[i];
 //B4. Tạo 1 chuỗi string dòng tr.
+//Để 1 thẻ bao bọc các object thì td mới hiểu, giãn cách các ô được.
 let string = `
 <tr>
-  <td><img src="${sP.img}" class="w-20"/></td>
-  <td>${sP.names}</td>
-  <td>${sP.quantity}</td>
-  <td>${sP.id}</td>
-  <td>${sP.price}</td>
+  <td><img src="${sP.img}" class="w-16" style="display: inline-block"/></td>
+  <td><span>${sP.names}</span></td>
+  <td><span>${sP.quantity}</span></td>
+  <td><span>${sP.id}</span></td>
+  <td><span>$${sP.price}</span></td>
   <td>
   <button class="btn btn-danger">Clear</button>
   </td>
+  <br>
 </tr>
 `
 //B5. Chuỗi rỗng += chuỗi string.
@@ -174,21 +176,34 @@ contentHTML += string;
 }
 //B6. dom lên giao diện.
 // domCLASS('cart-items').innerHTML = contentHTML;
-document.getElementById('tblSanPham').innerHTML = contentHTML;
+domID('tblCart').innerHTML = contentHTML;
 }
 
 //MÀN HÌNH MỞ KHI ẤN VÀO NÚT
-function sideNav(thamSo){
-  let side = domCLASS('side-nav')[0];
-  let cover = domCLASS('cover')[0];
-  if(thamSo == 0){
-    side.style.right = 0;
-    cover.style.display = "block";
-  } else{
-    side.style.right = -1;
-    cover.style.display = "none";
-  }
-  CartIsEmpty();
+// function sideNav(thamSo){
+//   let side = domCLASS('side-nav')[0];
+//   let cover = domCLASS('cover')[0];
+//   if(thamSo == 0){
+//     side.style.right = 0;
+//     cover.style.display = "block";
+//   } else{
+//     side.style.right = -1;
+//     cover.style.display = "none";
+//   }
+//   CartIsEmpty();
+// }
+
+const content = domID('content');
+const cover = domID('cover');
+const sideNav = () => {
+  content.style.transition = "0.3s";  
+  content.style.transform = "translateX(-50%)";
+  cover.style.transform = "translateX(0px)";
+}
+const closes = () => {
+  content.style.transition = "0.3s";
+  content.style.transform ="translateX(100%)";
+  cover.style.transform = "translateX(100%)";
 }
 
 //KIỂM TRA GIỎ TRỐNG
@@ -196,5 +211,8 @@ function CartIsEmpty() {
   if(cartArray.length == 0){
     (document.getElementsByClassName("cart-items")[0].innerHTML = "<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>")
   }
+}
+function domID(id){
+  return document.getElementById(id);
 }
 

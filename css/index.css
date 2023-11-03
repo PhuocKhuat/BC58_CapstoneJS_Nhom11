@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background: white;
 }
 
 body.darkMode {
@@ -23,20 +23,13 @@ body.darkMode {
 }
 
 header {
+  position: absolute;
+  width: 100%;
   background: white;
 }
 header .container {
   width: 90%;
   margin: 0 auto;
-}
-header .container .cart a {
-  color: #59D2FE;
-  position: relative;
-  top: 30px;
-  transition: 0.3s;
-}
-header .container .cart a:hover {
-  color: #73FBD3;
 }
 header .logo {
   position: relative;
@@ -86,13 +79,19 @@ header .admin .fa-user-gear:before {
   position: relative;
   left: 32px;
 }
+header .nav .fa-shopping-cart {
+  color: #59D2FE;
+}
+header .nav .fa-shopping-cart:hover {
+  color: #73FBD3;
+}
 
 .banner {
   background: linear-gradient(to left, #8942a8, #ba382f);
 }
 .banner .container {
   width: 90%;
-  margin: 0 auto 50px;
+  margin: 90px auto 50px;
 }
 .banner .container .card {
   background: #000;
@@ -164,15 +163,6 @@ header .admin .fa-user-gear:before {
   background: none;
   color: #ffffff;
   padding: 6px 10px;
-}
-.banner .nav .fa-shopping-cart {
-  left: 550px;
-  position: relative;
-  bottom: 192px;
-  color: #59D2FE;
-}
-.banner .nav .fa-shopping-cart:hover {
-  color: #73FBD3;
 }
 
 .filter .form-select {
@@ -298,4 +288,58 @@ footer .copyright:hover {
   bottom: 4px;
   left: 4px;
   transition: 0.5s;
+}
+
+.hero {
+  overflow: hidden;
+}
+.hero .cover {
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  height: 294%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9;
+}
+.hero #content {
+  position: absolute;
+  transform: translateX(100%);
+  background: #010101;
+  opacity: 0.9;
+  height: 100%;
+  width: 56%;
+  flex-direction: column;
+  top: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+.hero #content .fa-times-circle {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 1.5rem;
+}
+.hero #content h2 {
+  position: relative;
+  color: white;
+  left: 400px;
+  transform: translateY(-0.2rem);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.hero #content .cart-items {
+  border-bottom: 1px solid whitesmoke;
+}
+.hero #content .cart-items .empty-cart {
+  font-size: 1.5rem;
+  color: #414141;
+  position: relative;
+  left: 15px;
+}
+.hero #content .final {
+  font-size: 1.5rem;
+  color: #414141;
+  position: relative;
+  left: 150px;
 }/*# sourceMappingURL=index.css.map */

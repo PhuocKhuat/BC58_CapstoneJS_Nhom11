@@ -14,7 +14,7 @@ $color-pwrapper: #dad7cd;
 $background-footer: #2e2f33;
 
 body{
-    background-color: white;
+    background: white;
 }
 body.darkMode {
     background-color: #121212;
@@ -37,21 +37,12 @@ body.darkMode {
 }
 //HEADER
 header{
+    position: absolute;
+    width: 100%;
     background: white;
     .container{
         width: $width-container;
         margin: 0 auto;
-        .cart{
-            a{
-                color: $color-white1;
-                position: relative;
-                top: 30px;
-                transition: 0.3s;
-                &:hover{
-                    color: $color-white2;
-                }
-            }
-        }
     }
     .logo{
        position: relative;
@@ -101,13 +92,21 @@ header{
             left: 32px;
         }
     }
+    .nav{
+        .fa-shopping-cart{
+            color: $color-white1;
+            &:hover{
+                color: $color-white2;
+            }
+        }
+    }
 }
 //BANNER
 .banner{
     background: linear-gradient(to left, #8942a8, #ba382f);
     .container{
         width: $width-container;
-        margin: 0 auto 50px;
+        margin: 90px auto 50px;
         .card{
             background: #000;
             overflow: hidden;
@@ -185,17 +184,6 @@ header{
                     padding: 6px 10px;
                 }
                }
-            }
-        }
-    }
-    .nav{
-        .fa-shopping-cart{
-            left: 550px;
-            position: relative;
-            bottom: 192px;
-            color: $color-white1;
-            &:hover{
-                color: $color-white2;
             }
         }
     }
@@ -335,4 +323,68 @@ footer{
         }
     }    
 }
+
+// CART
+// .banner{
+//     .hero{
+//     overflow: hidden;
+//     }
+//     .content{
+//         position: absolute;
+//         transform: translateX(100%) !important;
+//     }
+// }
+.hero{
+    overflow: hidden;
+    .cover{
+        transform: translateX(100%);
+        position: absolute;
+        width: 100%;
+        height: 294%;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(5px);
+        z-index: 9;
+    }
+    #content{
+        position: absolute;
+        transform: translateX(100%);
+        background: #010101;
+        opacity: 0.9;
+        height: 100%;
+        width: 56%;
+        flex-direction: column;
+        top: 0;
+        z-index: 10;
+        overflow: hidden;
+        .fa-times-circle{
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 1.5rem;
+        }
+        h2{
+            position: relative;
+            color: white;
+            left: 400px;
+            transform: translateY(-0.2rem);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .cart-items{
+            border-bottom: 1px solid whitesmoke;
+            .empty-cart{
+                font-size: 1.5rem;
+                color: #414141;
+                position: relative;
+                left: 15px;
+            }
+        }
+        .final{
+            font-size: 1.5rem;
+            color: #414141;
+            position: relative;
+            left: 150px;
+        }
+    }
+    }
 
