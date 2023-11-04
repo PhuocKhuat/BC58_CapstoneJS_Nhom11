@@ -5,12 +5,11 @@
  * B3. Lấy array đi xử lý ~ renderCart.
  */
 // B1. Tạo 1 mảng giỏ hàng rỗng.
-const cartArray = [];
-const dataJson = localStorage.getItem('LOCAL_CARTARRAY');
+let cartArray = [];
+let dataJson = localStorage.getItem('LOCAL_CARTARRAY');
 //B2. Nếu khác null (không có giá trị, là có giá trị lấy lên), chuyển JSON thành array vì chưa sử dụng được trực tiếp.
 if(dataJson != null){
-  let cartArray = JSON.parse(dataJson);
-  console.log(cartArray);
+  cartArray = JSON.parse(dataJson);
 }
 //B3. Lấy array đi xử lý ~ renderCart.
 renderCart(cartArray);
@@ -27,6 +26,7 @@ renderCart(cartArray);
  * B8. Khi ấn thêm tạo spinner.
  */
 
+//MỤC 6, 7.
 function themSP(){
     //B2. Tạo lớp đối tượng, thêm thuộc tính quantity.
     const array = [
@@ -59,11 +59,13 @@ function themSP(){
     quantity: 1,
   }
 ];
-  // console.log("array", array);
-  // const array1 = [{
-  //    ...array,
-  // }];
-  // console.log(array1);
+// const [p1, p2, p3, p4] = array;
+// console.log("array", array);
+//   const array1 = [{
+//      ...array,
+//      quantity : 1,
+//   }];
+//   console.log("array1", array1);
 //B3. Tạo vòng lặp for lấy các key trong lớp đối tượng.
   for(let i =0; i< array.length; i++){
     const sP = array[i];
@@ -74,18 +76,19 @@ function themSP(){
       img: sP.img,
       quantity: sP.quantity,
    };
-    // console.log(cardItem1);
   }
     //B4. Thêm vào mảng cartArray:
     cartArray.push(cardItem1);
-    //B5. 
+    //
+    //B5. Chuyển array thành JSON để lưu xuống LOCALSTORAGE.
     let dataJson = JSON.stringify(cartArray);
     //B6. Lưu xuống LOCALSTORAGE.
     localStorage.setItem('LOCAL_CARTARRAY', dataJson);
-    //B5. Lấy array đi xử lý tiếp.
+    //B7. Lấy array đi xử lý tiếp.
     renderCart(cartArray);
 }
 
+//MỤC 13.
 //XOÁ SẢN PHẨM ~ LOCALSTORAGE (5 BƯỚC).
 /**
  * B1. Tìm vị trí cần xoá dựa theo id, dùng findIndex.
@@ -104,9 +107,35 @@ const xoaSP = (id) => {
     //
     localStorage.setItem('LOCAL_CARTARRAY', dataJson);
     //
+    updatePriceAll();
+    //
     renderCart(cartArray);
   }
 
-  function domID(id){
-    return document.getElementById(id);
+//CẬP NHẬT GIÁ TIỀN SẢN PHẨM.
+//CÓ CLASS KHÔNG XÁC ĐỊNH ĐƯỢC THÌ LẤY PHẦN TỬ ĐẦU TIÊN TRONG MẢNG.
+/**
+ * B1. Những class khi debugger không hiện lớp class thì thêm lấy vị trí đầu tiên [0].
+ * B2.
+ */
+function updatePriceAll() {
+  const cartDiv = domCLASS('cart-items')[0]; //
+  const cartTr = domCLASS('empty-cart');
+  let total = 0;
+  for(let i =0; i < cartTr.length; i++){
+    const cartTrr = cartTr[i];
+    const priceProduct = cartTrr.getElementsByClassName('priceProduct')[0];//
+    const quantityProduct = cartTrr.getElementsByClassName('quantityProduct')[0];//
+    const price = parseFloat(priceProduct.innerText);
+    const quantity = quantityProduct.value;
+    total += price*quantity;
+  }
+  domCLASS('total')[0].innerHTML = total; 
+}
+
+//ĐIỀU CHỈNH SỐ LƯỢNG (KHÔNG ĐƯỢC ÂM, TĂNG GIẢM SỐ LƯỢNG TĂNG GIẢM GIÁ).
+const quantityProduct = domCLASS('quantityProduct');
+for(let i =0; i < quantityProduct.length; i++){
+   let input = quantityProduct[i];
+   input.addEvenListener('change', quantityChanged)
 }

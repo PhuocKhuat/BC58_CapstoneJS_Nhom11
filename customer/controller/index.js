@@ -25,7 +25,7 @@ function fetchProductList(){
         //B7. Để hàm renddrDSSeP vào .then.
         renderDSSP(res.data);
         //B10. Đi sử dụng hàm fetchProductList để ở dưới cùng.
-        productBrr(res.data);
+        productFilter(res.data);
         turnOffLoading();
     })
     //B5. Trả catch khi thất bại.
@@ -46,6 +46,6 @@ fetchProductList();
  * B6. Trả catch khi thất bại.
  */
 
-function domCLASS(id){
-    return document.getElementsByClassName(id);
-}
+
+
+

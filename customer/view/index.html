@@ -62,7 +62,8 @@
         <!-- B2. Tạo row trước. -->
         <!-- B3. Tạo các thuộc tính (flex, justify). -->
         <!-- B4. Tạo các col sau. -->
-        <div class="cart-items container">
+        <div class="cart-items
+        container">
           <div class="flex justify-evenly items-center thProduct">
             <tr>
               <th><span>Image</span></th>
@@ -73,13 +74,12 @@
               <th><span>Action</span></th>
             </tr>
             </div>
-          <p class="empty-cart row" id="tblCart">
-            Looks Like You Haven't Added Any Product In The Cart
-          </p>
+          <span class="empty-cart row" id="tblCart">
+          </span>
         </div>
         <div class="final">
           <strong>
-            Total: $ <span class="total">0</span>
+            Total: $ <span class="total">10000</span>
           </strong>
           <div class="action">
             <button onclick="buy()" class="btn buy">
@@ -97,6 +97,7 @@
   <section class="filter h-36">
     <div class="container">
       <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example">
+        <option value="">Chọn loại sản phẩm</option>
         <option value="iphone">iPhone</option>
         <option value="Samsung">Samsung</option>
       </select>
@@ -234,6 +235,8 @@
   </script>
   <!-- AXIOS JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js" integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- METHOD JS -->
+  <script src="../controller/method.js"></script>
   <!-- CONTROLLER JS -->
   <script src="../controller/controller.js"></script>
   <!-- CART JS -->

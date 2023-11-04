@@ -67,78 +67,25 @@ function turnOffLoading(){
 }
 
 //FILTER.
-var array =[];
-function productBrr(productArr){
-  var products = [productArr];
-  products.forEach((product)=> {
-  var o = document.createElement("option");
-   o.text = products.type;
-   selectList.appendChild(o);
-});
-selectList.onchange = function(){
- phoneList.innerHTML = "render"; 
-}
-}
+// var array =[];
+// function productBrr(productArr){
+//   var products = [productArr];
+//   products.forEach((product)=> {
+//   var o = document.createElement("option");
+//    o.text = products.type;
+//    selectList.appendChild(o);
+// });
+// selectList.onchange = function(){
+//  phoneList.innerHTML = "render"; 
+// }
+// }
 
-//GET DATAFORM
-function getDataForm(){
-  let array = [
-    {
-      id: "1",
-      name: "iphoneX",
-      price: 1000,
-      "screen": "screen 68",
-      "backCamera": "2 camera 12 MP",
-      "frontCamera": "7 MP",
-      img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
-      "desc": "Thiết kế mang tính đột phá",
-      "type": "iphone"
-    },
-    {
-      id: "2",
-      name: "Samsung Galaxy M51 ",
-      price: 3500,
-      "screen": "screen 69",
-      "backCamera": " Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP",
-      "frontCamera": " 32 MP",
-      img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
-      "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
-      "type": "Samsung"
-    },
-    {
-      id: "3",
-      name: "Samsung Galaxy M22",
-      price: 45000,
-      "screen": "screen 70",
-      "backCamera": "Chính 12 MP & Phụ 64 MP, 12 MP",
-      "frontCamera": " 32 MP",
-      img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
-      "desc": "Thiết kế mang tính đột phá",
-      "type": "Samsung"
-    },
-    {
-      id: "4",
-      name: "Iphone 11",
-      price: 1000,
-      "screen": "screen 54",
-      "backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
-      "frontCamera": "32 MP",
-      img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
-      "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
-      "type": "Iphone"
-    }
-  ]
-  let array1 = array[0];
-  array1.id = "123";
-  console.log(array1);
-  var cardItem1 = {
-    id: array.id,
-    name: array.name,
-    price: array.price,
-    img: array.img,
-    quantity: 1,
-  }
-}
+// const prdFilter = .filter((val) => {
+//   if(val.type == "Samsung"){
+//     let fetch = renderDSSP();
+//     domID('phoneList').innerHTML = fetch; 
+//   } 
+// })
 
 //Tạo renderCart
 /**
@@ -159,13 +106,13 @@ let sP = cartArray[i];
 //B4. Tạo 1 chuỗi string dòng tr.
 //Để 1 thẻ bao bọc các object thì td mới hiểu, giãn cách các ô được.
 let string = `
-<div class="flex justify-evenly items-center">
-<tr class="col w-24">
+<div class="cartDiv flex justify-evenly items-center">
+<tr class="cartTr col w-24">
   <td><img src="${sP.img}" class="w-16 sPcom" style="display: inline-block"/></td>
   <td><span class="sPcom">${sP.names}</span></td>
-  <td><input type="number" class="w-11 h-7 p-2 sPcom" value="${sP.quantity}"/></td>
+  <td><input type="number" class="w-11 h-7 p-2 sPcom quantityProduct" value="${sP.quantity}"/></td>
   <td><span class="sPcom2">${sP.id}</span></td>
-  <td><span class="sPcom3">$${sP.price}</span></td>
+  <td><span class="sPcom3 priceProduct">${sP.price}</span></td>
   <td>
   <button class="btn btn-danger sPcom3" onclick="xoaSP('${sP.id}')">Clear</button>
   </td>
@@ -208,13 +155,5 @@ const closes = () => {
   cover.style.transform = "translateX(100%)";
 }
 
-//KIỂM TRA GIỎ TRỐNG
-function CartIsEmpty() {
-  if(cartArray.length == 0){
-    (document.getElementsByClassName("cart-items")[0].innerHTML = "<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>")
-  }
-}
-function domID(id){
-  return document.getElementById(id);
-}
+
 

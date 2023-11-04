@@ -340,7 +340,7 @@ footer{
         transform: translateX(100%);
         position: absolute;
         width: 100%;
-        height: 130%;
+        height: 145%;
         background: rgba(0, 0, 0, 0.75);
         backdrop-filter: blur(5px);
         z-index: 9;
@@ -367,7 +367,7 @@ footer{
             color: white;
             left: 400px;
             transform: translateY(-0.2rem);
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 600;
         }
         .cart-items{
@@ -402,6 +402,11 @@ footer{
             color: #414141;
             position: relative;
             left: 150px;
+            strong{
+                position: relative;
+                left: 230px;
+                font-size: 2rem;
+            }
         }
     }
     }
