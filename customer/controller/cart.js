@@ -28,57 +28,65 @@ renderCart(cartArray);
 
 //MỤC 6, 7.
 function themSP(){
+  // let addBtn = domID('add-btn');
+  // let tdQuan = domID('tdQuan').tagName;
+  // addBtn.innerText =  123;
     //B2. Tạo lớp đối tượng, thêm thuộc tính quantity.
-    const array = [
-  {
-    id: "1",
-    names: "iphoneX",
-    price: 1000,
-    img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
-    quantity: 1,
-  },
-  {
-    id: "2",
-    names: "Samsung Galaxy M51 ",
-    price: 3500,
-    img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
-    quantity: 1,
-  },
-  {
-    id: "3",
-    names: "Samsung Galaxy M22",
-    price: 45000,
-    img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
-    quantity: 1,
-  },
-  {
-    id: "4",
-    names: "Iphone 11",
-    price: 1000,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
-    quantity: 1,
-  }
-];
-// const [p1, p2, p3, p4] = array;
-// console.log("array", array);
-//   const array1 = [{
-//      ...array,
-//      quantity : 1,
-//   }];
-//   console.log("array1", array1);
+//     const array = [
+//   {
+//     id: "1",
+//     names: "iphoneX",
+//     price: 1000,
+//     img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+//     quantity: 1,
+//   },
+//   {
+//     id: "2",
+//     names: "Samsung Galaxy M51 ",
+//     price: 3500,
+//     img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+//     quantity: 1,
+//   },
+//   {
+//     id: "3",
+//     names: "Samsung Galaxy M22",
+//     price: 45000,
+//     img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
+//     quantity: 1,
+//   },
+//   {
+//     id: "4",
+//     names: "Iphone 11",
+//     price: 1000,
+//     img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
+//     quantity: 1,
+//   }
+// ];
+    let itemImg = domID('product-img').src;
+    let itemNames = domID('product-name').innerText;
+    let itemQuantity = 1;
+    let itemId = domID('location').innerText;
+    let itemPrice = domID('product-price').innerText;
 //B3. Tạo vòng lặp for lấy các key trong lớp đối tượng.
-  for(let i =0; i< array.length; i++){
-    const sP = array[i];
+  // for(let i =0; i< array.length; i++){
+    // const sP = array[i];
     var cardItem1 = {
-      id: sP.id,
-      names: sP.names,
-      price: sP.price,
-      img: sP.img,
-      quantity: sP.quantity,
-   };
-  }
-    //B4. Thêm vào mảng cartArray:
+       img: itemImg,
+       names: itemNames,
+       quantity: itemQuantity,
+       id: itemId,
+       price: itemPrice,
+    }; 
+    // }
+    // id: sP.id,
+    // names: sP.names,
+    // price: sP.price,
+    // img: sP.img,
+    // quantity: sP.quantity,
+  
+  //B4. Thêm vào mảng cartArray:
     cartArray.push(cardItem1);
+    // console.log("cartArray", cartArray);
     //
     //B5. Chuyển array thành JSON để lưu xuống LOCALSTORAGE.
     let dataJson = JSON.stringify(cartArray);
@@ -116,7 +124,14 @@ const xoaSP = (id) => {
 //CÓ CLASS KHÔNG XÁC ĐỊNH ĐƯỢC THÌ LẤY PHẦN TỬ ĐẦU TIÊN TRONG MẢNG.
 /**
  * B1. Những class khi debugger không hiện lớp class thì thêm lấy vị trí đầu tiên [0].
- * B2.
+ * B2. Duyệt thẻ class lớn nhất chứa tất cả các dòng, tới thẻ con chứa các dòng của thẻ này.
+ * B3. Khai báo biến total = 0.
+ * B4. Dùng vòng lặp for.
+ * B5. Khai báo biến bằng vị trí thứ i trong mảng.
+ * B6. Duyệt thẻ class của phần tử cần tính (nếu không thấy class thêm vị trí [0]).
+ * B7. Lấy giá trị của phần tử (input thì .value, 2 thẻ đóng mở thì .innerText)
+ * B8. Công thức tính total.
+ * B9. dom đến chỗ cần đổi.
  */
 function updatePriceAll() {
   const cartDiv = domCLASS('cart-items')[0]; //
@@ -133,9 +148,24 @@ function updatePriceAll() {
   domCLASS('total')[0].innerHTML = total; 
 }
 
-//ĐIỀU CHỈNH SỐ LƯỢNG (KHÔNG ĐƯỢC ÂM, TĂNG GIẢM SỐ LƯỢNG TĂNG GIẢM GIÁ).
+//ĐIỀU CHỈNH SỐ LƯỢNG (KIỂM TRA LÀ SỐ, KHÔNG ĐƯỢC ÂM, TĂNG GIẢM SỐ LƯỢNG TĂNG GIẢM GIÁ).
 const quantityProduct = domCLASS('quantityProduct');
 for(let i =0; i < quantityProduct.length; i++){
    let input = quantityProduct[i];
-   input.addEvenListener('change', quantityChanged)
+   //thêm một sự kiện change cho phần tử input. Khi sự kiện change được kích hoạt, hàm quantityChanged() sẽ được gọi.
+   input.addEventListener('change', quantityChanged)
+}
+function quantityChanged(event){
+   let input = event.target;
+   if(isNaN(input.value) || input.value <=0){
+    input.value = 1;
+   }
+   updatePriceAll(); 
+} 
+
+function domID(id){
+  return document.getElementById(id);
+}
+function domCLASS(id){
+  return document.getElementsByClassName(id);
 }

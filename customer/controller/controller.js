@@ -26,7 +26,7 @@ function renderDSSP(productArr){
           <em class="stocks">In Stock</em>
         </div>
         <div class="card-body">
-          <img id="product-img" src="${sP.img}" alt="">
+          <img id="product-img" class="product-img" src="${sP.img}" alt="">
         </div>
         <div class="card-footer">
           <div class="name-fav flex justify-between">
@@ -38,11 +38,11 @@ function renderDSSP(productArr){
             <p>Product details: ${sP.screen}, back camera: ${sP.backCamera}, font camera: ${sP.frontCamera}</p>
           </div>
           <div class="purchase flex justify-between items-center">
-            <p class="product-price font-bold" id="product-price">$ ${sP.price}</p>
+            $<p class="product-price font-bold" id="product-price">${sP.price}</p>
             <p>${sP.type}</p>
             <span class="btn-add">
               <div>
-              <button onclick="themSP()" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              <button class="add-btn" id="add-btn" onclick="themSP()">Add <i class="fas fa-chevron-right"></i></button>
               </div>
            </span>
           </div>
@@ -110,7 +110,7 @@ let string = `
 <tr class="cartTr col w-24">
   <td><img src="${sP.img}" class="w-16 sPcom" style="display: inline-block"/></td>
   <td><span class="sPcom">${sP.names}</span></td>
-  <td><input type="number" class="w-11 h-7 p-2 sPcom quantityProduct" value="${sP.quantity}"/></td>
+  <td><input type="number" class="w-14 h-7 p-2 sPcom quantityProduct" id="quantityProduct" value="${sP.quantity}"/></td>
   <td><span class="sPcom2">${sP.id}</span></td>
   <td><span class="sPcom3 priceProduct">${sP.price}</span></td>
   <td>
@@ -154,6 +154,17 @@ const closes = () => {
   content.style.transform ="translateX(100%)";
   cover.style.transform = "translateX(100%)";
 }
-
-
+// function getDataForm(){
+//   let itemImg = domID('product-img').src;
+//   let itemNames = domID('product-name').innerText;
+//   let itemQuantity = 1;
+//   let itemId = domID('location').innerText;
+//   let itemPrice = domID('product-price').innerText;
+// }
+function domID(id){
+  return document.getElementById(id);
+}
+function domCLASS(id){
+  return document.getElementsByClassName(id);
+}
 

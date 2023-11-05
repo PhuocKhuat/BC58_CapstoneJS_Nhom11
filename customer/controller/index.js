@@ -25,7 +25,7 @@ function fetchProductList(){
         //B7. Để hàm renddrDSSeP vào .then.
         renderDSSP(res.data);
         //B10. Đi sử dụng hàm fetchProductList để ở dưới cùng.
-        productFilter(res.data);
+        // productFilter(res.data);
         turnOffLoading();
     })
     //B5. Trả catch khi thất bại.
@@ -45,7 +45,21 @@ fetchProductList();
  * B5. Trả then khi thành công.
  * B6. Trả catch khi thất bại.
  */
+// B1. Tạo 1 mảng giỏ hàng.
+// const themSP = () => {
+//     let them = getDataForm();
+//     axios({
+//         url: "https://653e7b249e8bd3be29df5d3a.mockapi.io/cartItem",
+//         method: "POST",
+//         data: them,
+//     })
+//     .then(function(res){
+//         fetchProductList();
+//     })
+//     .catch(function(res){
 
+//     })
+// }
 
 
 
