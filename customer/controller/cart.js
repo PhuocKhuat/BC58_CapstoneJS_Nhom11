@@ -28,40 +28,7 @@ renderCart(cartArray);
 
 //MỤC 6, 7.
 function themSP(){
-  // let addBtn = domID('add-btn');
-  // let tdQuan = domID('tdQuan').tagName;
-  // addBtn.innerText =  123;
     //B2. Tạo lớp đối tượng, thêm thuộc tính quantity.
-//     const array = [
-//   {
-//     id: "1",
-//     names: "iphoneX",
-//     price: 1000,
-//     img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
-//     quantity: 1,
-//   },
-//   {
-//     id: "2",
-//     names: "Samsung Galaxy M51 ",
-//     price: 3500,
-//     img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
-//     quantity: 1,
-//   },
-//   {
-//     id: "3",
-//     names: "Samsung Galaxy M22",
-//     price: 45000,
-//     img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
-//     quantity: 1,
-//   },
-//   {
-//     id: "4",
-//     names: "Iphone 11",
-//     price: 1000,
-//     img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
-//     quantity: 1,
-//   }
-// ];
     let itemImg = domID('product-img').src;
     let itemNames = domID('product-name').innerText;
     let itemQuantity = 1;
@@ -86,7 +53,7 @@ function themSP(){
   
   //B4. Thêm vào mảng cartArray:
     cartArray.push(cardItem1);
-    // console.log("cartArray", cartArray);
+    console.log("cartArray", cartArray);
     //
     //B5. Chuyển array thành JSON để lưu xuống LOCALSTORAGE.
     let dataJson = JSON.stringify(cartArray);
@@ -148,6 +115,7 @@ function updatePriceAll() {
   domCLASS('total')[0].innerHTML = total; 
 }
 
+//SEARCH LẠI CHATGPT
 //ĐIỀU CHỈNH SỐ LƯỢNG (KIỂM TRA LÀ SỐ, KHÔNG ĐƯỢC ÂM, TĂNG GIẢM SỐ LƯỢNG TĂNG GIẢM GIÁ).
 const quantityProduct = domCLASS('quantityProduct');
 for(let i =0; i < quantityProduct.length; i++){
@@ -162,10 +130,3 @@ function quantityChanged(event){
    }
    updatePriceAll(); 
 } 
-
-function domID(id){
-  return document.getElementById(id);
-}
-function domCLASS(id){
-  return document.getElementsByClassName(id);
-}

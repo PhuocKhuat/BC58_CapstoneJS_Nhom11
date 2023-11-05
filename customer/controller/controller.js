@@ -66,27 +66,6 @@ function turnOffLoading(){
     domID('spinner').style.display = "none";
 }
 
-//FILTER.
-// var array =[];
-// function productBrr(productArr){
-//   var products = [productArr];
-//   products.forEach((product)=> {
-//   var o = document.createElement("option");
-//    o.text = products.type;
-//    selectList.appendChild(o);
-// });
-// selectList.onchange = function(){
-//  phoneList.innerHTML = "render"; 
-// }
-// }
-
-// const prdFilter = .filter((val) => {
-//   if(val.type == "Samsung"){
-//     let fetch = renderDSSP();
-//     domID('phoneList').innerHTML = fetch; 
-//   } 
-// })
-
 //Tạo renderCart
 /**
  * B1. Tạo 1 chuỗi rỗng.
@@ -129,19 +108,6 @@ domID('tblCart').innerHTML = contentHTML;
 }
 
 //MÀN HÌNH MỞ KHI ẤN VÀO NÚT
-// function sideNav(thamSo){
-//   let side = domCLASS('side-nav')[0];
-//   let cover = domCLASS('cover')[0];
-//   if(thamSo == 0){
-//     side.style.right = 0;
-//     cover.style.display = "block";
-//   } else{
-//     side.style.right = -1;
-//     cover.style.display = "none";
-//   }
-//   CartIsEmpty();
-// }
-
 const content = domID('content');
 const cover = domID('cover');
 const sideNav = () => {
@@ -161,10 +127,3 @@ const closes = () => {
 //   let itemId = domID('location').innerText;
 //   let itemPrice = domID('product-price').innerText;
 // }
-function domID(id){
-  return document.getElementById(id);
-}
-function domCLASS(id){
-  return document.getElementsByClassName(id);
-}
-

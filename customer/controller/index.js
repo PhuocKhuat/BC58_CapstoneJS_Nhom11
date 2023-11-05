@@ -24,8 +24,6 @@ function fetchProductList(){
     .then(function(res){
         //B7. Để hàm renddrDSSeP vào .then.
         renderDSSP(res.data);
-        //B10. Đi sử dụng hàm fetchProductList để ở dưới cùng.
-        // productFilter(res.data);
         turnOffLoading();
     })
     //B5. Trả catch khi thất bại.
@@ -34,6 +32,7 @@ function fetchProductList(){
         turnOffLoading();
     })
 }
+//B10. Đi sử dụng hàm fetchProductList để ở dưới cùng.
 fetchProductList();
 
 //THÊM SẢN PHẨM VÀO GIỎ HÀNG. ~ 6 BƯỚC.
@@ -60,6 +59,69 @@ fetchProductList();
 
 //     })
 // }
-
-
+    const products = [
+            {
+              name: "iphoneX",
+              price: 1000,
+              screen: "screen 68",
+              backCamera: "2 camera 12 MP",
+              frontCamera: "7 MP",
+              img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+              desc: "Breakthrough design",
+              type: "iPhone",
+              id: "1"
+            },
+            {
+              name: "Samsung Galaxy M51",
+              price: 3500,
+              screen: "screen 69",
+              backCamera: "Main 64 MP & secondary 12 MP, 5 MP, 5 MP",
+              frontCamera: "frontCamera 2",
+              img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+              desc: "Breakthrough design",
+              type: "samsung",
+              id: "2"
+            },
+            {
+              name: "Samsung Galaxy M22",
+              price: 45000,
+              screen: "screen 70",
+              backCamera: "Main 12 MP & secondary 64 MP, 12 MP",
+              frontCamera: "32 MP",
+              img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
+              desc: "Breakthrough design",
+              type: "samsung",
+              id: "3"
+            },
+            {
+              name: "Iphone 11",
+              price: 1000,
+              screen: "screen 54",
+              backCamera: "Main 12 MP & secondary 64 MP, 12 MP",
+              frontCamera: "32 MP",
+              img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
+              desc: "Breakthrough design",
+              type: "iPhone",
+              id: "4"
+            }
+          ];
+//4. LỌC SẢN PHẨM THEO TYPE:
+/**
+ * B1. Tạo onchange ở thẻ select.
+ * B2. Khởi tạo function bằng ES6.
+ * B3. dom id của thẻ select lấy giá trị.
+ * B4. Khởi tạo 1 mảng rỗng 
+ */
+const filterProduct = () => {
+    let selectList = domID('selectList').value;
+    let productFilter = [];
+    if(selectList === "Samsung"){
+        productFilter = products.filter((item) => item.type === "samsung" );
+    } else if(selectList === "iPhone"){
+        productFilter = products.filter((item) => item.type === "iPhone");   
+    } else {
+        productFilter = products;
+    }
+    renderDSSP(productFilter);
+}
 
