@@ -50,6 +50,9 @@ function renderDSSP(productArr){
       </div>
       </div>
     </div>
+    <script>
+    
+    </script>
     `
     //
     contentHTML += string;

@@ -1,3 +1,4 @@
+//MỤC 5. CHỌN SẢN PHẨM THÊM VÀO GIỎ HÀNG.
 // TẢI LẠI TRANG ~ LOCALSTORAGE.
 /**
  * B1. Lấy JSON lên từ LOCALSTORAGE.
@@ -26,7 +27,6 @@ renderCart(cartArray);
  * B8. Khi ấn thêm tạo spinner.
  */
 
-//MỤC 6, 7.
 function themSP(){
     //B2. Tạo lớp đối tượng, thêm thuộc tính quantity.
     let itemImg = domID('product-img').src;
@@ -54,7 +54,7 @@ function themSP(){
   //B4. Thêm vào mảng cartArray:
     cartArray.push(cardItem1);
     console.log("cartArray", cartArray);
-    //
+    //MỤC 7. NẾU CHƯA CÓ SẢN PHẨM THÌ PUSH VÀO LÀ 1, CÓ RỒI THÌ TĂNG LÊN 1. 
     //B5. Chuyển array thành JSON để lưu xuống LOCALSTORAGE.
     let dataJson = JSON.stringify(cartArray);
     //B6. Lưu xuống LOCALSTORAGE.
@@ -130,3 +130,5 @@ function quantityChanged(event){
    }
    updatePriceAll(); 
 } 
+
+//

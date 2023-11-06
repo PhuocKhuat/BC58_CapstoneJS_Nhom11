@@ -275,3 +275,54 @@ function CartIsEmpty() {
     (document.getElementsByClassName("cart-items")[0].innerHTML = "<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>")
   }
 }
+
+// function sideNav(thamSo){
+//   let side = domCLASS('side-nav')[0];
+//   let cover = domCLASS('cover')[0];
+//   if(thamSo == 0){
+//     side.style.right = 0;
+//     cover.style.display = "block";
+//   } else{
+//     side.style.right = -1;
+//     cover.style.display = "none";
+//   }
+//   CartIsEmpty();
+// }
+
+//NÚT THÊM GIỎ HÀNG
+
+
+for(let i =0; i< productss.length; i++){
+      const product = productss[i]
+      const cardItem = {
+        product: product,
+        quantity: 1,
+      }
+      cartArray.push(cardItem);
+    }
+    const productss = [
+    {
+      names: "iphoneX",
+      price: 1000,
+      img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+      id: "1"
+    },
+    {
+      names: "Samsung Galaxy M51",
+      price: 3500,
+      img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+      id: "2"
+    },
+    {
+      names: "Samsung Galaxy M22",
+      price: 45000,
+      img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
+      id: "3"
+    },
+    {
+      names: "Iphone 11",
+      price: 1000,
+      img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
+      id: "4"
+    }
+    ];
