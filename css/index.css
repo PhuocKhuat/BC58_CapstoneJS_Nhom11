@@ -23,9 +23,19 @@ body.darkMode {
 }
 
 header {
-  position: absolute;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   background: white;
+}
+header .cover {
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  height: 145%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9;
 }
 header .container {
   width: 90%;
@@ -165,6 +175,19 @@ header .nav .fa-shopping-cart:hover {
   padding: 6px 10px;
 }
 
+.filter {
+  overflow: hidden;
+  position: relative;
+}
+.filter .cover {
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  height: 145%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9;
+}
 .filter .form-select {
   top: 50px;
   position: relative;
@@ -183,6 +206,19 @@ header .nav .fa-shopping-cart:hover {
   border-radius: 0.25rem;
 }
 
+footer {
+  overflow: hidden;
+  position: relative;
+}
+footer .cover {
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  height: 145%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9;
+}
 footer .footer-top span {
   color: #59D2FE;
 }
@@ -291,7 +327,9 @@ footer .copyright:hover {
 }
 
 .hero {
+  position: relative;
   overflow: hidden;
+  padding-bottom: 100px;
 }
 .hero .cover {
   transform: translateX(100%);
@@ -302,9 +340,9 @@ footer .copyright:hover {
   backdrop-filter: blur(5px);
   z-index: 9;
 }
-.hero #content {
+.hero .cart #content {
   position: absolute;
-  transform: translateX(100%);
+  transform: translateX(200%);
   background: #010101;
   opacity: 0.9;
   height: 100%;
@@ -312,15 +350,14 @@ footer .copyright:hover {
   flex-direction: column;
   top: 0;
   z-index: 10;
-  overflow: hidden;
 }
-.hero #content .fa-times-circle {
+.hero .cart #content .fa-times-circle {
   position: absolute;
   top: 10px;
   right: 30px;
   font-size: 1.5rem;
 }
-.hero #content h2 {
+.hero .cart #content h2 {
   position: relative;
   color: white;
   left: 400px;
@@ -328,38 +365,38 @@ footer .copyright:hover {
   font-size: 2.5rem;
   font-weight: 600;
 }
-.hero #content .cart-items {
+.hero .cart #content .cart-items {
   border-bottom: 1px solid whitesmoke;
 }
-.hero #content .cart-items .thProduct span {
+.hero .cart #content .cart-items .thProduct span {
   font-size: 1.75rem;
   color: #90ee90;
 }
-.hero #content .cart-items .empty-cart {
+.hero .cart #content .cart-items .empty-cart {
   font-size: 1.5rem;
   color: #414141;
   position: relative;
   left: 15px;
 }
-.hero #content .cart-items .empty-cart .sPcom {
+.hero .cart #content .cart-items .empty-cart .sPcom {
   position: relative;
   right: 30px;
 }
-.hero #content .cart-items .empty-cart .sPcom2 {
+.hero .cart #content .cart-items .empty-cart .sPcom2 {
   position: relative;
   left: 15px;
 }
-.hero #content .cart-items .empty-cart .sPcom3 {
+.hero .cart #content .cart-items .empty-cart .sPcom3 {
   position: relative;
   left: 42px;
 }
-.hero #content .final {
+.hero .cart #content .final {
   font-size: 1.5rem;
   color: #414141;
   position: relative;
   left: 150px;
 }
-.hero #content .final strong {
+.hero .cart #content .final strong {
   position: relative;
   left: 230px;
   font-size: 2rem;
