@@ -1,3 +1,4 @@
+//CHỨC NĂNG 
 //SPINNER ~ tạo 2 nút turnOnLoading, turnOffLoading
 function turnOnLoading(){
     domID('spinner').style.display = "block";
@@ -28,10 +29,24 @@ const closes = () => {
   coverFilter.style.transform = "translateX(100%)";
   coverFooter.style.transform = "translateX(100%)";
 }
-// function getDataForm(){
-//   let itemImg = domID('product-img').src;
-//   let itemNames = domID('product-name').innerText;
-//   let itemQuantity = 1;
-//   let itemId = domID('location').innerText;
-//   let itemPrice = domID('product-price').innerText;
-// }
+
+// MỤC 4. LỌC DANH SÁCH THEO LOẠI 
+/**
+ * B1. Tạo onchange ở thẻ select.
+ * B2. Khởi tạo function bằng ES6.
+ * B3. dom id của thẻ select lấy giá trị.
+ * B4. Khởi tạo 1 mảng rỗng 
+ */
+const filterProduct = () => {
+  let selectList = domID('selectList').value;
+  let productFilter = [];
+  if(selectList === "Samsung"){
+      productFilter = products.filter((item) => item.type === "Samsung" );
+  } else if(selectList === "iPhone"){
+      productFilter = products.filter((item) => item.type === "iPhone");   
+  } else {
+      productFilter = products;
+  }
+  renderDSSP(productFilter);
+}
+//

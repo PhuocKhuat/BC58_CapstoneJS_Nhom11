@@ -367,6 +367,8 @@ footer .copyright:hover {
 }
 .hero .cart #content .cart-items {
   border-bottom: 1px solid whitesmoke;
+  position: relative;
+  bottom: 70px;
 }
 .hero .cart #content .cart-items .thProduct span {
   font-size: 1.75rem;

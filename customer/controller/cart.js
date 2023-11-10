@@ -1,4 +1,6 @@
+//B1. domQuerry chỗ hiện ở layout ở dòng 1.
 const tblCart = document.querySelector("#tblCart");
+
 //B6. Tạo rendderDSSP bên controller.
 /**
  * B1. Tạo 1 chuỗi rỗng.
@@ -23,7 +25,7 @@ function renderDSSP(productArr){
         <div class="card-header flex justify-between">
           <i class="fab fa-apple"></i>
           <p class="location" id="location">${sP.id}</p>
-          <em class="stocks">In Stock</em>
+          <em class="stocks">In Stock: ${sP.instock}</em>
         </div>
         <div class="card-body">
           <img id="product-img" class="product-img" src="${sP.img}" alt="">
@@ -50,9 +52,6 @@ function renderDSSP(productArr){
       </div>
       </div>
     </div>
-    <script>
-    
-    </script>
     `
     //B5. Chuỗi rỗng += chuỗi string.
     contentHTML += string;
@@ -63,46 +62,63 @@ function renderDSSP(productArr){
 
 //THÊM SẢN PHẨM
 /**
- * B1. Tạo 1 mảng productss chứa các thông tin.
+ * B1. Tạo 1 mảng products ở product.js chứa các thông tin.
  * B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
- * B3. Tạo 1 nút thêm.
- * B4. Tạo biến trung gian và tìm sản phẩm trong productss bằng hàm FIND.
- * B5. Thêm sản phẩm vào mảng rỗng.
- * B6. Vì thêm 1 sản phẩm xuất hiện 2 lần chứ không tăng thêm số lượng (không đúng), sử dụng if xem sản phẩm xuất hiện chưa.
- * B7. Ngược lại thì đi tìm ở B4.
+ * B3. Tạo 1 hàm thêm.
+ * B4. Tạo biến trung gian và tìm sản phẩm trong products bằng hàm FIND.
+ * B5. Thêm sản phẩm vào mảng rỗng (SPREAD OPERATOR), thêm quantity.
+ * B6. Vì thêm 1 sản phẩm ở B5 xuất hiện 2 lần chứ không tăng số lượng (không đúng), sử dụng if xem sản phẩm xuất hiện chưa ~ SOME.
+ * B7. Ngược lại thì đi tìm và thêm ở B4 và B5.
+ * B8. Thêm xong thì cập nhật lại bảng giỏ hàng (renderCart).
  */
-let cartArray = [];  
-
+//B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
+let cartArray = [];
+//B3. Tạo 1 hàm thêm sản phẩm vào giỏ hàng.
 const themSP = (id) => {
+  //B6. Sử dụng SOME để kiểm tra sản phẩm dựa theo id đã tồn tại hay chưa.
   if(cartArray.some((item) => item.id === id)){
-    alert("Product already in cart.");
-  } else{
-    const item = productss.find((product) => product.id === id);
+    changeUnits('plus', id);
+  }
+  // 
+  else{
+    //B4. Tìm sản phẩm trong products ~ FIND.
+    const item = products.find((product) => product.id === id);
     // console.log("item", item);
+    //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
     cartArray.push({
       ...item,
       quantity: 1,     
     });
-    console.log("cartArray", cartArray);
+    // console.log("cartArray", cartArray);
   }
+  //B8. Cập nhật bảng giỏ hàng.
   capNhatSP();
 }
 
 //CẬP NHẬT SẢN PHẨM.
+/**
+ * B1. Tạo 1 hàm capNhatSP().
+ * B2. Cập nhật bảng giỏ hàng (renderCart).
+ */
 function capNhatSP(){
   renderCart();
   // renderSubtotal();
 } 
 
-//TẠO RENDERCART ~ 4 BƯỚC.
+//TẠO RENDERCART ~ 5 BƯỚC.
 /**
- * B1. Dùng forEach duyệt mảng cartArray trả về từng phần tử trong array.
- * B2. domQuerry chỗ hiện ở layout.
- * B3. Xuất ra màn hình các thẻ html.
- * B4. Gán từng thuộc tính tương ứng muốn xuất hiện.
+ * B1. domQuerry chỗ hiện ở layout ở dòng 1.
+ * B2. Xoá phần tử card ban đầu.
+ * B3. Dùng forEach duyệt mảng cartArray trả về từng phần tử trong array.
+ * B4. Xuất ra màn hình các thẻ html.
+ * B5. Tạo layout và gán các cặp key:value tương ứng muốn xuất hiện.
  */
 function renderCart(){
+  tblCart.innerHTML = ""; //B2. Xoá phần tử card ban đầu.
+  //B3. Dùng forEach duyệt mảng.
   cartArray.forEach((item) => {
+    //B4. Xuất ra màn hình.
+    //B5. Tạo layout và gán các cặp key:value.
     tblCart.innerHTML += `
   <div class="cartDiv flex justify-evenly items-center">
   <tr class="cartTr col w-24">
@@ -125,19 +141,37 @@ function renderCart(){
   `
 });
 }
-//TẠO HÀM THAY ĐỔI SỐ LƯỢNG.
+//TẠO HÀM THAY ĐỔI SỐ LƯỢNG (MỤC ĐÍCH LÀ BIẾN NHỮNG PHẦN TỬ (SỐ LƯỢNG) THÀNH SỐ LƯỢNG MỚI)
 /**
- * B1. Thêm onclick cho 2 nút cộng trừ, có 2 thuộc tính là action và id.
- * B2. Thay đổi số lượng từng phần tử trong cartArray bằng MAP và lưu (gán) vào cartArray cũ.
- * B3.  
+ * B1. Thêm onclick cho 2 nút cộng trừ, có 2 thuộc tính là action và id (ở renderCart).
+ * B2. Gọi hàm thay đổi số lượng.
+ * B3. Thay đổi số lượng từng phần tử trong cartArray bằng MAP và lưu (gán) vào cartArray cũ.
+ * B4. Tạo biến trung gian gán bằng số lượng phần tử.
+ * B5. Kiếm tra id biến từ map có giống id được duyệt từ forEach không.
+ * B6. Nếu action = minus thì giảm số lượng xuống, plus thì tăng lên.
+ * B7. Trả về item + quantity mới.
+ * B8. Đi sử dụng capNhatSP().
  */
 //Tham số đầu tiên là hành động (cộng hoặc trừ)
 function changeUnits(action, id){
-   cartArray = cartArray.map((item) => {
-      
-   })
+  cartArray = cartArray.map((item) => {
+      let quantity = item.quantity;
+      //Nếu những item trong cartArray này trùng với tham số id.
+      if(item.id === id){
+        if(action === 'minus' && quantity >1){ //Để >1 là 2 trở lên, khi giảm xuống 1.
+         quantity--;
+        } else if(action === 'plus' && quantity < item.instock){ //Để <9 là 8 trở xuống, khi tăng lên 1 là 9.
+         quantity++;
+        }
+      }
+      return { //OBJECT LITERAL.
+       ...item,
+       quantity,
+      };
+  })
+  capNhatSP();
 }
-//ĐẾN 32:04
+
 
 //13. XOÁ SẢN PHẨM
 /**

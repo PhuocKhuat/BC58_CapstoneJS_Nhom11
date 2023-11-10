@@ -403,6 +403,8 @@ footer{
         }
         .cart-items{
             border-bottom: 1px solid whitesmoke;
+            position: relative;
+            bottom: 70px;
             .thProduct{
                 span{
                    font-size: 1.75rem;
