@@ -37,31 +37,6 @@ function fetchProductList(){
 fetchProductList();
 //
 
-//THÊM SẢN PHẨM VÀO GIỎ HÀNG. ~ 6 BƯỚC.
-/**
- * B1. Tạo 1 mảng giỏ hàng.
- * B2. Xây dựng đối tượng cartItem mock API (để lấy thông tin đưa vào giỏ hàng).
- * B3. Khởi tạo biến gán bằng lớp đối tượng.
- * B4. Dùng axios POST, "",có thêm key data bằng biến gán lớp đối tượng.
- * B5. Trả then khi thành công.
- * B6. Trả catch khi thất bại.
- */
-// B1. Tạo 1 mảng giỏ hàng.
-// const themSP = () => {
-//     let them = getDataForm();
-//     axios({
-//         url: "https://653e7b249e8bd3be29df5d3a.mockapi.io/cartItem",
-//         method: "POST",
-//         data: them,
-//     })
-//     .then(function(res){
-//         fetchProductList();
-//     })
-//     .catch(function(res){
-
-//     })
-// }
-
 // MỤC 4. LỌC DANH SÁCH THEO LOẠI 
 const products = [
 {
