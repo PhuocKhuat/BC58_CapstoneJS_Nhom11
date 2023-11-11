@@ -111,6 +111,16 @@ header{
                 color: $color-white2;
             }
         }
+        .totalQuantity{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            line-height: 20px;
+            background: #ffb703;
+            text-align: center;
+            position: relative;
+            top: 8px;
+        }
     }
 }
 //BANNER
@@ -173,7 +183,12 @@ header{
                         color: $color-icons;
                      }
                 }
-               
+                .purchase{
+                    .priceDola{
+                      position: relative;
+                      left: 12px;
+                    }  
+                  }
                .wrapper{
                 //   display: none;
                   h5{
@@ -387,11 +402,27 @@ footer{
         flex-direction: column;
         top: 0;
         z-index: 10;
+        .final{
+            .subtotal{
+                padding-left: 200px;
+                position: relative;
+                right: 380px;
+                bottom: 120px;
+                line-height: 56px;
+                background: #fefae0;
+                display: block;
+                width: 100vw;
+                height: 60px;
+            }
+        }
         .fa-times-circle{
             position: absolute;
             top: 10px;
             right: 30px;
             font-size: 1.5rem;
+            &:hover{
+                color: #ba382f;
+            }
         }
         h2{
             position: relative;
@@ -404,7 +435,7 @@ footer{
         .cart-items{
             border-bottom: 1px solid whitesmoke;
             position: relative;
-            bottom: 70px;
+            bottom: 90px;
             .thProduct{
                 span{
                    font-size: 1.75rem;

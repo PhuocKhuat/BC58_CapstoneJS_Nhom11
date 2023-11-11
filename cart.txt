@@ -149,3 +149,17 @@ function renderCart(cartArray){
   // domCLASS('cart-items').innerHTML = contentHTML;
   domID('tblCart').innerHTML = contentHTML;
   }
+
+  function changeUnits(action, id){
+   let productIndex = cartArray.findIndex((item) => item.id === id);
+   if(productIndex !== -1){
+     let product = cartArray[productIndex];
+     //Nếu những item trong cartArray này trùng với tham số id.
+       if(action === 'minus' && product.quantity >1){ //Để >1 là 2 trở lên, khi giảm xuống 1.
+        product.quantity--;
+       } else if(action === 'plus' && product.quantity < product.instock){ //Để <9 là 8 trở xuống, khi tăng lên 1 là 9.
+        product.quantity++;
+       }
+   }
+   capNhatSP();
+}

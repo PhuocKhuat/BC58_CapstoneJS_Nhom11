@@ -1,66 +1,22 @@
+const domSelector = (selector) => document.querySelector(selector);
 //B1. domQuerry chỗ hiện ở layout ở dòng 1.
-const tblCart = document.querySelector("#tblCart");
+const tblCart = domSelector("#tblCart");
+const subtotal = domSelector(".subtotal");
+const totalQuantity = domSelector(".totalQuantity");
 
-//B6. Tạo rendderDSSP bên controller.
-/**
- * B1. Tạo 1 chuỗi rỗng.
- * B2. Tạo 1 vòng lặp for.
- * B3. Khởi tạo biến và gán bằng vị trí i trong productArr.
- * B4. Tạo 1 chuỗi string chứa div cho từng sản phẩm.
- * B5. Chuỗi rỗng += chuỗi string.
- * B6. dom lên giao diện.
- */
-//B1. Tạo 1 chuỗi rỗng.
-function renderDSSP(productArr){
-  var contentHTML = "";
-  //B2. Tạo 1 vòng lặp for.
-  for(i =0; i< productArr.length; i++){
-     //B3. Khởi tạo biến và gán bằng vị trí i trong productArr.
-     var sP = productArr[i];
-     //B4. Tạo 1 chuỗi string chứa div cho từng sản phẩm.
-    var string = `
-    <div class="col">
-    <div class="main-card flex justify-evenly space-x-20 pt-5">
-    <div class="card">
-        <div class="card-header flex justify-between">
-          <i class="fab fa-apple"></i>
-          <p class="location" id="location">${sP.id}</p>
-          <em class="stocks">In Stock: ${sP.instock}</em>
-        </div>
-        <div class="card-body">
-          <img id="product-img" class="product-img" src="${sP.img}" alt="">
-        </div>
-        <div class="card-footer">
-          <div class="name-fav flex justify-between">
-            <strong class="product-name" id="product-name">${sP.name}</strong>
-            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
-          </div>
-          <div class="wrapper">
-            <h5>${sP.desc}</h5>
-            <p>Product details: ${sP.screen}, back camera: ${sP.backCamera}, font camera: ${sP.frontCamera}</p>
-          </div>
-          <div class="purchase flex justify-between items-center">
-            $<p class="product-price font-bold" id="product-price">${sP.price}</p>
-            <p>${sP.type}</p>
-            <span class="btn-add">
-              <div>
-              <button class="add-btn" id="add-btn" onclick="themSP(${sP.id})">Add <i class="fas fa-chevron-right"></i></button>
-              </div>
-           </span>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-    `
-    //B5. Chuỗi rỗng += chuỗi string.
-    contentHTML += string;
-  }
-  //B6. dom lên giao diện.
-   domID('tblSanPham').innerHTML = contentHTML;
-}
+//B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
+//C1:
+// let cartArray = [];
+// let dataJson = localStorage.getItem('cartArray');
+// if(dataJson != null){
+//   cartArray = JSON.parse(dataJson);
+// }
+// capNhatSP();
+let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+capNhatSP();
 
-//THÊM SẢN PHẨM
+
+//THÊM SẢN PHẨM VÀO GIỎ HÀNG.
 /**
  * B1. Tạo 1 mảng products ở product.js chứa các thông tin.
  * B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
@@ -71,8 +27,6 @@ function renderDSSP(productArr){
  * B7. Ngược lại thì đi tìm và thêm ở B4 và B5.
  * B8. Thêm xong thì cập nhật lại bảng giỏ hàng (renderCart).
  */
-//B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
-let cartArray = [];
 //B3. Tạo 1 hàm thêm sản phẩm vào giỏ hàng.
 const themSP = (id) => {
   //B6. Sử dụng SOME để kiểm tra sản phẩm dựa theo id đã tồn tại hay chưa.
@@ -102,7 +56,12 @@ const themSP = (id) => {
  */
 function capNhatSP(){
   renderCart();
-  // renderSubtotal();
+  renderSubtotal();
+  //LƯU LOCALSTORAGE VÀ CHUYỂN THÀNH CARTARRAY TỪ ARRAY THÀNH JSON.
+  //C1:
+  // dataJson = JSON.stringify(cartArray);
+  // localStorage.setItem('cartArray', dataJson);
+  localStorage.setItem("cartArray", JSON.stringify(cartArray));
 } 
 
 //TẠO RENDERCART ~ 5 BƯỚC.
@@ -135,12 +94,12 @@ function renderCart(){
     <td>
     <button class="btn btn-danger sPcom3" onclick="xoaSP('${item.id}')">Clear</button>
     </td>
-    <br>
-  </tr>
+   </tr>
   </div>
   `
 });
 }
+// renderCart();
 //TẠO HÀM THAY ĐỔI SỐ LƯỢNG (MỤC ĐÍCH LÀ BIẾN NHỮNG PHẦN TỬ (SỐ LƯỢNG) THÀNH SỐ LƯỢNG MỚI)
 /**
  * B1. Thêm onclick cho 2 nút cộng trừ, có 2 thuộc tính là action và id (ở renderCart).
@@ -149,7 +108,7 @@ function renderCart(){
  * B4. Tạo biến trung gian gán bằng số lượng phần tử.
  * B5. Kiếm tra id biến từ map có giống id được duyệt từ forEach không.
  * B6. Nếu action = minus thì giảm số lượng xuống, plus thì tăng lên.
- * B7. Trả về item + quantity mới.
+ * B7. Trả về ...item + quantity mới.
  * B8. Đi sử dụng capNhatSP().
  */
 //Tham số đầu tiên là hành động (cộng hoặc trừ)
@@ -164,7 +123,7 @@ function changeUnits(action, id){
          quantity++;
         }
       }
-      return { //OBJECT LITERAL.
+      return { //SPREAD OPERATOR + OBJECT LITERAL.
        ...item,
        quantity,
       };
@@ -172,27 +131,29 @@ function changeUnits(action, id){
   capNhatSP();
 }
 
-
+//TÍNH TỔNG PHỤ.
+function renderSubtotal(){
+  let totalItems =0, totalPrice =0;
+  cartArray.forEach((item) => {
+    totalItems += item.quantity;
+    totalPrice += item.price * item.quantity;
+  })
+  subtotal.innerHTML = `Subtotal (${totalItems} items): $${totalPrice.toLocaleString()}`;
+  totalQuantity.innerText = totalItems;
+}
+// renderSubtotal();
 //13. XOÁ SẢN PHẨM
 /**
- * B1. Tìm vị trí cần xoá dựa theo id, dùng findIndex.
- * B2. Xoá vị trí đã tìm đi 1.
- * B3. Chuyển array thành JSON để lưu xuống LOCALSTORAGE.
- * B4. Lưu xuống LOCALSTORAGE.
- * B5. Lấy array đi xử lý tiếp.
+ * B1. Gán cartArray cũ vào cartArray.
+ * B2. Lọc qua từng item trong cartArray trả về id của từng item khác tham số id truyền vào
+ * B3. Xoá xong cập nhật lại bảng và giá (đi sử dụng hàm capNhatSP).
  */
-const xoaSP = (id) => {
-    //
-    let viTri = cartArray.findIndex((i) => i.id == id);
-    //
-    cartArray.splice(viTri, 1);
-    //
-    let dataJson = JSON.stringify(cartArray);
-    //
-    localStorage.setItem('LOCAL_CARTARRAY', dataJson);
-    //
-    updatePriceAll();
-    //
-    renderCart(cartArray);
-  }
+const xoaSP= (id) =>{
+  //C1:
+  // let viTri = cartArray.findIndex((item) => item.id == id);
+  // cartArray.splice(viTri, 1);
+  //C2:
+  cartArray = cartArray.filter((item) => item.id != id);
+  capNhatSP();
+}
 

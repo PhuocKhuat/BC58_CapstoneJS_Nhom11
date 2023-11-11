@@ -95,6 +95,16 @@ header .nav .fa-shopping-cart {
 header .nav .fa-shopping-cart:hover {
   color: #73FBD3;
 }
+header .nav .totalQuantity {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  background: #ffb703;
+  text-align: center;
+  position: relative;
+  top: 8px;
+}
 
 .banner {
   background: linear-gradient(to left, #8942a8, #ba382f);
@@ -154,6 +164,10 @@ header .nav .fa-shopping-cart:hover {
 }
 .banner .container .card .card-footer .name-fav .heart {
   color: #ffffff;
+}
+.banner .container .card .card-footer .purchase .priceDola {
+  position: relative;
+  left: 12px;
 }
 .banner .container .card .card-footer .wrapper h5 {
   font-weight: bold;
@@ -351,11 +365,25 @@ footer .copyright:hover {
   top: 0;
   z-index: 10;
 }
+.hero .cart #content .final .subtotal {
+  padding-left: 200px;
+  position: relative;
+  right: 380px;
+  bottom: 120px;
+  line-height: 56px;
+  background: #fefae0;
+  display: block;
+  width: 100vw;
+  height: 60px;
+}
 .hero .cart #content .fa-times-circle {
   position: absolute;
   top: 10px;
   right: 30px;
   font-size: 1.5rem;
+}
+.hero .cart #content .fa-times-circle:hover {
+  color: #ba382f;
 }
 .hero .cart #content h2 {
   position: relative;
@@ -368,7 +396,7 @@ footer .copyright:hover {
 .hero .cart #content .cart-items {
   border-bottom: 1px solid whitesmoke;
   position: relative;
-  bottom: 70px;
+  bottom: 90px;
 }
 .hero .cart #content .cart-items .thProduct span {
   font-size: 1.75rem;
