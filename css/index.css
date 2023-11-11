@@ -270,6 +270,32 @@ footer .copyright:hover {
   color: #ff99c8;
 }
 
+.cartDiv {
+  position: relative;
+  right: 32px;
+}
+
+.name {
+  width: 124px;
+}
+
+.units {
+  position: relative;
+  right: 32px;
+}
+.units .minus, .units .plus {
+  background-color: #52b69a;
+  width: 33px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 15px;
+  display: inline-block;
+  text-align: center;
+}
+.units .minus:hover, .units .plus:hover {
+  background-color: #fee440;
+}
+
 .sidebarMini.is-opened {
   transform: translateX(60%);
 }
@@ -360,7 +386,7 @@ footer .copyright:hover {
   background: #010101;
   opacity: 0.9;
   height: 100%;
-  width: 56%;
+  width: 60%;
   flex-direction: column;
   top: 0;
   z-index: 10;
@@ -376,6 +402,28 @@ footer .copyright:hover {
   width: 100vw;
   height: 60px;
 }
+.hero .cart #content .final .action {
+  position: relative;
+  right: 150px;
+  background: #87c38f;
+  bottom: 100px;
+}
+.hero .cart #content .final .action .buy {
+  font-size: 30px;
+  position: relative;
+  left: 130px;
+}
+.hero .cart #content .final .action .buy:hover {
+  color: #605DCA;
+}
+.hero .cart #content .final .action .clear {
+  font-size: 30px;
+  position: relative;
+  left: 270px;
+}
+.hero .cart #content .final .action .clear:hover {
+  color: #AC302E;
+}
 .hero .cart #content .fa-times-circle {
   position: absolute;
   top: 10px;
@@ -390,7 +438,7 @@ footer .copyright:hover {
   color: white;
   left: 400px;
   transform: translateY(-0.2rem);
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 600;
 }
 .hero .cart #content .cart-items {
@@ -410,15 +458,15 @@ footer .copyright:hover {
 }
 .hero .cart #content .cart-items .empty-cart .sPcom {
   position: relative;
-  right: 30px;
+  right: 10px;
 }
 .hero .cart #content .cart-items .empty-cart .sPcom2 {
   position: relative;
-  left: 15px;
+  left: 5px;
 }
-.hero .cart #content .cart-items .empty-cart .sPcom3 {
+.hero .cart #content .cart-items .empty-cart .sPcom3, .hero .cart #content .cart-items .empty-cart .sPcom4 {
   position: relative;
-  left: 42px;
+  left: 45px;
 }
 .hero .cart #content .final {
   font-size: 1.5rem;

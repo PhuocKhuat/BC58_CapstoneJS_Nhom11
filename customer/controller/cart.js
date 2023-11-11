@@ -79,11 +79,11 @@ function renderCart(){
     //B4. Xuất ra màn hình.
     //B5. Tạo layout và gán các cặp key:value.
     tblCart.innerHTML += `
-  <div class="cartDiv flex justify-evenly items-center">
+  <div class="cartDiv flex justify-evenly items-center space-x-6">
   <tr class="cartTr col w-24">
     <td><img src="${item.img}" class="w-16 sPcom" style="display: inline-block"/></td>
-    <td><span class="sPcom">${item.name}</span></td>
-    <td><span class="sPcom units">
+    <td><span class="sPcom name">${item.name}</span></td>
+    <td><span class="sPcom1 units">
             <span class="btn minus" onclick = "changeUnits('minus', ${item.id})">-</span>  
             <span class="numberUnits">${item.quantity}</span>  
             <span class="btn plus" onclick = "changeUnits('plus', ${item.id})">+</span>  
@@ -92,7 +92,7 @@ function renderCart(){
     <td><span class="sPcom2">${item.id}</span></td>
     <td><span class="sPcom3 priceProduct">${item.price}</span></td>
     <td>
-    <button class="btn btn-danger sPcom3" onclick="xoaSP('${item.id}')">Clear</button>
+    <button class="btn btn-danger sPcom4" onclick="xoaSP('${item.id}')">Delete</button>
     </td>
    </tr>
   </div>

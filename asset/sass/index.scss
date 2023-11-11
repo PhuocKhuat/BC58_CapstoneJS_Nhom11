@@ -303,7 +303,32 @@ footer{
         }
     }
 }
+//RENDERCART
+.cartDiv{
+    position: relative;
+    right: 32px;
+}
+.name{
+    width: 124px;
+}
+.units{
+    position: relative;
+    right: 32px;
+    .minus, .plus{
+        background-color: #52b69a;
+        width: 33px;
+        height: 30px;
+        border-radius: 50%;
+        line-height: 15px;
+        display: inline-block;
+        text-align: center;
+        &:hover{
+            background-color: #fee440;
+        }
+    }
+}
 
+ 
 
 // SIDEBAR MINI.
 .sidebarMini.is-opened {
@@ -398,7 +423,7 @@ footer{
         background: #010101;
         opacity: 0.9;
         height: 100%;
-        width: 56%;
+        width: 60%;
         flex-direction: column;
         top: 0;
         z-index: 10;
@@ -413,6 +438,28 @@ footer{
                 display: block;
                 width: 100vw;
                 height: 60px;
+            }
+            .action{
+                position: relative;
+                right: 150px;
+                background: #87c38f;
+                bottom: 100px;
+                .buy{
+                    font-size: 30px;
+                    position: relative;
+                    left: 130px;
+                    &:hover{
+                        color: #605DCA;
+                    }
+                }
+                .clear{
+                    font-size: 30px;
+                    position: relative;
+                    left: 270px;
+                    &:hover{
+                        color: #AC302E;
+                    }
+                }
             }
         }
         .fa-times-circle{
@@ -429,7 +476,7 @@ footer{
             color: white;
             left: 400px;
             transform: translateY(-0.2rem);
-            font-size: 2.5rem;
+            font-size: 40px;
             font-weight: 600;
         }
         .cart-items{
@@ -449,15 +496,15 @@ footer{
                 left: 15px;
                 .sPcom{
                   position: relative;
-                  right: 30px;
+                  right: 10px;
                 }
                 .sPcom2{
                     position: relative;
-                    left: 15px;
+                    left: 5px;
                 }
-                .sPcom3{
+                .sPcom3, .sPcom4{
                     position: relative;
-                    left: 42px;
+                    left: 45px;
                 }
             }
         }
