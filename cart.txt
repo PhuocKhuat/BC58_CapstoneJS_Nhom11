@@ -163,3 +163,14 @@ function renderCart(cartArray){
    }
    capNhatSP();
 }
+
+const clearCart = () => {
+  if(cartArray.length <= 0){
+    tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
+    return;  
+  }
+  else if(cartArray.length > 1){
+    cartArray.innerHTML = "";
+  }
+  capNhatSP();
+}

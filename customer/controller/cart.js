@@ -157,3 +157,28 @@ const xoaSP= (id) =>{
   capNhatSP();
 }
 
+//12. NÚT CLEAR TẤT CẢ SẢN PHẨM.
+const clearCart = () => {
+  const items = document.querySelectorAll('.cartDiv');
+  if(items.length <= 0){
+    tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
+    // return;  
+  }
+  else if(items.length >= 1){
+    items.forEach(item => (item.remove()));
+    subtotal.textContent = "Subtotal (0 items): $0";
+    totalQuantity.textContent = 0;
+    tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
+    // return;
+  }
+  localStorage.setItem('cartArray', JSON.stringify([]));
+}
+
+//12. NÚT THANH TOÁN.
+const buy = () => {
+  const items = document.querySelectorAll('.cartDiv');
+  items.forEach(item => (item.remove()));
+  subtotal.textContent = "Subtotal (0 items): $0";
+  totalQuantity.textContent = 0;
+  localStorage.setItem('cartArray', JSON.stringify([]));
+} 
