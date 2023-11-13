@@ -13,12 +13,10 @@ $bradius-cart: 20px;
 $color-pwrapper: #dad7cd;
 $background-footer: #2e2f33;
 
-body{
-    background: white;
+.body{
+    background: var(--primary-color);
 }
-body.darkMode {
-    background-color: #121212;
-}
+
 .container{
     width: 90%;
     margin: 0 auto;
@@ -41,7 +39,7 @@ header{
     position: relative;
     overflow: hidden;  
     width: 100%;
-    background: white;
+    background:var(--secondary-color) !important;
     .cover{
     transform: translateX(100%);
     position: absolute;
@@ -104,6 +102,13 @@ header{
             left: 32px;
         }
     }
+    #darkTheme{
+        left: 200px;
+        top: 15px;
+        position: relative;
+        height: 50px;
+        cursor: pointer;
+    }
     .nav{
         .fa-shopping-cart{
             color: $color-white1;
@@ -123,6 +128,18 @@ header{
         }
     }
 }
+//TẠO DARK, LIGHT THEME
+:root{
+    --primary-color: #edf2fc;
+    --secondary-color: #212121;
+}
+.dark-theme{
+    --primary-color: #000106;
+    --secondary-color: #fff;
+}
+//ĐẾN 7:18
+//CAROUSEL
+
 //BANNER
 .banner{
     background: linear-gradient(to left, #8942a8, #ba382f);
@@ -217,21 +234,8 @@ header{
 }
 //FILTER
 .filter{
-    //Phủ lớp BLUR
-    overflow: hidden; 
-    position: relative;
-    .cover{
-        transform: translateX(100%);
-        position: absolute;
-        width: 100%;
-        height: 145%;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(5px);
-        z-index: 9;
-    }
-    //
     .form-select {
-        top: 50px;
+        bottom: 30px;
         position: relative;
         display: block;
         width: 100%;
@@ -252,6 +256,7 @@ header{
 footer{
     overflow: hidden; 
     position: relative;
+    background: var(--secondary-color);
     .cover{
         transform: translateX(100%);
         position: absolute;
@@ -326,78 +331,6 @@ footer{
             background-color: #fee440;
         }
     }
-}
-
- 
-
-// SIDEBAR MINI.
-.sidebarMini.is-opened {
-    transform: translateX(60%);
-}
-.sidebarMini{
-    position: fixed;
-    top: 25%;
-    right: 0;
-    z-index: 500;
-    width: 400px;
-    transform: translateX(100%);
-    background-color: $color-white1;
-    transition: 0.5s;
-    border-left: 1px solid $color-white1;
-    color: $color-icons;
-    .sidebarMini__button {
-        background: $color-white1;
-        padding: 5px 20px;
-        border: 1px solid $color-white1;
-        border-radius: 8px 0 0 8px;
-        letter-spacing: 0.015rem;
-        position: fixed;
-        transform: translateX(-100%);
-        transition: .5s;
-        color: $color-icons;
-    }
-    .sidebarMini__content{
-        width: 170px;
-        padding: 20px;
-        text-align: center;
-        .switch{
-            height: 25px;
-            width: 50px;
-            margin: 0 10px;
-            display: inline-block;
-            position: relative;
-            input:checked{
-                position: relative;
-                right: 10px;
-            }
-            input:checked, .slider::before {
-                transform: translateX(22px);
-            }
-            .slider{
-                border-radius: 15px;
-                position: absolute;
-                cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: $color-white2;
-                transition: 0.4s;
-                &::before{
-                    content: "";
-                    width: 18px;
-                    height: 18px;
-                    background-color: $color-icons;
-                    border-radius: 50%;
-                    display: inline-block;
-                    position: absolute;
-                    bottom: 4px;
-                    left: 4px;
-                    transition: 0.5s;
-                }
-            }        
-        }
-    }    
 }
 
 // CART

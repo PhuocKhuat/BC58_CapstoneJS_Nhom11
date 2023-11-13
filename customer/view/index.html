@@ -14,15 +14,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
   <!-- TAILWIND CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css" integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- OWL CAROUSEL -->
+  <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="../../css/index.css">
 </head>
 
-<body>
+<body class="body">
   <!-- SPINNER -->
   <div id="spinner"></div>
   <!-- HEADER -->
-  <header class="shadow-xl bg-white">
+  <header class="shadow-xl">
     <div class="cover" style="display: none;" ></div>
         <div class="cover purchase-cover" id="coverHeader"></div>
     <div class="container h-20 flex justify-between"> 
@@ -40,15 +43,91 @@
         <!-- <p class="cart">
             <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
         </p> -->
+        <img src="../../asset/img/moon.png" id="darkTheme" alt="">
         <p class="nav">
           <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
           <span class="totalQuantity">0</span>
         </p>
     </div>
   </header>
+  <!-- CAROUSEL -->
+  <section class="cybercarousel">
+    <div id="carouselindi" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../asset/img/free-psd-colorful-iphone-x-mockup.jpg" class="d-block w-100" alt="banner 1" style="height: 68vh;"/>
+        </div>
+        <div class="carousel-item">
+          <img src="../../asset/img/galaxy_m51.webp" class="d-block w-100" alt="banner 2" style="height: 68vh;" />
+        </div>
+        <div class="carousel-item">
+          <img src="../../asset/img/m22_1280x720-800-resize.jpg" class="d-block w-100" alt="banner 3" style="height: 68vh;" />
+        </div>
+        <div class="carousel-item">
+          <img src="../../asset/img/iPhone_11_Pro_buy_now_16x9_960x540.jpg" class="d-block w-100" alt="banner 4" style="height: 68vh;" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselindi"
+        data-bs-slide="prev"
+      >
+      <!-- NÚT MŨI TÊN TRƯỚC -->
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselindi"
+        data-bs-slide="next"
+      >
+      <!-- NÚT MŨI TÊN SAU-->
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
   <!-- BANNER -->
   <section class="banner flex justify-evenly hero">
     <div class="container">
+      <div class="filter">
+        <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
+          <option value="">Select product type</option>
+          <option value="iPhone">iPhone</option>
+          <option value="Samsung">Samsung</option>
+        </select>
+        <div class="row mx-0 gy-4" id="phoneList"></div>
+      </div>
       <div class="row" class="tblSanPham" id="tblSanPham"></div>
     </div>
     <!-- Blur -->
@@ -97,10 +176,8 @@
   </div>
   </section>
   <!-- FILTER -->
-  <section class="filter h-36">
-    <div class="cover" style="display: none;" ></div>
-        <div class="cover purchase-cover" id="coverFilter"></div>
-    <div class="container">
+  <!-- <section class="filter h-36">
+    <div class="filter">
       <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
         <option value="">Select product type</option>
         <option value="iPhone">iPhone</option>
@@ -108,9 +185,9 @@
       </select>
       <div class="row mx-0 gy-4" id="phoneList"></div>
     </div>
-  </section>
+  </section> -->
   <!-- FOOTER -->
-  <footer class="text-center text-lg-start bg-dark text-light gradient-custom">
+  <footer class="text-center text-lg-start  gradient-custom">
     <div class="cover" style="display: none;" ></div>
         <div class="cover purchase-cover" id="coverFooter"></div>
     <section class="footer-top d-flex justify-content-center p-4 border-bottom">
@@ -215,23 +292,16 @@
     </div>
     <!-- Copyright -->
   </footer>
-  <!-- SIDEBAR MINI -->
-  <div class="sidebarMini is-opened">
-    <button class="sidebarMini__button">
-      <i class="fa fa-cog"></i>
-    </button>
-   <div class="sidebarMini__content">
-    <h2 class="text-sm">Choose Mode</h2>
-    <div class="flex">
-        <span>Light</span>
-        <label class="switch" for="checkbox">
-            <input type="checkbox" name="" id="checkbox">
-            <div class="slider round"></div>
-        </label>
-        <span>Dark</span>
-    </div>
-   </div>
-  </div>
+  <!-- JQUERY JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- OWL CAROUSEL JS -->
+  <script src="../controller/owl.carousel.min.js"></script>
+  <!-- SET UP CAROUSEL -->
+  <script>
+    $(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+  });
+  </script>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
