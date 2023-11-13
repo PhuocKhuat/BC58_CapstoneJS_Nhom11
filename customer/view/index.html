@@ -43,17 +43,60 @@
         <!-- <p class="cart">
             <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
         </p> -->
-        <img src="../../asset/img/moon.png" id="darkTheme" alt="">
+        <img src="../../asset/img/moon.png" id="theme" alt="">
         <p class="nav">
           <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
           <span class="totalQuantity">0</span>
         </p>
     </div>
   </header>
+  <!-- Bảng render cart -->
+  <div class="cart">
+    <div class="side-nav" id="content" class="content">
+      <button onclick="closes()" id="close">
+        <i class="fa fa-times-circle"></i>
+      </button>
+      <h2>Cart</h2>
+      <!-- B1. Tạo container. -->
+      <!-- B2. Tạo row trước. -->
+      <!-- B3. Tạo các thuộc tính (flex, justify). -->
+      <!-- B4. Tạo các col sau. -->
+      <div class="cart-items
+      container">
+        <div class="flex justify-evenly items-center thProduct space-x-12">
+          <tr>
+            <th><span>Image</span></th>
+            <th><span>Name</span></th>
+            <th><span>Quantity</span></th>
+            <th><span>Identify</span></th>
+            <th><span>Price</span></th>
+            <th><span>Action</span></th>
+          </tr>
+          </div>
+        <div class="empty-cart row" id="tblCart">
+        </div>
+      </div>
+      <div class="final">
+        <strong>
+          <span class="subtotal">Subtotal (0 items): $0</span>
+        </strong>
+        <div class="action">
+          <button onclick="buy()" class="btn buy" id="buy">
+            Purchase <i class="fas fa-credit-card" style="color:#6665dd;"></i>
+          </button>
+          <button onclick="clearCart()" class="btn clear">
+            Clear Cart <i class="fas fa-trash" style="color:#bb342f;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   <!-- CAROUSEL -->
   <section class="cybercarousel">
+    <!-- Blur -->
+    <div class="cover" style="display: none;" ></div>
+      <div class="cover purchase-cover" id="cover"></div>
     <div id="carouselindi" class="carousel slide" data-bs-ride="false">
-      <div class="carousel-indicators">
+      <!-- <div class="carousel-indicators">
         <button
           type="button"
           data-bs-target="#carouselindi"
@@ -80,28 +123,27 @@
           data-bs-slide-to="3"
           aria-label="Slide 4"
         ></button>
+      </div> -->
+      <div class="owl-carousel owl-theme">
+        <div class=" item">
+          <img src="../../asset/img/free-psd-colorful-iphone-x-mockup.jpg" class="d-block w-100" alt="banner 1" style="height: 80vh;"/>
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/galaxy_m51.webp" class="d-block w-100" alt="banner 2" style="height: 80vh;" />
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/m22_1280x720-800-resize.jpg" class="d-block w-100" alt="banner 3" style="height: 80vh;" />
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/preview.jpg" class="d-block w-100" alt="banner 4" style="height: 80vh;" />
+        </div>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../../asset/img/free-psd-colorful-iphone-x-mockup.jpg" class="d-block w-100" alt="banner 1" style="height: 68vh;"/>
-        </div>
-        <div class="carousel-item">
-          <img src="../../asset/img/galaxy_m51.webp" class="d-block w-100" alt="banner 2" style="height: 68vh;" />
-        </div>
-        <div class="carousel-item">
-          <img src="../../asset/img/m22_1280x720-800-resize.jpg" class="d-block w-100" alt="banner 3" style="height: 68vh;" />
-        </div>
-        <div class="carousel-item">
-          <img src="../../asset/img/iPhone_11_Pro_buy_now_16x9_960x540.jpg" class="d-block w-100" alt="banner 4" style="height: 68vh;" />
-        </div>
-      </div>
-      <button
+      <!-- <button
         class="carousel-control-prev"
         type="button"
         data-bs-target="#carouselindi"
-        data-bs-slide="prev"
+        data-bs-slide="prev" 
       >
-      <!-- NÚT MŨI TÊN TRƯỚC -->
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
@@ -111,14 +153,16 @@
         data-bs-target="#carouselindi"
         data-bs-slide="next"
       >
-      <!-- NÚT MŨI TÊN SAU-->
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-      </button>
+      </button> -->
     </div>
   </section>
   <!-- BANNER -->
   <section class="banner flex justify-evenly hero">
+    <!-- Blur -->
+    <div class="cover" style="display: none;" ></div>
+      <div class="cover purchase-cover" id="coverBanner"></div>
     <div class="container">
       <div class="filter">
         <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
@@ -130,49 +174,7 @@
       </div>
       <div class="row" class="tblSanPham" id="tblSanPham"></div>
     </div>
-    <!-- Blur -->
-    <div class="cover" style="display: none;" ></div>
-      <div class="cover purchase-cover" id="cover"></div>
-    <div class="cart">
-      <!-- Bảng render cart -->
-      <div class="side-nav" id="content" class="content">
-        <button onclick="closes()" id="close">
-          <i class="fa fa-times-circle"></i>
-        </button>
-        <h2>Cart</h2>
-        <!-- B1. Tạo container. -->
-        <!-- B2. Tạo row trước. -->
-        <!-- B3. Tạo các thuộc tính (flex, justify). -->
-        <!-- B4. Tạo các col sau. -->
-        <div class="cart-items
-        container">
-          <div class="flex justify-evenly items-center thProduct space-x-12">
-            <tr>
-              <th><span>Image</span></th>
-              <th><span>Name</span></th>
-              <th><span>Quantity</span></th>
-              <th><span>Identify</span></th>
-              <th><span>Price</span></th>
-              <th><span>Action</span></th>
-            </tr>
-            </div>
-          <div class="empty-cart row" id="tblCart">
-          </div>
-        </div>
-        <div class="final">
-          <strong>
-            <span class="subtotal">Subtotal (0 items): $0</span>
-          </strong>
-          <div class="action">
-            <button onclick="buy()" class="btn buy" id="buy">
-              Purchase <i class="fas fa-credit-card" style="color:#6665dd;"></i>
-            </button>
-            <button onclick="clearCart()" class="btn clear">
-              Clear Cart <i class="fas fa-trash" style="color:#bb342f;"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+    
   </div>
   </section>
   <!-- FILTER -->
@@ -298,8 +300,22 @@
   <script src="../controller/owl.carousel.min.js"></script>
   <!-- SET UP CAROUSEL -->
   <script>
-    $(document).ready(function(){
-  $(".owl-carousel").owlCarousel();
+  $(".owl-carousel").owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    autoplay: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
   });
   </script>
   <!-- Bootstrap JavaScript Libraries -->

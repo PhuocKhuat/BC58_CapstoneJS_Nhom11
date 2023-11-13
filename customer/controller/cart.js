@@ -1,5 +1,5 @@
-const domSelector = (selector) => document.querySelector(selector);
 //B1. domQuerry chỗ hiện ở layout ở dòng 1.
+const domSelector = (selector) => document.querySelector(selector);
 const tblCart = domSelector("#tblCart");
 const subtotal = domSelector(".subtotal");
 const totalQuantity = domSelector(".totalQuantity");
@@ -15,17 +15,16 @@ const totalQuantity = domSelector(".totalQuantity");
 let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 capNhatSP();
 
-
-//THÊM SẢN PHẨM VÀO GIỎ HÀNG.
+//THÊM SẢN PHẨM VÀO GIỎ HÀNG ~ 8 BƯỚC.
 /**
- * B1. Tạo 1 mảng products ở product.js chứa các thông tin.
+ * B1. Tạo 1 mảng products ở product.js chứa các thông tin sản phẩm.
  * B2. Tạo 1 mảng rỗng để thêm sản phẩm vào.
  * B3. Tạo 1 hàm thêm.
  * B4. Tạo biến trung gian và tìm sản phẩm trong products bằng hàm FIND.
  * B5. Thêm sản phẩm vào mảng rỗng (SPREAD OPERATOR), thêm quantity.
  * B6. Vì thêm 1 sản phẩm ở B5 xuất hiện 2 lần chứ không tăng số lượng (không đúng), sử dụng if xem sản phẩm xuất hiện chưa ~ SOME.
  * B7. Ngược lại thì đi tìm và thêm ở B4 và B5.
- * B8. Thêm xong thì cập nhật lại bảng giỏ hàng (renderCart).
+ * B8. Thêm xong thì cập nhật lại bảng giỏ hàng, giá tiền, số lượng nên tạo trước hàm capNhatSP (để các điều kiện cần vào).
  */
 //B3. Tạo 1 hàm thêm sản phẩm vào giỏ hàng.
 const themSP = (id) => {

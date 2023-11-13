@@ -13,10 +13,6 @@ $bradius-cart: 20px;
 $color-pwrapper: #dad7cd;
 $background-footer: #2e2f33;
 
-.body{
-    background: var(--primary-color);
-}
-
 .container{
     width: 90%;
     margin: 0 auto;
@@ -56,7 +52,7 @@ header{
     }
     .logo{
        position: relative;
-       color: $color-white1;
+       color: var(---third-color);
        a{
         position: relative;
         top: 25px;
@@ -71,7 +67,7 @@ header{
         top: 0;
         left: 300px;
         a{
-            color: $color-white1;
+            color: var(---third-color);
             position: relative;
             top: 30px;
             transition: 0.3s;
@@ -89,7 +85,7 @@ header{
         top: 0;
         left: 400px;
         a{
-            color: $color-white1;
+            color: var(---third-color);
             position: relative;
             top: 30px;
             transition: 0.3s;
@@ -102,7 +98,7 @@ header{
             left: 32px;
         }
     }
-    #darkTheme{
+    #theme{
         left: 200px;
         top: 15px;
         position: relative;
@@ -111,7 +107,7 @@ header{
     }
     .nav{
         .fa-shopping-cart{
-            color: $color-white1;
+            color: var(---third-color);
             &:hover{
                 color: $color-white2;
             }
@@ -129,20 +125,63 @@ header{
     }
 }
 //TẠO DARK, LIGHT THEME
-:root{
+:root{ //lúc ban đầu
     --primary-color: #edf2fc;
     --secondary-color: #212121;
-}
-.dark-theme{
+    ---third-color : #59D2FE;
+    ---four-color: linear-gradient(to left, #08203e, #2f3e46);
+} //lúc nhấn nút
+.darkTheme{
     --primary-color: #000106;
-    --secondary-color: #fff;
+    --secondary-color: #f2f4f3;
+    ---third-color : #370617;
+    ---four-color: linear-gradient(to left, #8942a8, #ba382f);
 }
-//ĐẾN 7:18
+
 //CAROUSEL
+.cybercarousel{
+    overflow: hidden; 
+    position: relative;
+    background: var(--secondary-color);
+    .cover{
+        transform: translateX(100%);
+        position: absolute;
+        width: 100%;
+        height: 145%;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(5px);
+        z-index: 9;
+    }
+}
+.owl-carousel{
+    position: relative;
+    top: 10px;
+}
+.owl-carousel .owl-nav button.owl-prev{
+    position: absolute;
+    bottom: 250px;
+    font-size: 70px;
+    left: 10px;
+    color: #59D2FE;   
+}
+.owl-carousel .owl-nav button.owl-next{
+    position: absolute;
+    bottom: 250px;
+    font-size: 70px;
+    right: 10px;   
+    color: #59D2FE  ;   
+}
+.owl-theme .owl-nav [class*=owl-]:hover{
+    background: none;
+    color: #73FBD3;
+}
+.owl-theme .owl-dots .owl-dot{
+    display: none;
+}
 
 //BANNER
 .banner{
-    background: linear-gradient(to left, #8942a8, #ba382f);
+    background: var(---four-color);
     .container{
         width: $width-container;
         margin: 90px auto 50px;
@@ -268,13 +307,13 @@ footer{
     }
     .footer-top{
         span{
-          color: $color-white1;
+          color: var(---third-color);
           &:hover{
             color: #ff99c8 ;
         }
         }
         .fab{
-          color: $color-white1;
+          color: var(---third-color);
           &:hover{
             color: #ff99c8 ;
         }
@@ -282,19 +321,19 @@ footer{
     }
     .footer-middle{
         .fa-solid{
-            color: $color-white1;
+            color: var(---third-color);
             &:hover{
               color: #ff99c8 ;
           } 
         }
         p{
-            color: $color-white1;
+            color: var(---third-color);
           &:hover{
             color: #ff99c8 ;
         }
         }
         h6{
-            color: $color-white1;
+            color: var(---third-color);
             &:hover{
               color: #ff99c8 ;
           }   
@@ -302,7 +341,7 @@ footer{
 
     }
     .copyright{
-        color: $color-white1;
+        color: var(---third-color);
           &:hover{
             color: #ff99c8 ;
         }
@@ -332,6 +371,114 @@ footer{
         }
     }
 }
+.cart{
+    position: relative;
+    overflow: hidden;
+    #content{
+    position: absolute;
+    transform: translateX(170%);
+    background: #010101;
+    opacity: 0.9;
+    height: 152vh;
+    width: 59%;
+    flex-direction: column;
+    top: 0;
+    z-index: 10;
+    .final{
+        .subtotal{
+            padding-left: 200px;
+            position: relative;
+            right: 380px;
+            top: 100px;
+            line-height: 56px;
+            background: #fefae0;
+            display: block;
+            width: 100vw;
+            height: 60px;
+        }
+        .action{
+            position: relative;
+            right: 150px;
+            background: #87c38f;
+            top: 110px;
+            .buy{
+                font-size: 30px;
+                position: relative;
+                left: 130px;
+                &:hover{
+                    color: #605DCA;
+                }
+            }
+            .clear{
+                font-size: 30px;
+                position: relative;
+                left: 270px;
+                &:hover{
+                    color: #AC302E;
+                }
+            }
+        }
+    }
+    .fa-times-circle{
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        &:hover{
+            color: #ba382f;
+        }
+    }
+    h2{
+        position: relative;
+        color: white;
+        left: 400px;
+        transform: translateY(-0.2rem);
+        font-size: 40px;
+        font-weight: 600;
+        top: 20px;
+    }
+    .cart-items{
+        border-bottom: 1px solid whitesmoke;
+        position: relative;
+        top: 40px;
+        .thProduct{
+            span{
+               font-size: 1.75rem;
+               color: $color-stocks;
+            }
+        }
+        .empty-cart{
+            font-size: 1.5rem;
+            color: #414141;
+            position: relative;
+            left: 15px;
+            .sPcom{
+              position: relative;
+              right: 10px;
+            }
+            .sPcom2{
+                position: relative;
+                left: 5px;
+            }
+            .sPcom3, .sPcom4{
+                position: relative;
+                left: 45px;
+            }
+        }
+    }
+    .final{
+        font-size: 1.5rem;
+        color: #414141;
+        position: relative;
+        left: 150px;
+        strong{
+            position: relative;
+            left: 230px;
+            font-size: 2rem;
+        }
+    }
+}
+}
 
 // CART
 .hero{
@@ -349,109 +496,5 @@ footer{
         backdrop-filter: blur(5px);
         z-index: 9;
     }
-    .cart{
-        #content{
-        position: absolute;
-        transform: translateX(200%);
-        background: #010101;
-        opacity: 0.9;
-        height: 100%;
-        width: 60%;
-        flex-direction: column;
-        top: 0;
-        z-index: 10;
-        .final{
-            .subtotal{
-                padding-left: 200px;
-                position: relative;
-                right: 380px;
-                bottom: 120px;
-                line-height: 56px;
-                background: #fefae0;
-                display: block;
-                width: 100vw;
-                height: 60px;
-            }
-            .action{
-                position: relative;
-                right: 150px;
-                background: #87c38f;
-                bottom: 100px;
-                .buy{
-                    font-size: 30px;
-                    position: relative;
-                    left: 130px;
-                    &:hover{
-                        color: #605DCA;
-                    }
-                }
-                .clear{
-                    font-size: 30px;
-                    position: relative;
-                    left: 270px;
-                    &:hover{
-                        color: #AC302E;
-                    }
-                }
-            }
-        }
-        .fa-times-circle{
-            position: absolute;
-            top: 10px;
-            right: 30px;
-            font-size: 1.5rem;
-            &:hover{
-                color: #ba382f;
-            }
-        }
-        h2{
-            position: relative;
-            color: white;
-            left: 400px;
-            transform: translateY(-0.2rem);
-            font-size: 40px;
-            font-weight: 600;
-        }
-        .cart-items{
-            border-bottom: 1px solid whitesmoke;
-            position: relative;
-            bottom: 90px;
-            .thProduct{
-                span{
-                   font-size: 1.75rem;
-                   color: $color-stocks;
-                }
-            }
-            .empty-cart{
-                font-size: 1.5rem;
-                color: #414141;
-                position: relative;
-                left: 15px;
-                .sPcom{
-                  position: relative;
-                  right: 10px;
-                }
-                .sPcom2{
-                    position: relative;
-                    left: 5px;
-                }
-                .sPcom3, .sPcom4{
-                    position: relative;
-                    left: 45px;
-                }
-            }
-        }
-        .final{
-            font-size: 1.5rem;
-            color: #414141;
-            position: relative;
-            left: 150px;
-            strong{
-                position: relative;
-                left: 230px;
-                font-size: 2rem;
-            }
-        }
-    }
-    }
+    
 }
