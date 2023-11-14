@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "iphone X",
+    name: "iPhone X",
     price: 1000,
     screen: "screen 68",
     backCamera: "2 camera 12 MP",
@@ -36,7 +36,7 @@ const products = [
     id: 3
   },
   {
-    name: "Iphone 11",
+    name: "iPhone 11",
     price: 1000,
     screen: "screen 54",
     backCamera: "Main 12 MP & secondary 64 MP, 12 MP",
@@ -46,5 +46,29 @@ const products = [
     type: "iPhone",
     instock: 21,
     id: 4
-  }
+  }, 
+  {
+    name: "Macbook Pro",
+    price : 2000,
+    screen : "screen 54",
+    backCamera: "Camera: Main 12 MP & secondary 64 MP, 12 MP",
+    frontCamera: "32 MP",
+    img: "https://pngimg.com/uploads/macbook/macbook_PNG8.png",
+    desc: "The best for the brightest",
+    type: "Macbook",
+    instock: 14,
+    id: 5
+   },
+   {
+    name: "iPad Pro",
+    price: 1000,
+    screen: "screen 54",
+    backCamera: "Camera: Main 12 MP & secondary 64 MP, 12 MP",
+    frontCamera: "32 MP",
+    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-select-wifi-spacegray-202003_FMT_WHH?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1583553704156",
+    desc: "Your next computer is not a computer",
+    type: "iPad",
+    instock: 33,
+    id: 6
+  },
   ];

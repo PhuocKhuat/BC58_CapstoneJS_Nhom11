@@ -105,3 +105,24 @@ domID('btnSearchSP').onclick = () =>{
   });
   renderDSSP(result);
 }
+const btnSearchSP = domID('btnSearchSP');
+const searchSP = domID('searchSP');
+const tblSanPham = domID('tblSanPham');
+btnSearchSP.addEventListener('click', () => {
+  const productName = searchSP.value.toLowerCase();
+  const filterProduct = products.filter(item => item.name.toLowerCase() === productName);
+  if(filterProduct.length > 0){
+    renderDSSP(filterProduct);
+  } else{
+    tblSanPham.innerHTML = "Product not found";
+  }
+})
+
+// const findProductByName = (name) => {
+//   const product = products.find((item) => item.name === name);
+//   if(product){
+//     return renderDSSP(product);
+//   } else{
+//     return tblSanPham.innerHTML = "Product not found";
+//   }
+// }

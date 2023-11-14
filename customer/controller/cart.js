@@ -36,7 +36,7 @@ const themSP = (id) => {
   else{
     //B4. Tìm sản phẩm trong products ~ FIND.
     const item = products.find((product) => product.id === id);
-    // console.log("item", item);
+    console.log("item", item);
     //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
     cartArray.push({
       ...item,

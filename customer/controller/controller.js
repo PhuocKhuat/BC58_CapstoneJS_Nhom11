@@ -63,7 +63,12 @@ const filterProduct = () => {
       productFilter = products.filter((item) => item.type === "Samsung" );
   } else if(selectList === "iPhone"){
       productFilter = products.filter((item) => item.type === "iPhone");   
-  } else {
+  } else if(selectList === "Macbook") {
+      productFilter = products.filter((item) => item.type === "Macbook");
+  } else if(selectList === "iPad") {
+    productFilter = products.filter((item) => item.type === "iPad");
+  }
+  else {
       productFilter = products;
   }
   renderDSSP(productFilter);
