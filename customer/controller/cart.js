@@ -98,8 +98,8 @@ function renderCart(){
   `
 });
 }
-// renderCart();
-//TẠO HÀM THAY ĐỔI SỐ LƯỢNG (MỤC ĐÍCH LÀ BIẾN NHỮNG PHẦN TỬ (SỐ LƯỢNG) THÀNH SỐ LƯỢNG MỚI)
+
+//HÀM THAY ĐỔI SỐ LƯỢNG (MỤC ĐÍCH LÀ BIẾN NHỮNG PHẦN TỬ (SỐ LƯỢNG) THÀNH SỐ LƯỢNG MỚI)
 /**
  * B1. Thêm onclick cho 2 nút cộng trừ, có 2 thuộc tính là action và id (ở renderCart).
  * B2. Gọi hàm thay đổi số lượng.
@@ -107,13 +107,13 @@ function renderCart(){
  * B4. Tạo biến trung gian gán bằng số lượng phần tử.
  * B5. Kiếm tra id biến từ map có giống id được duyệt từ forEach không.
  * B6. Nếu action = minus thì giảm số lượng xuống, plus thì tăng lên.
- * B7. Trả về ...item + quantity mới.
+ * B7. Trả về ...item + quantity mới (liên quan đến số lượng đều có TRẢ VỀ).
  * B8. Đi sử dụng capNhatSP().
  */
 //Tham số đầu tiên là hành động (cộng hoặc trừ)
 function changeUnits(action, id){
   cartArray = cartArray.map((item) => {
-      let quantity = item.quantity;
+      let quantity = item.quantity; //item chưa tăng được.
       //Nếu những item trong cartArray này trùng với tham số id.
       if(item.id === id){
         if(action === 'minus' && quantity >1){ //Để >1 là 2 trở lên, khi giảm xuống 1.
@@ -124,13 +124,17 @@ function changeUnits(action, id){
       }
       return { //SPREAD OPERATOR + OBJECT LITERAL.
        ...item,
-       quantity,
+       quantity, //item đã tăng giảm được.
       };
   })
   capNhatSP();
 }
 
 //TÍNH TỔNG PHỤ.
+/**
+ * B1. Những hàm liên quan đến tính tổng hiệu, thì khai báo biến là 0.
+ * 
+ */
 function renderSubtotal(){
   let totalItems =0, totalPrice =0;
   cartArray.forEach((item) => {
@@ -140,7 +144,7 @@ function renderSubtotal(){
   subtotal.innerHTML = `Subtotal (${totalItems} items): $${totalPrice.toLocaleString()}`;
   totalQuantity.innerText = totalItems;
 }
-// renderSubtotal();
+
 //13. XOÁ SẢN PHẨM
 /**
  * B1. Gán cartArray cũ vào cartArray.

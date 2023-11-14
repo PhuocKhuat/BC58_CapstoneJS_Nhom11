@@ -81,6 +81,19 @@ header .admin .fa-user-gear:before {
   position: relative;
   left: 32px;
 }
+header #searchSP {
+  left: 520px;
+  max-width: 40%;
+  max-height: 50%;
+  position: absolute;
+  top: 20px;
+}
+header #btnSearchSP {
+  top: 21px;
+  position: absolute;
+  left: 1128px;
+  padding: 10px;
+}
 header #theme {
   left: 200px;
   top: 15px;

@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "iphoneX",
+    name: "iphone X",
     price: 1000,
     screen: "screen 68",
     backCamera: "2 camera 12 MP",

@@ -97,3 +97,11 @@ function fetchProductList(){
      domID('tblSanPham').innerHTML = contentHTML;
   }
   
+  //TÌM KIỂM SẢN PHẨM THEO TÊN.
+domID('btnSearchSP').onclick = () =>{
+  let input = domID('searchSP').value.toLowerCase();
+  let result = cartArray.filter((item) => {
+    item.name.toLowerCase().includes(input)
+  });
+  renderDSSP(result);
+}
