@@ -31,14 +31,25 @@
   transition: 0.3s;
 }
 .modal .fa-check {
+  font-size: 40px;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   background: green;
-  line-height: 70px;
+  line-height: 100px;
 }
 .modal .btnOK {
-  padding: 7px 137px;
+  padding: 9px 137px;
+  font-size: 20px;
+}
+.modal .congra {
+  font-size: 26px;
+}
+.modal .order {
+  font-size: 20px;
+}
+.modal .receive {
+  font-size: 17px;
 }
 
 #modal.open-modal {
@@ -533,4 +544,311 @@ footer .copyright:hover {
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(5px);
   z-index: 9;
+}
+
+@media screen and (max-width: 1248px) {
+  header #btnSearchSP {
+    left: 1020px;
+  }
+  header #theme {
+    left: 226px;
+  }
+  header .nav {
+    position: relative;
+    left: 105px;
+  }
+}
+@media screen and (max-width: 1230px) {
+  header #btnSearchSP {
+    left: 1000px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  header .nav {
+    left: 84px;
+  }
+}
+@media screen and (max-width: 1184px) {
+  header #btnSearchSP {
+    left: 974px;
+  }
+  header #searchSP {
+    max-width: 38%;
+  }
+}
+@media screen and (max-width: 1138px) {
+  header #btnSearchSP {
+    left: 950px;
+  }
+}
+@media screen and (max-width: 1105px) {
+  header #btnSearchSP {
+    left: 939px;
+  }
+}
+@media screen and (max-width: 1084px) {
+  header #btnSearchSP {
+    left: 895px;
+  }
+  header #searchSP {
+    max-width: 35%;
+  }
+}
+@media screen and (max-width: 1070px) {
+  header #btnSearchSP {
+    left: 877px;
+  }
+  header #searchSP {
+    max-width: 34%;
+  }
+}
+@media screen and (max-width: 1020px) {
+  header #btnSearchSP {
+    left: 826px;
+  }
+  header #searchSP {
+    max-width: 30%;
+  }
+  header .nav {
+    left: 130px;
+  }
+}
+@media screen and (max-width: 1020px) {
+  header #btnSearchSP {
+    left: 760px;
+  }
+  header #searchSP {
+    max-width: 30%;
+    left: 470px;
+  }
+  header .nav {
+    left: 130px;
+  }
+  header .admin {
+    position: absolute;
+    top: 0;
+    left: 360px;
+  }
+  header #theme {
+    left: 177px;
+  }
+}
+@media screen and (max-width: 1020px) {
+  header .nav {
+    left: 114px;
+  }
+}
+@media screen and (max-width: 920px) {
+  header .home {
+    left: 265px;
+  }
+  header .admin {
+    left: 317px;
+  }
+  header .nav {
+    left: 68px;
+  }
+  header #searchSP {
+    left: 418px;
+  }
+  header #btnSearchSP {
+    left: 694px;
+  }
+  header #theme {
+    left: 130px;
+  }
+}
+@media screen and (max-width: 888px) {
+  header .home {
+    left: 250px;
+  }
+  header .admin {
+    left: 304px;
+  }
+  header #btnSearchSP {
+    left: 684px;
+  }
+  header .nav {
+    left: 61px;
+  }
+}
+@media screen and (max-width: 878px) {
+  header .logo {
+    right: 28px;
+  }
+  header .admin {
+    left: 274px;
+  }
+  header #searchSP {
+    left: 376px;
+  }
+  header #btnSearchSP {
+    left: 640px;
+  }
+  header .nav {
+    left: 45px;
+  }
+  header #theme {
+    left: 100px;
+  }
+}
+@media screen and (max-width: 870px) {
+  header .home {
+    left: 217px;
+  }
+}
+@media screen and (max-width: 846px) {
+  header .home {
+    left: 200px;
+  }
+  header .admin {
+    left: 255px;
+  }
+  header #searchSP {
+    left: 356px;
+  }
+  header #btnSearchSP {
+    left: 609px;
+  }
+}
+@media screen and (max-width: 800px) {
+  header .logo a span, header .home, header .admin, header #searchSP, header #btnSearchSP {
+    font-size: 14px !important;
+  }
+  header .home {
+    left: 200px;
+  }
+  header .admin {
+    left: 255px;
+  }
+  header #searchSP {
+    left: 345px;
+    width: 27%;
+  }
+  header #btnSearchSP {
+    left: 557px;
+  }
+  header #theme {
+    left: 77px;
+  }
+  header .nav {
+    left: 28px;
+  }
+}
+@media screen and (max-width: 773px) {
+  header .home {
+    left: 180px;
+  }
+  header .admin {
+    left: 240px;
+  }
+  header #searchSP {
+    left: 323px;
+  }
+  header #btnSearchSP {
+    left: 532px;
+  }
+  header #theme {
+    left: 77px;
+  }
+  header .nav {
+    left: 28px;
+  }
+}
+@media screen and (max-width: 722px) {
+  header #btnSearchSP {
+    left: 517px;
+  }
+  header #theme {
+    left: 87px;
+  }
+}
+@media screen and (max-width: 696px) {
+  header .home {
+    left: 162px;
+  }
+  header #searchSP {
+    left: 300px;
+  }
+  header .admin {
+    left: 210px;
+  }
+  header #btnSearchSP {
+    left: 488px;
+  }
+}
+@media screen and (max-width: 651px) {
+  header .logo a {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+  }
+  header .logo a span {
+    margin-top: 12px;
+  }
+  header .home {
+    left: 116px;
+  }
+  header .admin {
+    left: 168px;
+  }
+  header #searchSP {
+    left: 260px;
+  }
+  header #btnSearchSP {
+    left: 436px;
+  }
+  header #theme {
+    left: 73px;
+  }
+}
+@media screen and (max-width: 618px) {
+  header #theme {
+    left: 88px;
+  }
+  header #btnSearchSP {
+    left: 427px;
+  }
+}
+@media screen and (max-width: 580px) {
+  header .home {
+    left: 102px;
+  }
+  header .admin {
+    left: 148px;
+  }
+  header #searchSP {
+    left: 238px;
+  }
+  header #btnSearchSP {
+    left: 394px;
+  }
+}
+@media screen and (max-width: 532px) {
+  header #searchSP {
+    width: 24%;
+  }
+  header #btnSearchSP {
+    left: 364px;
+  }
+}
+@media screen and (max-width: 495px) {
+  header .logo {
+    opacity: 0;
+  }
+  header .home {
+    left: 30px;
+  }
+  header .admin {
+    left: 84px;
+  }
+  header #btnSearchSP {
+    left: 310px;
+  }
+  header #searchSP {
+    left: 174px;
+  }
+  header #btnSearchSP {
+    left: 302px;
+  }
 }/*# sourceMappingURL=index.css.map */
