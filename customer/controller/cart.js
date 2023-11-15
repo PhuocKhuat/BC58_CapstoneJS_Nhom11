@@ -177,11 +177,22 @@ const clearCart = () => {
   localStorage.setItem('cartArray', JSON.stringify([]));
 }
 
-//12. NÚT THANH TOÁN.
+//12. NÚT THANH TOÁN (PURCHASE).
+const modal = domID('modal');
 const buy = () => {
   const items = document.querySelectorAll('.cartDiv');
   items.forEach(item => (item.remove()));
+  if(items.length === 0){
+    tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
+  }else{
+    modal.classList.toggle("open-modal");
+  }
   subtotal.textContent = "Subtotal (0 items): $0";
   totalQuantity.textContent = 0;
   localStorage.setItem('cartArray', JSON.stringify([]));
 } 
+//NÚT OK
+const btnOK = () =>{
+  console.log(123);
+  modal.classList.toggle("open-modal");
+}

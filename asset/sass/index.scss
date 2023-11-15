@@ -29,10 +29,43 @@ $background-footer: #2e2f33;
     z-index: 10;
     display: none;
 }
+//MODAL
+.modal{
+    width: 400px;
+    width: 400px;
+    display: block;
+    position: absolute;
+    top: 0; //
+    left: 50%;
+    border-radius: 6px;
+    transform: translate(-50%, -50%) scale(0.1); //
+    background: #edf6f9;
+    height: auto;
+    padding: 30px;
+    text-align: center;
+    visibility: hidden; //
+    transition: 0.3s;
+    .fa-check{
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        background: green;
+        line-height: 70px;
+    }
+    .btnOK{
+        padding: 7px 137px;
+    }
+}
+#modal.open-modal{
+    visibility: visible;
+    top: 30%;
+    transform: translate(-50%, -50%) scale(1);
+}
 //HEADER
 header{
     //Phủ lớp BLUR
-    position: relative;
+    position: fixed; //Đi 1 cặp
+    z-index: 100; //Đi 1 cặp
     overflow: hidden;  
     width: 100%;
     background:var(--secondary-color) !important;
@@ -287,6 +320,20 @@ header{
         }
     }
 }
+.notFound{
+    margin-left: 350px;
+    border: 3px dashed #ffd60a;   
+    color: #ffd60a;
+    width: 50%;
+    text-align: center;
+    span{
+      background-color: #ffd166;
+      font-size: 30px;
+      text-align: center;
+      position: relative;
+      padding: 0px 197px;
+  }
+}
 //FILTER
 .filter{
     .form-select {
@@ -392,14 +439,14 @@ footer{
     position: relative;
     overflow: hidden;
     #content{
-    position: absolute;
+    position: fixed;
     transform: translateX(170%);
     background: #010101;
     opacity: 0.9;
     height: 152vh;
     width: 59%;
     flex-direction: column;
-    top: 0;
+    top: 80px;
     z-index: 10;
     .final{
         .subtotal{
@@ -444,6 +491,13 @@ footer{
         &:hover{
             color: #ba382f;
         }
+    }
+    .fa-shopping-bag{
+        color: #0a9396;
+        left: 350px;
+        font-size: 40px;
+        position: absolute;
+        top: 45px;
     }
     h2{
         position: relative;

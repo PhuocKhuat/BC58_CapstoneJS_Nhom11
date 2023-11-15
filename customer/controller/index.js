@@ -114,15 +114,7 @@ btnSearchSP.addEventListener('click', () => {
   if(filterProduct.length > 0){
     renderDSSP(filterProduct);
   } else{
-    tblSanPham.innerHTML = "Product not found";
+    tblSanPham.innerHTML = `<strong class="notFound"><span>Product not found</span></strong>`;
   }
 })
 
-// const findProductByName = (name) => {
-//   const product = products.find((item) => item.name === name);
-//   if(product){
-//     return renderDSSP(product);
-//   } else{
-//     return tblSanPham.innerHTML = "Product not found";
-//   }
-// }

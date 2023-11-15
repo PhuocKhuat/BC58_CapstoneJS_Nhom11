@@ -44,7 +44,7 @@
             <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
         </p> -->
         <!-- <div class="input-group"> -->
-          <input type="text" class="form-control" placeholder="Bạn cần tìm gì" id="searchSP">
+          <input type="text" class="form-control" placeholder="What are you looking for ?" id="searchSP">
           <div class="input-group-prepend">
             <button class="input-group-text" id="btnSearchSP"><i class="fa fa-search"></i></button>
           <!-- </div> -->
@@ -56,12 +56,24 @@
         </p>
     </div>
   </header>
-  <!-- Bảng render cart -->
+  <!-- MODAL -->
+  <div class="modal" id="modal" style="position: fixed; z-index: 101;">
+    <i class="fa fa-check mb-2"></i>
+    <h2 class="text-success">CONGRATULATIONS!</h2>
+    <br>
+    <strong>You order has been placed</strong>
+    <br>
+    <p>We're excited for you to receive your order soon and look forward to receiving your feedback.</p>
+    <br>
+    <button class="btn btn-success btnOK" onclick="btnOK()">OK</button>
+  </div>
+  <!-- BẢNG RENDERCART -->
   <div class="cart">
     <div class="side-nav" id="content" class="content">
       <button onclick="closes()" id="close">
         <i class="fa fa-times-circle"></i>
       </button>
+      <i class="fa fa-shopping-bag"></i>
       <h2>Cart</h2>
       <!-- B1. Tạo container. -->
       <!-- B2. Tạo row trước. -->
@@ -182,8 +194,6 @@
       </div>
       <div class="row" class="tblSanPham" id="tblSanPham"></div>
     </div>
-    
-  </div>
   </section>
   <!-- FILTER -->
   <!-- <section class="filter h-36">

@@ -22,3 +22,12 @@
 
 //     })
 // }
+
+// const findProductByName = (name) => {
+//   const product = products.find((item) => item.name === name);
+//   if(product){
+//     return renderDSSP(product);
+//   } else{
+//     return tblSanPham.innerHTML = "Product not found";
+//   }
+// }
