@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Cyber Phone</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+  <!-- TAILWIND CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css" integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- OWL CAROUSEL -->
+  <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="../../css/index.css">
+</head>
+
+<body class="body">
+  <!-- SPINNER -->
+  <div id="spinner"></div>
+  <!-- HEADER -->
+  <header class="shadow-xl">
+    <div class="cover" style="display: none;" ></div>
+        <div class="cover purchase-cover" id="coverHeader"></div>
+    <div class="container h-20 flex justify-between"> 
+        <!-- Có 2 đứa con là p và nav, p và nav chưa chắc cùng cấp -->
+        <p class="logo">
+          <a href="#" class="text-xl"><i class="fa-lg fa-solid fa-robot me-3"></i>
+            <span>Cyber Phone</span></a>
+          <p class="home space-x-16">
+            <a href="#" class="flex flex-col space-y-2"><i class="fas fa-home fa-xl mb-1"></i><span>Home</span></a>
+           </p>
+           <p class="admin">
+            <a href="../../admin/view/quantri.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa-user-gear"></i><span>Admin Portal</span></a>
+           </p>
+        </p>
+        <!-- <p class="cart">
+            <a href="#" class="flex flex-col  space-y-3"><i class="fa-solid fa-xl fa-shopping-cart"></i><span>Cart</span></a>
+        </p> -->
+        <!-- <div class="input-group"> -->
+          <div class="input-group-prepend">
+          <input type="text" class="form-control" placeholder="What are you looking for ?" id="searchSP">
+            <button class="input-group-text" id="btnSearchSP"><i class="fa fa-search"></i></button>
+          <!-- </div> -->
+        </div>
+        <img src="../../asset/img/moon.png" id="theme" alt="">
+        <p class="nav">
+          <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
+          <span class="totalQuantity">0</span>
+        </p>
+    </div>
+  </header>
+  <!-- MODAL -->
+  <div class="modal" id="modal" style="position: fixed; z-index: 101;">
+    <i class="fa fa-check mb-2"></i>
+    <h2 class="text-success congra">CONGRATULATIONS!</h2>
+    <br>
+    <strong class="order">You order has been placed</strong>
+    <br>
+    <p class="receive">We're excited for you to receive your order soon and look forward to receiving your feedback.</p>
+    <br>
+    <button class="btn btn-success btnOK" onclick="btnOK()">OK</button>
+  </div>
+  <!-- BẢNG RENDERCART -->
+  <div class="cart">
+    <div class="side-nav" id="content" class="content">
+      <button onclick="closes()" id="close">
+        <i class="fa fa-times-circle"></i>
+      </button>
+      <i class="fa fa-shopping-bag"></i>
+      <h2>Cart</h2>
+      <!-- B1. Tạo container. -->
+      <!-- B2. Tạo row trước. -->
+      <!-- B3. Tạo các thuộc tính (flex, justify). -->
+      <!-- B4. Tạo các col sau. -->
+      <div class="cart-items
+      container">
+        <div class="flex justify-evenly items-center thProduct space-x-10">
+          <tr>
+            <th><span>Image</span></th>
+            <th><span>Name</span></th>
+            <th><span>Quantity</span></th>
+            <th><span>Identify</span></th>
+            <th><span>Price</span></th>
+            <th><span>Action</span></th>
+          </tr>
+          </div>
+        <div class="empty-cart row" id="tblCart">
+        </div>
+      </div>
+      <div class="final">
+        <strong>
+          <span class="subtotal">Subtotal (0 items): $0</span>
+        </strong>
+        <div class="action">
+          <button onclick="buy()" class="btn buy" id="buy">
+            Purchase <i class="fas fa-credit-card" style="color:#6665dd;"></i>
+          </button>
+          <button onclick="clearCart()" class="btn clear">
+            Clear Cart <i class="fas fa-trash" style="color:#bb342f;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  <!-- CAROUSEL -->
+  <section class="cybercarousel">
+    <!-- Blur -->
+    <div class="cover" style="display: none;" ></div>
+      <div class="cover purchase-cover" id="cover"></div>
+    <div id="carouselindi" class="carousel slide" data-bs-ride="false">
+      <!-- <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselindi"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div> -->
+      <div class="owl-carousel owl-theme">
+        <div class=" item">
+          <img src="../../asset/img/free-psd-colorful-iphone-x-mockup.jpg" class="d-block w-100" alt="banner 1" style="height: 80vh;"/>
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/galaxy_m51.webp" class="d-block w-100" alt="banner 2" style="height: 80vh;" />
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/m22_1280x720-800-resize.jpg" class="d-block w-100" alt="banner 3" style="height: 80vh;" />
+        </div>
+        <div class=" item">
+          <img src="../../asset/img/preview.jpg" class="d-block w-100" alt="banner 4" style="height: 80vh;" />
+        </div>
+      </div>
+      <!-- <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselindi"
+        data-bs-slide="prev" 
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselindi"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button> -->
+    </div>
+  </section>
+  <!-- BANNER -->
+  <section class="banner flex justify-evenly hero">
+    <!-- Blur -->
+    <div class="cover" style="display: none;" ></div>
+      <div class="cover purchase-cover" id="coverBanner"></div>
+      <div class="container">
+      <div class="filter">
+        <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
+          <option value="">Select product type</option>
+          <option value="iPhone">iPhone</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Macbook">Macbook</option>
+          <option value="iPad">iPad</option>
+        </select>
+        <div class="row mx-0 gy-4" id="phoneList"></div>
+      </div>
+      <div class="row" class="tblSanPham" id="tblSanPham"></div>
+    </div>
+  </section>
+  <!-- FILTER -->
+  <!-- <section class="filter h-36">
+    <div class="filter">
+      <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
+        <option value="">Select product type</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Samsung">Samsung</option>
+      </select>
+      <div class="row mx-0 gy-4" id="phoneList"></div>
+    </div>
+  </section> -->
+  <!-- FOOTER -->
+  <footer class="text-center text-lg-start  gradient-custom">
+    <div class="cover" style="display: none;" ></div>
+        <div class="cover purchase-cover" id="coverFooter"></div>
+    <section class="footer-top d-flex justify-content-center p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+    <section class="footer-middle">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fa-lg fa-solid fa-robot me-3"></i>Cyber Phone
+            </h6>
+            <p>
+              We pride ourselves on our efficiency and hard work, but most of all our
+              ability to source you the best quality and best value products and devices
+              in the market.
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Brands</h6>
+            <p>
+              <a href="#!" class="text-reset">iPhone</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Sumsung</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Xiaomi</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Oppo</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> Da Nang, Thanh Khe, VN</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              cyberphone@mail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+    <!-- Copyright -->
+    <div class="copyright text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="">Cyber Phone</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- JQUERY JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- OWL CAROUSEL JS -->
+  <script src="../controller/owl.carousel.min.js"></script>
+  <!-- SET UP CAROUSEL -->
+  <script>
+  $(".owl-carousel").owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    autoplay: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+  });
+  </script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <!-- AXIOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js" integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- METHOD JS -->
+  <script src="../controller/method.js"></script>
+  <!-- MODEL JS
+    <script src="../controller/model.js"></script> -->
+    <!-- CONTROLLER JS -->
+    <script src="../controller/controller.js"></script>
+    <!-- MAIN JS -->
+    <script src="../controller/index.js"></script>
+    <!-- PRODUCTS JS -->
+    <script src="../controller/products.js"></script>
+  <!-- CART JS -->
+  <script src="../controller/cart.js"></script>
+</body>
+
+</html>

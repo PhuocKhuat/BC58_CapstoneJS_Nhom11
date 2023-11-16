@@ -1,0 +1,328 @@
+var mangKetQua = [productArr];
+// function mangKetQua(productArr){};
+// function productTypeSelect(){
+//   domID('selectList');
+//   if(select == 'iPhone'){
+//     domID('phoneList').innerHTML = mangKetQua;
+//   }
+//   else if(select == 'Samsung'){
+//     domID('phoneList').innerHTML = mangKetQua;
+//   }
+// }
+//
+// renderDSSP(productArr);
+
+//
+function filterProductByType(){
+  if(type === 'all'){
+    return mangKetQua;
+  } else{
+    return mangKetQua.filter((mangKetQua) => mangKetQua.type === type);
+  }
+}
+const productTypeSelect = domID('selectList');
+productTypeSelect.addEventListener("change", () => {
+  const selectedType = productTypeSelect.value;
+  const filteredProducts = filterProductByType(selectedType);
+  renderDSSP(filteredProducts);
+})
+
+// mangKetQua = res.data;
+
+function productBrr(productArr){
+  var products = [productArr];
+  products.forEach((products)=> {
+  const o = document.createElement("option");
+   o.value = products.type;
+   selectList.appendChild(o);
+   console.log(selectList);
+});
+selectList.onchange = function(){
+ phoneList.innerHTML = "render"; 
+}
+}
+
+//THÊM VÀO GIỎ
+function addItem(e) {
+    //Lấy t là cha của e 4 lần.
+    let t = e.parentElement.parentElement.parentElement.parentElement.parentElement;
+    //Kiểm tra lớp out-of-stock-cover tại vị trí 0 có được hiển thị không.
+    if ("flex" == t.getElementsByClassName("out-of-stock-cover")[0].style.display)
+    //Thì hết hàng, trả về.
+        return;
+    //Lớp này không hiển thị, còn hàng thì thực hiện:
+    let n = t.getElementsByClassName("product-name")[0].innerText
+      , a = parseFloat(t.getElementsByClassName("product-price")[0].innerText.replace("$ ", ""))
+      , s = t.getElementsByClassName("product-img")[0].src;
+    SwitchBtns(t);
+    let i = {
+        name: n,
+        price: a,
+        imgSrc: s,
+        qty: 1
+    };
+    CartItems(i),
+    cartDetails.push(i),
+    RenderCart(),
+    CartItemsTotal()
+}
+
+<!-- <div class="container">
+    <div class="main-card flex justify-evenly space-x-20 pt-5">
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/iphone-x-64gb-hh-600x600.jpg" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">iPhone X</strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>Wireless Noise Cancelling Earphones</h5>
+            <p>AirPods Pro have been designed to deliver active Noise Cancellation for immersive sound. Transparancy mode so much can hear your surroundings.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 1000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/samsung-galaxy-m51-trang-new-600x600-600x600.jpg" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">Samsung M51</strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>You’ve never seen a watch like this</h5>
+            <p>The most advanced Apple Watch yet, featuring the Always-On Retina display, the ECG app, international emergency calling, fall detection and a built‑in compass.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 3500</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/s22.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">
+              Samsung M22
+            </strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>The best for the brightest</h5>
+            <p>Designed for those who defy limits and change the world, the new MacBook Pro is by far the most powerful notebook we’ve ever made. it’s the ultimate pro notebook for the ultimate user.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 45000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-header flex justify-between">
+          <i class="fab fa-apple"></i>
+          <em class="stocks">In Stock</em>
+        </div>
+        <div class="card-body">
+          <img src="../../asset/img/iphone-11-pro-midnight-green-select-2019.png" alt="">
+        </div>
+        <div class="card-footer">
+          <div class="name-fav flex justify-between">
+            <strong class="product-name">
+              iPhone 11 pro
+            </strong>
+            <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+          </div>
+          <div class="wrapper">
+            <h5>Pro cameras. Pro display. Pro performance
+            </h5>
+            <p>A mind‑blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro.</p>
+          </div>
+          <div class="purchase flex justify-between items-center">
+            <p class="product-price font-bold">$ 1000</p>
+            <span class="btn-add">
+              <div>
+              <button onclick="addItem(this)" class="add-btn">Add <i class="fas fa-chevron-right"></i></button>
+              </div>
+           </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div> -->
+
+    // function themSP(){
+//    var info = getDataForm();
+//   //B2. Xây dựng đối tượng cart.
+//   axios({
+//     url: "https://653122dc4d4c2e3f333c71dd.mockapi.io/QDDT",
+//     method: "POST",
+//     data: info,
+//   })
+//   .then(function(res){
+    
+//   })
+//   .catch(function(err){
+
+//   })
+// }
+
+var cardItem1 = {
+      id: sP.id,
+      names: sP.names,
+      price: sP.price,
+      img: sP.img,
+      quantity: sP.quantity,
+   };
+
+   //GET DATAFORM
+function getDataForm(){
+  let array = [
+    {
+      id: "1",
+      name: "iphoneX",
+      price: 1000,
+      "screen": "screen 68",
+      "backCamera": "2 camera 12 MP",
+      "frontCamera": "7 MP",
+      img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+      "desc": "Thiết kế mang tính đột phá",
+      "type": "iphone"
+    },
+    {
+      id: "2",
+      name: "Samsung Galaxy M51 ",
+      price: 3500,
+      "screen": "screen 69",
+      "backCamera": " Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP",
+      "frontCamera": " 32 MP",
+      img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+      "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+      "type": "Samsung"
+    },
+    {
+      id: "3",
+      name: "Samsung Galaxy M22",
+      price: 45000,
+      "screen": "screen 70",
+      "backCamera": "Chính 12 MP & Phụ 64 MP, 12 MP",
+      "frontCamera": " 32 MP",
+      img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
+      "desc": "Thiết kế mang tính đột phá",
+      "type": "Samsung"
+    },
+    {
+      id: "4",
+      name: "Iphone 11",
+      price: 1000,
+      "screen": "screen 54",
+      "backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+      "frontCamera": "32 MP",
+      img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
+      "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+      "type": "Iphone"
+    }
+  ]
+  let array1 = array[0];
+  array1.id = "123";
+  console.log(array1);
+  var cardItem1 = {
+    id: array.id,
+    name: array.name,
+    price: array.price,
+    img: array.img,
+    quantity: 1,
+  }
+}
+
+//KIỂM TRA GIỎ TRỐNG
+function CartIsEmpty() {
+  if(cartArray.length == 0){
+    (document.getElementsByClassName("cart-items")[0].innerHTML = "<span class='empty-cart'>Looks Like You Haven't Added Any Product In The Cart</span>")
+  }
+}
+
+// function sideNav(thamSo){
+//   let side = domCLASS('side-nav')[0];
+//   let cover = domCLASS('cover')[0];
+//   if(thamSo == 0){
+//     side.style.right = 0;
+//     cover.style.display = "block";
+//   } else{
+//     side.style.right = -1;
+//     cover.style.display = "none";
+//   }
+//   CartIsEmpty();
+// }
+
+//NÚT THÊM GIỎ HÀNG
+
+
+for(let i =0; i< productss.length; i++){
+      const product = productss[i]
+      const cardItem = {
+        product: product,
+        quantity: 1,
+      }
+      cartArray.push(cardItem);
+    }
+    const productss = [
+    {
+      names: "iphoneX",
+      price: 1000,
+      img: "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+      id: "1"
+    },
+    {
+      names: "Samsung Galaxy M51",
+      price: 3500,
+      img: "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+      id: "2"
+    },
+    {
+      names: "Samsung Galaxy M22",
+      price: 45000,
+      img: "https://shopping-cart-demo2.vercel.app/customer/view/img/s22.png",
+      id: "3"
+    },
+    {
+      names: "Iphone 11",
+      price: 1000,
+      img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-pro-midnight-green-select-2019?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1566954990073",
+      id: "4"
+    }
+    ];
