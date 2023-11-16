@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- TAILWIND CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css"
+      integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+
+    <!-- my css  -->
+    <link rel="stylesheet" href="../../css/index.css" />
+  </head>
+  <body>
+    <!-- SPINNER -->
+    <div id="spinner"></div>
+    <!-- HEADER -->
+  <header class="shadow-xl">
+    <div class="cover"></div>
+        <!-- <div class="cover purchase-cover" id="coverHeader"></div> -->
+    <div class="container h-20 flex justify-between"> 
+        <!-- Có 2 đứa con là p và nav, p và nav chưa chắc cùng cấp -->
+        <p class="logo">
+          <a href="#" class="text-xl"><i class="fa-lg fa-solid fa-robot me-3"></i>
+            <span>Cyber Phone</span></a>
+          <p class="home space-x-16">
+            <a href="#" class="flex flex-col space-y-2"><i class="fas fa-home fa-xl mb-1"></i><span>Home</span></a>
+           </p>
+           <p class="admin">
+            <a href="../../customer/view/index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
+           </p>
+        </p>
+          
+        <img src="../../asset/img/moon.png" id="theme" alt="">
+        <p class="nav">
+          <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
+          <span class="totalQuantity">0</span>
+        </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card text-center m-4">
+      <!-- Header -->
+      <div class="card-header myCardHeader">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="text-left text-primary font-weight-bold text-lg">Phone Managerment</h3>
+          </div>
+          <div class="col-md-6 text-right">
+            <button class="btn btn-primary" id="btnThem" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus-circle p-2"></i>Add Phone</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" id="searchName">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="btnTimSP" onclick=""><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered table-hover myTable">
+          <thead class="text-primary">
+            <tr>
+              <th>ID</th>
+              <th>Phone Name</th>
+              <th>Price</th>
+              <th>Photo</th>
+              <th>Discription</th>									
+              <th><i class="fa fa-cog p-2"></i></i>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableDanhSach">
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer myCardFooter">
+        <nav>
+          <ul class="pagination justify-content-center" id="ulPhanTrang">
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL  -->
+  <div class="modal fade show" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<header class="head-form mb-0">
+					<h2 id="header-title">Log In</h2>
+				</header>
+
+				<!-- Modal body -->
+				<div class="modal-body" >
+					<form role="form">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+								</div>
+								<input type="text" name="tk" id="idSP" class="form-control input-sm" placeholder="Nhập mã sản phẩm">
+							</div>
+
+							<span class="sp-thongbao" id="tbIDSP"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
+								</div>
+								<input type="name" name="name" id="name" class="form-control input-sm" placeholder="Nhập tên sản phẩm">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+            
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Nhập giá tiền">
+              </div>
+              <span class="sp-thongbao" id="tbGia"></span>
+            </div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-image"></i></span>
+								</div>
+								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Nhập hình ảnh">
+							</div>
+
+							<span class="sp-thongbao" id="tbHinhAnh"></span>
+						</div>
+						
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="material-icons">description</i></span>
+								</div>
+								<input type="text" name="desc" id="desc" class="form-control input-sm" placeholder="Mô tả sản phẩm">
+							</div>
+							<span class="sp-thongbao" id="tbMoTa"></span>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer" id="modal-footer">
+					<button id="btnThemSP" type="button" class="btn btn-success">Thêm</button>
+					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
+					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- method  -->
+    <script src="../controller/method.js"></script>
+    <!-- model  -->
+    <script src="/admin/model/model.js"></script>
+
+    <!-- controller -->
+    <script src="/admin/controller/controller.js"></script>
+    
+
+    <!-- axios  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
+      integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- my js -->
+    <script src="/admin/controller/main.js"></script>
+
+  </body>
+</html>

@@ -1,6 +1,7 @@
-function product(_ma, _ten, _gia, _moTa){
-    this.ma = _ma;
-    this.ten = _ten;
-    this.gia = _gia;
-    this.moTa = _moTa;
+function product(_id, _name, _price, _img, _desc){
+    this.id = _id;
+    this.name = _name;
+    this.price = _price;
+    this.img = _img;
+    this.desc = _desc;
 }
