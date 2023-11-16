@@ -48,7 +48,7 @@ const products = [
     id: 4
   }, 
   {
-    name: "Macbook Pro",
+    name: "MacBook Pro",
     price : 2000,
     screen : "screen 54",
     backCamera: "Camera: Main 12 MP & secondary 64 MP, 12 MP",
@@ -70,5 +70,29 @@ const products = [
     type: "iPad",
     instock: 33,
     id: 6
+  },
+  {
+    name: "iPhone 14",
+    price: 1100,
+    screen: "screen 6.1 inches",
+    backCamera: "Camera: Main 48 MP & secondary 12 MP, 12 MP",
+    frontCamera: "12 MP",
+    img: "https://product.hstatic.net/1000063620/product/iphone-14-pro-den-1_4d9e00769acf41658620134509b845ad_1024x1024.jpg",
+    desc: "Breakthrough design",
+    type: "iPhone",
+    instock: 8,
+    id: 7
+  },
+  {
+    name: "MacBook Air M2",
+    price: 1600,
+    screen: "screen 13.1 inches",
+    backCamera: "Camera: Main 0 MP & secondary 0 MP, 0 MP",
+    frontCamera: "12 MP",
+    img: "https://resources.claroshop.com/medios-plazavip/s2/12170/4799706/646bd2d066178-apple_z0uk_mpxt23_bh_macbook_pro_i5_2_3ghz_1343074_acac59e4-bcd5-4b36-bcc5-533b76e94569-1600x1600.jpg?scale=500&qlty=75",
+    desc: "Breakthrough design",
+    type: "Macbook",
+    instock: 4,
+    id: 8
   },
   ];
