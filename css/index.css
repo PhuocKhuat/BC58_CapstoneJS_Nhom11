@@ -14,7 +14,7 @@
     display: none;
   }
   
-  #modal {
+  .modal {
     width: 400px;
     width: 400px;
     display: block;
@@ -65,25 +65,24 @@
     top: 0;
     left: 0;
     width: 100%;
+    transition: 0.3s ease-in-out;
   }
 
   #modal-content {
-    background: #f9f2e9;
+    background: #eee;
     max-width: 500px;
     position: relative;
     left: 50%;
     top: 100px;
     transform: translateX(-50%);
-    border-radius: 15px;
   }
 
   .modal-header {
     background: palevioletred;
   }
-
   
   header {
-    position: initial;
+    position: relative;
     z-index: 100;
     overflow: hidden;
     width: 100%;
