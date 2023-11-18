@@ -1,24 +1,4 @@
-function rennderDssp(dssp) {
-    var contentHTML = "";
-    for (var i = 0; i < dssp.length; i++) {
-      var data = dssp[i];
-      var trString = `<tr>
-              <td>${data.id}</td>
-              <td>${data.name}</td>
-              <td>${data.price}</td>
-              <td>${data.img}</td>
-              <td>${data.desc}</td>
-              <td>
-              <button class="btn btn-danger">Delete</button>
-              <button class="btn btn-primary">Edit</button>
-              </td>
-          </tr>`;
-      contentHTML = contentHTML + trString;
-    }
-    document.getElementById("tableDanhSach").innerHTML = contentHTML;
-  }
-  
-  function rennderProductlist(productArr) {
+    function rennderProductlist(productArr) {
     var contentHTML = "";
     for (var i = 0; i < productArr.length; i++) {
       var product = productArr[i];
@@ -26,11 +6,11 @@ function rennderDssp(dssp) {
               <td>${product.id}</td>
               <td>${product.name}</td>
               <td>${product.price}</td>
-              <td>${product.img}</td>
+              <td><img src="${product.img}"/></td>
               <td>${product.desc}</td>
               <td>
-              <button onclick=deleteProduct(${product.id}) class="btn btn-danger">Delete</button>
-              <button class="btn btn-warning">Edit</button>
+              <button onclick='deleteProduct(${product.id})' class="btn btn-danger">Delete</button>
+              <button onclick='editProduct(${product.id})' class="btn btn-warning">Edit</button>
               </td>
           </tr>`;
       contentHTML += trString;
@@ -44,6 +24,25 @@ function rennderDssp(dssp) {
   function turnOffLoading() {
     document.getElementById("spinner").style.display = "none";
   }
+
+  //lấy thông tin từ form
+  function getDataForm() {
+    var id = document.getElementById("maSP").value;
+    var ten = document.getElementById("tenSP").value;
+    var gia = document.getElementById("giaSP").value;
+    var hinhAnh = document.getElementById("hinhAnh").value;
+    var moTa = document.getElementById("moTa").value;
+
+    return {
+      id: id,
+      name: ten,
+      price: gia,
+      img: hinhAnh,
+      desc: moTa,
+    }
+  }
+
+
   
   
   //theme
@@ -79,21 +78,6 @@ const filterProduct = () => {
   else {
       productFilter = products;
   }
-  rennderDssp(productFilter);
+  rennderfetchProductList(productFilter);
 }
 
-//Mở đóng modal
-const btnOpen = document.getElementById('btnOpen')
-const modal = document.getElementById('modal-container')
-const btnClose = document.getElementById('btnClose')
-
-function toggleModal(e) {
-  modal.classList.toggle('hide')
-}
-btnOpen.addEventListener('click', toggleModal)
-btnClose.addEventListener('click', toggleModal)
-modal.addEventListener('click', function(e) {
-  if(e.target == e.currentTarget){
-    toggleModal()
-  }
-})
