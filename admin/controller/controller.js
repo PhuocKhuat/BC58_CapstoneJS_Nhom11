@@ -56,3 +56,44 @@ function rennderDssp(dssp) {
       theme.src = '../../asset/img/moon.png';
     }
   }
+
+  //LỌC DANH SÁCH THEO LOẠI 
+/**
+ * B1. Tạo onchange ở thẻ select.
+ * B2. Khởi tạo function bằng ES6.
+ * B3. dom id của thẻ select lấy giá trị.
+ * B4. Khởi tạo 1 mảng rỗng 
+ */
+const filterProduct = () => {
+  let selectList = domID('selectList').value;
+  let productFilter = [];
+  if(selectList === "Samsung"){
+      productFilter = products.filter((item) => item.type === "Samsung" );
+  } else if(selectList === "iPhone"){
+      productFilter = products.filter((item) => item.type === "iPhone");   
+  } else if(selectList === "Macbook") {
+      productFilter = products.filter((item) => item.type === "Macbook");
+  } else if(selectList === "iPad") {
+    productFilter = products.filter((item) => item.type === "iPad");
+  }
+  else {
+      productFilter = products;
+  }
+  rennderDssp(productFilter);
+}
+
+//Mở đóng modal
+const btnOpen = document.getElementById('btnOpen')
+const modal = document.getElementById('modal-container')
+const btnClose = document.getElementById('btnClose')
+
+function toggleModal(e) {
+  modal.classList.toggle('hide')
+}
+btnOpen.addEventListener('click', toggleModal)
+btnClose.addEventListener('click', toggleModal)
+modal.addEventListener('click', function(e) {
+  if(e.target == e.currentTarget){
+    toggleModal()
+  }
+})

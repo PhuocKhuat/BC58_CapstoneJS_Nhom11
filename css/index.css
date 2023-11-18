@@ -14,7 +14,7 @@
     display: none;
   }
   
-  .modal {
+  #modal {
     width: 400px;
     width: 400px;
     display: block;
@@ -56,6 +56,36 @@
     visibility: visible;
     top: 30%;
     transform: translate(-50%, -50%) scale(1);
+  }
+
+  #modal-container {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* opacity: 0;
+    pointer-events: none; */
+    transition: 0.3s ease-in-out;
+  }
+
+  #modal-content {
+    background: #eee;
+    max-width: 500px;
+    position: relative;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+  }
+
+  /* #modal-container.show {
+    opacity: 1;
+    pointer-events: all;
+  } */
+
+  .hide {
+    display: none;
   }
   
   header {
@@ -161,6 +191,10 @@
     text-align: center;
     position: relative;
     top: 8px;
+  }
+  
+  button {
+    cursor: pointer;
   }
   
   :root {

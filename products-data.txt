@@ -42,5 +42,49 @@
 "img": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-256gb-didongviet_23.jpg",
 "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
 "type": "Iphone"
-}
+},
+{
+"id": "5",
+"name": "Macbook Pro",
+"price": 1000,
+"screen": "screen 54",
+"backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+"frontCamera": "32 MP",
+"img": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-256gb-didongviet_23.jpg",
+"desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+"type": "Macbook"
+},
+{
+"id": "6",
+"name": "Ipad Pro",
+"price": 1000,
+"screen": "screen 54",
+"backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+"frontCamera": "32 MP",
+"img": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-256gb-didongviet_23.jpg",
+"desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+"type": "Ipad"
+},
+{
+"id": "7",
+"name": "Iphone 14",
+"price": 1000,
+"screen": "screen 54",
+"backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+"frontCamera": "32 MP",
+"img": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-256gb-didongviet_23.jpg",
+"desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+"type": "Iphone"
+},
+{
+"id": "8",
+"name": "Macbook Air M2",
+"price": 1000,
+"screen": "screen 54",
+"backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+"frontCamera": "32 MP",
+"img": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-256gb-didongviet_23.jpg",
+"desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+"type": "Macbook"
+},
 ]

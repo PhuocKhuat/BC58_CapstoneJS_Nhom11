@@ -67,23 +67,7 @@ function deleteProduct(id) {
     });
 }
 
-//TÌM KIỂM SẢN PHẨM THEO TÊN.
-domID('btnTimSP').onclick = () =>{
-  let input = domID('searchName').value.toLowerCase();
-  let result = cartArray.filter((item) => {
-    item.name.toLowerCase().includes(input)
-  });
-  renderDssp(result);
-}
-const btnSearchSP = domID('btnTimSP');
-const searchSP = domID('searchName');
-const tblSanPham = domID('tblSanPham');
-btnSearchSP.addEventListener('click', () => {
-  const productName = searchSP.value.toLowerCase();
-  const filterProduct = products.filter(item => item.name.toLowerCase() === productName);
-  if(filterProduct.length > 0){
-    renderDSSP(filterProduct);
-  } else{
-    tblSanPham.innerHTML = `<strong class="notFound"><span>Product not found</span></strong>`;
-  }
-})
+//update sp
+
+
+
