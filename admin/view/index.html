@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- TAILWIND CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css"
+      integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <!-- my css  -->
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body class="body">
+    <!-- SPINNER -->
+    <div id="spinner"></div>
+    <!-- HEADER -->
+  <header class="shadow-xl">
+    <div class="cover"></div>
+        <!-- <div class="cover purchase-cover" id="coverHeader"></div> -->
+    <div class="container h-20 flex justify-between"> 
+        <!-- Có 2 đứa con là p và nav, p và nav chưa chắc cùng cấp -->
+        <p class="logo">
+          <a href="#" class="text-xl"><i class="fa-lg fa-solid fa-robot me-3"></i>
+            <span>Cyber Phone</span></a>
+          <p class="home space-x-16">
+            <a href="#" class="flex flex-col space-y-2"><i class="fas fa-home fa-xl mb-1"></i><span>Home</span></a>
+           </p>
+           <p class="admin">
+            <a href="/customer/view/index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
+           </p>
+        </p>
+          
+        <img src="/asset/img/moon.png" id="theme" alt="">
+        <p class="nav">
+          <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
+          <span class="totalQuantity">0</span>
+        </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card text-center m-4">
+      <!-- Header -->
+      <div class="card-header myCardHeader">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="text-left text-primary font-weight-bold text-lg">Phone Managerment</h3>
+          </div>
+          <div class="col-md-6">
+            <button onclick="sideNav()" class="btn btn-primary" id="btnOpen"> <i class="fa fa-plus-circle p-2"></i>Add Phone</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body m-4">
+        <div class="filter">
+          <select class="form-select w-25 mb-5" id="selectList" aria-label="Default select example" onchange="filterProduct()">
+            <option value="">Select product type</option>
+            <option value="iPhone">iPhone</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Macbook">Macbook</option>
+            <option value="iPad">iPad</option>
+          </select>
+          <div class="row mx-0 gy-4" id="phoneList"></div>
+        </div>
+        <table class="table table-bordered table-hover myTable">
+          <thead class="text-primary">
+            <tr>
+              <th>ID</th>
+              <th>Phone Name</th>
+              <th>Price</th>
+              <th>Photo</th>
+              <th>Discription</th>									
+              <th><i class="fa fa-cog p-2"></i></i>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableDanhSach">
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer myCardFooter">
+        <nav>
+          <ul class="pagination justify-content-center" id="ulPhanTrang">
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- MODAL  -->
+  <div class="hide" id="modal-container">
+    <div id="modal-content">
+
+        <!-- Model header  -->
+				<div class="modal-header">
+					<h1 class="font-bold text-xl text-primary">THÔNG TIN SẢN PHẨM</h1>
+          <button class="close" type="button" id="btnClose" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<form role="form">
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+								</div>
+								<input type="text" id="maSP" class="form-control input-sm" placeholder="Mã sản phẩm">
+							</div>
+
+							<span class="sp-thongbao" id="tbMaSP"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fab fa-product-hunt"></i></span>
+								</div>
+								<input type="name" id="name" class="form-control input-sm" placeholder="Tên sản phẩm">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
+								</div>
+								<input type="password" id="gia" class="form-control input-sm" placeholder="Giá tiền">
+							</div>
+							<span class="sp-thongbao" id="tbGia"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-image"></i></span>
+								</div>
+								<input type="text" id="hinhAnh" class="form-control input-sm" placeholder="Hình ảnh">
+							</div>
+							<span class="sp-thongbao" id="tbAnh"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-edit"></i></span>
+								</div>
+								<input type="text" id="moTa" class="form-control input-sm" placeholder="Mô tả">
+							</div>
+							<span class="sp-thongbao" id="tbMoTa"></span>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer" id="modal-footer">
+					<button id="btnThemNV" type="button" onclick="themNV()" class="btn btn-success">Thêm</button>
+					<button id="btnCapNhat" type="button" class="btn btn-primary">Cập nhật</button>
+				</div>
+
+			</div>
+  </div>
+  
+
+  <!-- FOOTER -->
+  <footer class="text-center text-lg-start  gradient-custom">
+    <div class="cover" style="display: none;" ></div>
+        <div class="cover purchase-cover" id="coverFooter"></div>
+    <section class="footer-top d-flex justify-content-center p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+    <section class="footer-middle">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fa-lg fa-solid fa-robot me-3"></i>Cyber Phone
+            </h6>
+            <p>
+              We pride ourselves on our efficiency and hard work, but most of all our
+              ability to source you the best quality and best value products and devices
+              in the market.
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Brands</h6>
+            <p>
+              <a href="#!" class="text-reset">iPhone</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Sumsung</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Xiaomi</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Oppo</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> Da Nang, Thanh Khe, VN</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              cyberphone@mail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+    <!-- Copyright -->
+    <div class="copyright text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
+      <a class="text-reset fw-bold" href="">Cyber Phone</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- method  -->
+    <script src="/admin/controller/method.js"></script>
+    <!-- model  -->
+    <script src="/admin/model/model.js"></script>
+
+    <!-- controller -->
+    <script src="/admin/controller/controller.js"></script>
+
+    <!-- axios  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
+      integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- my js -->
+    <script src="/admin/controller/main.js"></script>
+
+  </body>
+</html>
