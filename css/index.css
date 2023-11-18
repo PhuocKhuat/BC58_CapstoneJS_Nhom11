@@ -59,7 +59,7 @@
   }
   
   header {
-    position: fixed;
+    position: initial;
     z-index: 100;
     overflow: hidden;
     width: 100%;
