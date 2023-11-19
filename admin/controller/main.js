@@ -1,14 +1,5 @@
-var dssp = [];
-
-function layThongTinSP() {
-  var _id = document.getElementById("idSP").value;
-  var _name = document.getElementById("name").value;
-  var _price = document.getElementById("price").value;
-  var _img = document.getElementById("photo").value;
-  var _desc = document.getElementById("desc").value;
-  var sp = new product(_id, _name, _price, _img, _desc);
-
-}
+//render dssp
+var idEdit = null;
 
 //gọi api lấy danh sách sp
 function fetchProductList() {
@@ -29,26 +20,6 @@ function fetchProductList() {
 
 fetchProductList();
 
-//thêm sản phẩm
-document.getElementById('btnThemSP').onclick =() => {
-  var sp = layThongTinSP();
-
-  //call api thêm sp
-  axios ({
-    url: "https://653122ec4d4c2e3f333c7248.mockapi.io/product",
-    mothod: "POST",
-    data: sp,
-  })
-    .then(function (res) {
-    console.log(res);
-   })
-   .catch(function (err) {
-    console.log(err);
-    turnOffLoading();
-   });
-  
-}
-
 //xóa 1 sản phẩm trên sever
 function deleteProduct(id) {
   turnOnLoading();
@@ -67,7 +38,73 @@ function deleteProduct(id) {
     });
 }
 
-//update sp
+//thêm sp trên sever
+function createProduct(){
+  console.log('sss')
+
+  var product = getDataForm();
+  turnOnLoading();
+  axios({
+    url: "https://653122ec4d4c2e3f333c7248.mockapi.io/product",
+    method: "POST",
+    data: product,
+  })
+    .then(function (res) {
+      //gọi api lấy ds mới nhất từ server sau khi thêm thành công
+      fetchProductList();
+      console.log(res);
+      //tắt modal sau khi thêm thành công
+      $('#myModal').modal('hide')
+    })
+    .catch(function (err) {
+      console.log(err);
+      turnOffLoading();
+    });
+}
+
+//sửa = lấy chi tiết + cập nhật
+function editProduct(id) {
+  $('#myModal').modal('show')
+  axios({
+    url: `https://653122ec4d4c2e3f333c7248.mockapi.io/product/${id}`,
+    method: "GET",
+  })
+    .then(function (res) {
+      console.log(res.data);
+      var product = res.data;
+      //hiện thị res lên form
+      document.getElementById('maSP').value = product.id;
+      document.getElementById('tenSP').value = product.name;
+      document.getElementById('giaSP').value = product.price;
+      document.getElementById('hinhAnh').value = product.img;
+      document.getElementById('moTa').value = product.desc;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function updateProduct(){
+  var product = getDataForm();
+  //gọi api cập nhật
+  turnOnLoading();
+  axios({
+    url: `https://653122ec4d4c2e3f333c7248.mockapi.io/product/${idEdit}`,
+    method: "PUT",
+    data: product,
+  })
+    .then(function (res) {
+      //gọi api lấy ds mới nhất từ server sau khi cập nhật thành công
+      fetchProductList();
+      console.log(res);
+      //tắt modal sau khi cập nhật thành công
+      $('#myModal').modal('hide')
+    })
+    .catch(function (err) {
+      console.log(err);
+      turnOffLoading();
+    });
+}
 
 
 

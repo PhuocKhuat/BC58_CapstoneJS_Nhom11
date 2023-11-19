@@ -39,7 +39,7 @@
     <!-- my css  -->
     <link rel="stylesheet" href="/css/index.css" />
   </head>
-  <body class="body">
+  <body>
     <!-- SPINNER -->
     <div id="spinner"></div>
     <!-- HEADER -->
@@ -55,7 +55,7 @@
             <a href="#" class="flex flex-col space-y-2"><i class="fas fa-home fa-xl mb-1"></i><span>Home</span></a>
            </p>
            <p class="admin">
-            <a href="/index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
+            <a href="/customer/view/index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
            </p>
         </p>
           
@@ -76,7 +76,9 @@
             <h3 class="text-left text-primary font-weight-bold text-lg">Phone Managerment</h3>
           </div>
           <div class="col-md-6">
-            <button onclick="sideNav()" class="btn btn-primary" id="btnOpen"> <i class="fa fa-plus-circle p-2"></i>Add Phone</button>
+            <button class="btn btn-primary" id="btnOpen" onclick=""
+            data-toggle="modal"
+            data-target="#myModal"> <i class="fa fa-plus-circle p-2"></i>Add Phone</button>
           </div>
         </div>
       </div>
@@ -119,25 +121,21 @@
         </nav>
       </div>
     </div>
-  </div>
 
-  
-
-  <!-- MODAL  -->
-  <div class="hide" id="modal-container">
-    <div id="modal-content">
+    <!-- MODAL  -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div id="modal-content">
 
         <!-- Model header  -->
 				<div class="modal-header">
-					<h1 class="font-bold text-xl text-primary">THÔNG TIN SẢN PHẨM</h1>
-          <button class="close" type="button" id="btnClose" data-dismiss="modal">&times;</button>
+					<h1 class="modal-title text-2xl font-bold text-white">THÔNG TIN SẢN PHẨM</h1>
+          <button class="close" type="button" data-dismiss="modal">&times;</button>
 				</div>
 
 				<!-- Modal body -->
 				<div class="modal-body">
-
-					<form role="form">
-
+          	
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
@@ -154,7 +152,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fab fa-product-hunt"></i></span>
 								</div>
-								<input type="name" id="name" class="form-control input-sm" placeholder="Tên sản phẩm">
+								<input type="name" id="tenSP" class="form-control input-sm" placeholder="Tên sản phẩm">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
@@ -164,7 +162,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
 								</div>
-								<input type="password" id="gia" class="form-control input-sm" placeholder="Giá tiền">
+								<input type="password" id="giaSP" class="form-control input-sm" placeholder="Giá tiền">
 							</div>
 							<span class="sp-thongbao" id="tbGia"></span>
 						</div>
@@ -189,17 +187,20 @@
 							<span class="sp-thongbao" id="tbMoTa"></span>
 						</div>
 
-					</form>
 				</div>
 
 				<!-- Modal footer -->
-				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemNV" type="button" onclick="themNV()" class="btn btn-success">Thêm</button>
-					<button id="btnCapNhat" type="button" class="btn btn-primary">Cập nhật</button>
+				<div class="modal-footer">
+					<button onclick="createProduct()" class="btn btn-success">Add</button>
+					<button onclick="updateProduct()" class="btn btn-info">Update</button>
 				</div>
 
 			</div>
+    </div>
+    
   </div>
+  </div>
+
   
 
   <!-- FOOTER -->
@@ -327,6 +328,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    
 
     <!-- method  -->
     <script src="/admin/controller/method.js"></script>
