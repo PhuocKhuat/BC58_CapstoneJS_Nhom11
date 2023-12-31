@@ -89,7 +89,7 @@ function renderCart(){
         </span>
     </td>
     <td><span class="sPcom2">${item.id}</span></td>
-    <td><span class="sPcom3 priceProduct">${item.price}</span></td>
+    <td><span class="sPcom3 priceProduct">${item.price * item.quantity}</span></td>
     <td>
     <button class="btn btn-danger sPcom4" onclick="xoaSP('${item.id}')">Delete</button>
     </td>
