@@ -9,11 +9,11 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS v5.2.1 -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
     <!-- FONT AWESOME -->
@@ -32,14 +32,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <!-- CAROUSEL -->
     <link rel="stylesheet" href="../../css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
 
-    <!-- my css  -->
+    <!-- MY CSS  -->
     <link rel="stylesheet" href="../../css/index.css" />
   </head>
   <body>
+    
     <!-- SPINNER -->
     <div id="spinner"></div>
     <!-- HEADER -->
@@ -76,11 +77,12 @@
             <h3 class="text-left text-primary font-weight-bold text-lg">Phone Managerment</h3>
           </div>
           <div class="col-md-6 text-right">
-            <button class="btn btn-primary" id="btnThem" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus-circle p-2"></i>Add Phone</button>
+            <button class="btn btn-primary" 
+            type="button" id="btnThem" data-bs-toggle ="modal" data-bs-target ="#exampleModal"> <i class="fa fa-plus-circle p-2"></i>Add product</button>
           </div>
         </div>
       </div>
-
+      
       <!-- Body -->
       <div class="card-body">
         <div class="row mb-3">
@@ -122,64 +124,72 @@
   </div>
 
   <!-- MODAL  -->
-  <div class="modal fade show" id="myModal">
+  <div class="modal fade" id="exampleModal"
+  tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<header class="head-form mb-0">
-					<h2 id="header-title">Log In</h2>
-				</header>
-
-				<!-- Modal body -->
+        <!-- MODAL HEADER -->
+				<div class="modal-header">
+          <h2 class="header-title modal-title" id="exampleModalLabel" >Add product</h2>
+        </div>
+				<!-- MODAL BODY -->
 				<div class="modal-body" >
 					<form role="form">
+            <!-- MÃ -->
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+									<span class="input-group-text"><i class="fa   
+                  fa-sort-numeric-down"></i></span>
 								</div>
-								<input type="text" name="tk" id="idSP" class="form-control input-sm" placeholder="Nhập mã sản phẩm">
+								<input type="text" name="tk" id="idSP" class="form-control input-sm" placeholder="Enter product code">
 							</div>
-
+              <!-- TB MÃ -->
 							<span class="sp-thongbao" id="tbIDSP"></span>
 						</div>
-
+            <!-- TÊN -->
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
 								</div>
-								<input type="name" name="name" id="name" class="form-control input-sm" placeholder="Nhập tên sản phẩm">
+								<input type="name" name="name" id="name" class="form-control input-sm" placeholder="Enter name product">
 							</div>
+              <!-- TB TÊN -->
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
-            
+            <!-- GIÁ TIỀN -->
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+                  <span class="input-group-text"><i class="fa fa-money-bill"></i></span>
                 </div>
-                <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Nhập giá tiền">
+                <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Enter price product">
               </div>
+              <!-- TB GIÁ TIỀN -->
               <span class="sp-thongbao" id="tbGia"></span>
             </div>
 
+            <!-- HÌNH ẢNH -->
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-image"></i></span>
 								</div>
-								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Nhập hình ảnh">
+								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Enter image product">
 							</div>
-
+              <!-- TB HÌNH ẢNH -->
 							<span class="sp-thongbao" id="tbHinhAnh"></span>
 						</div>
 						
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="material-icons">description</i></span>
+									<span class="input-group-text"><i class="material-icons">Description</i></span>
 								</div>
-								<input type="text" name="desc" id="desc" class="form-control input-sm" placeholder="Mô tả sản phẩm">
+                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Enter description product" class="form-control input-sm"></textarea>
 							</div>
 							<span class="sp-thongbao" id="tbMoTa"></span>
 						</div>
@@ -189,16 +199,27 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemSP" type="button" class="btn btn-success">Thêm</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
-					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+					<button id="btnThemSP" type="button" class="btn btn-success">Add</button>
+					<button id="btnCapNhat" type="button" class="btn btn-success">Update</button>
+					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
 
 			</div>
 		</div>
 	</div>
 
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -218,16 +239,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- method  -->
-    <script src="../controller/method.js"></script>
-    <!-- model  -->
-    <script src="/admin/model/model.js"></script>
-
-    <!-- controller -->
-    <script src="/admin/controller/controller.js"></script>
-    
-
-    <!-- axios  -->
+    <!-- AXIOS  -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
       integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
@@ -235,7 +247,15 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <!-- my js -->
+    <!-- METHOD  -->
+    <script src="../controller/method.js"></script>
+    <!-- MODEL  -->
+    <script src="/admin/model/model.js"></script>
+
+    <!-- CONTROLLER -->
+    <script src="/admin/controller/controller.js"></script>
+
+    <!-- MY JS -->
     <script src="/admin/controller/main.js"></script>
 
   </body>

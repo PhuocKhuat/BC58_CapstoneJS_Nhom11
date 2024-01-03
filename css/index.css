@@ -13,7 +13,50 @@
   z-index: 10;
   display: none;
 }
-
+/* MODAL ORDER */
+.modals {
+  width: 400px;
+  width: 400px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-radius: 6px;
+  transform: translate(-50%, -50%) scale(0,1);
+  background: #edf6f9;
+  height: auto;
+  padding: 30px;
+  text-align: center;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.modals .fa-check {
+  font-size: 40px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: green;
+  line-height: 100px;
+}
+.modals .btnOK {
+  padding: 9px 137px;
+  font-size: 20px;
+}
+.modals .congra {
+  font-size: 26px;
+}
+.modals .order {
+  font-size: 20px;
+}
+.modals .receive {
+  font-size: 17px;
+}
+#modal.open-modal {
+  visibility: visible;
+  top: 30%;
+  transform: translate(-50%, -50%) scale(1);
+}
+/* MODAL PRODUCT */
 .modal {
   width: 400px;
   width: 400px;
@@ -22,43 +65,15 @@
   top: 0;
   left: 50%;
   border-radius: 6px;
-  transform: translate(-50%, -50%) scale(0.1);
+  transform: translate(-50%, 10%);
   background: #edf6f9;
   height: auto;
   padding: 30px;
   text-align: center;
-  visibility: hidden;
   transition: 0.3s;
 }
-.modal .fa-check {
-  font-size: 40px;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  background: green;
-  line-height: 100px;
-}
-.modal .btnOK {
-  padding: 9px 137px;
-  font-size: 20px;
-}
-.modal .congra {
-  font-size: 26px;
-}
-.modal .order {
-  font-size: 20px;
-}
-.modal .receive {
-  font-size: 17px;
-}
 
-#modal.open-modal {
-  visibility: visible;
-  top: 30%;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-
+/* HEADER */
 header {
   position: initial;
   z-index: 100;
@@ -165,6 +180,11 @@ header .nav .totalQuantity {
   text-align: center;
   position: relative;
   top: 8px;
+}
+.header-title{
+  padding-left: 100px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 :root {
