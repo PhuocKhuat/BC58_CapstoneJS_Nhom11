@@ -1,76 +1,59 @@
-//CHỨC NĂNG 
-//SPINNER ~ tạo 2 nút turnOnLoading, turnOffLoading
-function turnOnLoading(){
-    domID('spinner').style.display = "block";
-}
-function turnOffLoading(){
-    domID('spinner').style.display = "none";
-}
-
-//MÀN HÌNH MỞ KHI ẤN VÀO NÚT
-const content = domID('content');
-const cover = domID('cover');
-const coverHeader = domID('coverHeader');
-const coverBanner = domID('coverBanner');
-const coverFooter = domID('coverFooter');
-const sideNav = () => {
-  content.style.transition = "0.3s";  
-  content.style.transform = "translateX(70%)";
-  cover.style.transform = "translateX(0px)";
-  coverHeader.style.transform = "translateX(0px)";
-  coverBanner.style.transform = "translateX(0px)";
-  coverFooter.style.transform = "translateX(0px)";
-}
-const closes = () => {
-  content.style.transition = "0.3s";
-  content.style.transform ="translateX(170%)";
-  cover.style.transform = "translateX(100%)";
-  coverHeader.style.transform = "translateX(100%)";
-  coverBanner.style.transform = "translateX(100%)";
-  coverFooter.style.transform = "translateX(100%)";
-}
-
-//LIGHT & DARK THEME.
-/**
- * B1. HTML: Tạo img hình ảnh moon và id cho nó.
- * B2. CSS: Tạo :root bên css, set các thuộc tính ban đầu.
- * B3. CSS: Tạo 1 class mới, class này chứa các thuộc tính sau khi nhấn nút.
- * B4. CSS: Thay thế primary, secondary cho những chỗ muốn hiện ban đầu.
- * B5. JS: dom đến id của thẻ img và tạo nút, cho phương thức toggle lớp class trên.
- * B6. Nếu body chứa lớp class trên thì đổi hình ảnh sun, ngược lại thì moon.
- */
-const theme = domID('theme');
-theme.onclick = () =>{
-  document.body.classList.toggle("darkTheme");
-  if(document.body.classList.contains("darkTheme")){
-     theme.src = '../../asset/img/sun.png';
-  } else{
-    theme.src = '../../asset/img/moon.png';
+//6. TẠO RENDERDSSP Ở ĐÂY.
+  /**
+   * B1. Tạo 1 chuỗi rỗng.
+   * B2. Tạo 1 vòng lặp for.
+   * B3. Khởi tạo biến và gán bằng vị trí i trong productArr.
+   * B4. Tạo 1 chuỗi string chứa div cho từng sản phẩm.
+   * B5. Chuỗi rỗng += chuỗi string.
+   * B6. dom lên giao diện.
+   */
+  //B1. Tạo 1 chuỗi rỗng.
+  function renderDSSP(productArr){
+    var contentHTML = "";
+    //B2. Tạo 1 vòng lặp for.
+    for(i =0; i< productArr.length; i++){
+       //B3. Khởi tạo biến và gán bằng vị trí i trong productArr.
+       var sP = productArr[i];
+       //B4. Tạo 1 chuỗi string chứa div cho từng sản phẩm.
+      var string = `
+      <div class="col">
+      <div class="main-card flex justify-evenly space-x-20 pt-5">
+      <div class="card">
+          <div class="card-header flex justify-between">
+            <i class="fab fa-apple"></i>
+            <p class="location" id="location">${sP.id}</p>
+            <em class="stocks">In Stock: ${sP.instock}</em>
+          </div>
+          <div class="card-body">
+            <img id="product-img" class="product-img" src="${sP.img}" alt="">
+          </div>
+          <div class="card-footer">
+            <div class="name-fav flex justify-between">
+              <strong class="product-name" id="product-name">${sP.name}</strong>
+              <button onclick="this.classList.toggle('fav')" class="heart fav"><i class="fas fa-heart"></i></button>
+            </div>
+            <div class="wrapper">
+              <h5>${sP.desc}</h5>
+              <p>Product details: ${sP.screen}, back camera: ${sP.backCamera}, font camera: ${sP.frontCamera}</p>
+            </div>
+            <div class="purchase flex justify-between items-center">
+              <span class="priceDola">$</span>
+              <p class="product-price font-bold" id="product-price">${sP.price}</p>
+              <p>${sP.type}</p>
+              <span class="btn-add">
+                <div>
+                <button class="add-btn" id="add-btn" onclick="themSP(${sP.id})">Add <i class="fas fa-chevron-right"></i></button>
+                </div>
+             </span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      `
+      //B5. Chuỗi rỗng += chuỗi string.
+      contentHTML += string;
+    }
+    //B6. dom lên giao diện.
+     domID('tblSanPham').innerHTML = contentHTML;
   }
-}
-
-// MỤC 4. LỌC DANH SÁCH THEO LOẠI 
-/**
- * B1. Tạo onchange ở thẻ select.
- * B2. Khởi tạo function bằng ES6.
- * B3. dom id của thẻ select lấy giá trị.
- * B4. Khởi tạo 1 mảng rỗng 
- */
-const filterProduct = () => {
-  let selectList = domID('selectList').value;
-  let productFilter = [];
-  if(selectList === "Samsung"){
-      productFilter = products.filter((item) => item.type === "Samsung" );
-  } else if(selectList === "iPhone"){
-      productFilter = products.filter((item) => item.type === "iPhone");   
-  } else if(selectList === "Macbook") {
-      productFilter = products.filter((item) => item.type === "Macbook");
-  } else if(selectList === "iPad") {
-    productFilter = products.filter((item) => item.type === "iPad");
-  }
-  else {
-      productFilter = products;
-  }
-  renderDSSP(productFilter);
-}
-//

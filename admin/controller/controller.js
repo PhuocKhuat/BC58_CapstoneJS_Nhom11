@@ -26,7 +26,7 @@ function rennderProductlist(productArr) {
             <td>${product.id}</td>
             <td>${product.name}</td>
             <td>${product.price}</td>
-            <td>${product.img}</td>
+            <td><img src=${product.img} class="w-20 ms-5"/></td>
             <td>${product.desc}</td>
             <td>
             <button onclick=deleteProduct(${product.id}) class="btn btn-danger">Delete</button>
@@ -38,21 +38,17 @@ function rennderProductlist(productArr) {
   document.getElementById("tableDanhSach").innerHTML = contentHTML;
 }
 
-function turnOnLoading() {
-  document.getElementById("spinner").style.display = "block";
-}
-function turnOffLoading() {
-  document.getElementById("spinner").style.display = "none";
-}
-
-
-//theme
-const theme = domID('theme');
-theme.onclick = () =>{
-  document.body.classList.toggle("darkTheme");
-  if(document.body.classList.contains("darkTheme")){
-     theme.src = '../../asset/img/sun.png';
-  } else{
-    theme.src = '../../asset/img/moon.png';
-  }
+function layThongTinSP() {
+  var _id = document.getElementById("idSP").value;
+  var _name = document.getElementById("name").value;
+  var _price = document.getElementById("price").value;
+  var _img = document.getElementById("photo").value;
+  var _desc = document.getElementById("desc").value;
+  return {
+    id: _id,
+    name: _name,
+    price: _price,
+    img: _img,
+    desc: _desc
+  };
 }

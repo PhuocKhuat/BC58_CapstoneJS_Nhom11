@@ -16,7 +16,6 @@
 /* MODAL ORDER */
 .modals {
   width: 400px;
-  width: 400px;
   display: block;
   position: absolute;
   top: 0;
@@ -29,6 +28,7 @@
   text-align: center;
   visibility: hidden;
   transition: 0.3s;
+
 }
 .modals .fa-check {
   font-size: 40px;
@@ -58,8 +58,7 @@
 }
 /* MODAL PRODUCT */
 .modal {
-  width: 400px;
-  width: 400px;
+  width: 475px;
   display: block;
   position: absolute;
   top: 0;
@@ -68,9 +67,18 @@
   transform: translate(-50%, 10%);
   background: #edf6f9;
   height: auto;
-  padding: 30px;
+  padding: 5px 30px;
   text-align: center;
   transition: 0.3s;
+}
+.modal.show{
+  padding-left: 30px !important;
+}
+.nhapChiTiet{
+  margin-bottom: 35px;
+}
+.input-group-text{
+  padding-bottom: 14px;
 }
 
 /* HEADER */
@@ -187,13 +195,13 @@ header .nav .totalQuantity {
   font-weight: bold;
 }
 
+/* DARK THEME */
 :root {
   --primary-color: #edf2fc;
   --secondary-color: #212121;
   ---third-color: #59D2FE;
   ---four-color: linear-gradient(to left, #08203e, #2f3e46);
 }
-
 .darkTheme {
   --primary-color: #000106;
   --secondary-color: #f2f4f3;
@@ -201,6 +209,7 @@ header .nav .totalQuantity {
   ---four-color: linear-gradient(to left, #8942a8, #ba382f);
 }
 
+/* CAROUSEL */
 .cybercarousel {
   overflow: hidden;
   position: relative;
@@ -215,12 +224,10 @@ header .nav .totalQuantity {
   backdrop-filter: blur(5px);
   z-index: 9;
 }
-
 .owl-carousel {
   position: relative;
   top: 10px;
 }
-
 .owl-carousel .owl-nav button.owl-prev {
   position: absolute;
   bottom: 250px;
@@ -228,7 +235,6 @@ header .nav .totalQuantity {
   left: 10px;
   color: #59D2FE;
 }
-
 .owl-carousel .owl-nav button.owl-next {
   position: absolute;
   bottom: 250px;
@@ -236,16 +242,15 @@ header .nav .totalQuantity {
   right: 10px;
   color: #59D2FE;
 }
-
 .owl-theme .owl-nav [class*=owl-]:hover {
   background: none;
   color: #73FBD3;
 }
 
+/* BANNER */
 .owl-theme .owl-dots .owl-dot {
   display: none;
 }
-
 .banner {
   background: var(---four-color);
 }
@@ -346,7 +351,6 @@ header .nav .totalQuantity {
   position: relative;
   padding: 0px 197px;
 }
-
 .filter .form-select {
   bottom: 30px;
   position: relative;
@@ -365,6 +369,7 @@ header .nav .totalQuantity {
   border-radius: 0.25rem;
 }
 
+/* FOOTER */
 footer {
   overflow: hidden;
   position: relative;
@@ -443,6 +448,7 @@ footer .copyright:hover {
   background-color: #fee440;
 }
 
+/* CART */
 .cart {
   position: relative;
   overflow: hidden;
@@ -570,6 +576,7 @@ footer .copyright:hover {
   z-index: 9;
 }
 
+/* RESPONSIVE */
 @media screen and (max-width: 1248px) {
   header #btnSearchSP {
     left: 1020px;
