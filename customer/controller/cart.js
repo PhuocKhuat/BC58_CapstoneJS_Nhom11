@@ -35,7 +35,7 @@ const themSP = (id) => {
   // 
   else{
     //B4. Tìm sản phẩm trong products ~ FIND.
-    const item = products.find((product) => product.id === id);
+      const item = products.find((product) => product.id === id)	;
     console.log("item", item);
     //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
     cartArray.push({
@@ -53,7 +53,7 @@ const themSP = (id) => {
  * B1. Tạo 1 hàm capNhatSP().
  * B2. Cập nhật bảng giỏ hàng (renderCart).
  */
-function capNhatSP(){
+function capNhatSP() {
   renderCart();
   renderSubtotal();
   //LƯU LOCALSTORAGE VÀ CHUYỂN THÀNH CARTARRAY TỪ ARRAY THÀNH JSON.
@@ -61,7 +61,7 @@ function capNhatSP(){
   // dataJson = JSON.stringify(cartArray);
   // localStorage.setItem('cartArray', dataJson);
   localStorage.setItem("cartArray", JSON.stringify(cartArray));
-} 
+}
 
 //TẠO RENDERCART ~ 5 BƯỚC.
 /**
@@ -71,7 +71,8 @@ function capNhatSP(){
  * B4. Xuất ra màn hình các thẻ html.
  * B5. Tạo layout và gán các cặp key:value tương ứng muốn xuất hiện.
  */
-function renderCart(){
+console.log(cartArray);
+function renderCart() {
   tblCart.innerHTML = ""; //B2. Xoá phần tử card ban đầu.
   //B3. Dùng forEach duyệt mảng.
   cartArray.forEach((item) => {
@@ -80,23 +81,33 @@ function renderCart(){
     tblCart.innerHTML += `
   <div class="cartDiv flex justify-evenly items-center space-x-6">
   <tr class="cartTr col w-24">
-    <td><img src="${item.img}" class="w-16 sPcom" style="display: inline-block"/></td>
+    <td><img src="${
+      item.img
+    }" class="w-16 sPcom" style="display: inline-block"/></td>
     <td><span class="sPcom name">${item.name}</span></td>
     <td><span class="sPcom1 units">
-            <span class="btn minus" onclick = "changeUnits('minus', ${item.id})">-</span>  
+            <span class="btn minus" onclick = "changeUnits('minus', ${
+              item.id
+            })">-</span>  
             <span class="numberUnits">${item.quantity}</span>  
-            <span class="btn plus" onclick = "changeUnits('plus', ${item.id})">+</span>  
+            <span class="btn plus" onclick = "changeUnits('plus', ${
+              item.id
+            })">+</span>  
         </span>
     </td>
     <td><span class="sPcom2">${item.id}</span></td>
-    <td><span class="sPcom3 priceProduct">${item.price * item.quantity}</span></td>
+    <td><span class="sPcom3 priceProduct">${
+      item.price * item.quantity
+    }</span></td>
     <td>
-    <button class="btn btn-danger sPcom4" onclick="xoaSP('${item.id}')">Delete</button>
+    <button class="btn btn-danger sPcom4" onclick="xoaSP('${
+      item.id
+    }')">Delete</button>
     </td>
    </tr>
   </div>
-  `
-});
+  `;
+  });
 }
 
 //HÀM THAY ĐỔI SỐ LƯỢNG (MỤC ĐÍCH LÀ BIẾN NHỮNG PHẦN TỬ (SỐ LƯỢNG) THÀNH SỐ LƯỢNG MỚI)
@@ -111,36 +122,40 @@ function renderCart(){
  * B8. Đi sử dụng capNhatSP().
  */
 //Tham số đầu tiên là hành động (cộng hoặc trừ)
-function changeUnits(action, id){
+function changeUnits(action, id) {
   cartArray = cartArray.map((item) => {
-      let quantity = item.quantity; //item chưa tăng được.
-      //Nếu những item trong cartArray này trùng với tham số id.
-      if(item.id === id){
-        if(action === 'minus' && quantity >1){ //Để >1 là 2 trở lên, khi giảm xuống 1.
-         quantity--;
-        } else if(action === 'plus' && quantity < item.instock){ //Để <9 là 8 trở xuống, khi tăng lên 1 là 9.
-         quantity++;
-        }
+    let quantity = item.quantity; //item chưa tăng được.
+    //Nếu những item trong cartArray này trùng với tham số id.
+    if (item.id === id) {
+      if (action === "minus" && quantity > 1) {
+        //Để >1 là 2 trở lên, khi giảm xuống 1.
+        quantity--;
+      } else if (action === "plus" && quantity < item.instock) {
+        //Để <9 là 8 trở xuống, khi tăng lên 1 là 9.
+        quantity++;
       }
-      return { //SPREAD OPERATOR + OBJECT LITERAL.
-       ...item,
-       quantity, //item đã tăng giảm được.
-      };
-  })
+    }
+    return {
+      //SPREAD OPERATOR + OBJECT LITERAL.
+      ...item,
+      quantity //item đã tăng giảm được.
+    };
+  });
   capNhatSP();
 }
 
 //TÍNH TỔNG PHỤ.
 /**
  * B1. Những hàm liên quan đến tính tổng hiệu, thì khai báo biến là 0.
- * 
+ *
  */
-function renderSubtotal(){
-  let totalItems =0, totalPrice =0;
+function renderSubtotal() {
+  let totalItems = 0,
+    totalPrice = 0;
   cartArray.forEach((item) => {
     totalItems += item.quantity;
     totalPrice += item.price * item.quantity;
-  })
+  });
   subtotal.innerHTML = `Subtotal (${totalItems} items): $${totalPrice.toLocaleString()}`;
   totalQuantity.innerText = totalItems;
 }
@@ -151,48 +166,47 @@ function renderSubtotal(){
  * B2. Lọc qua từng item trong cartArray trả về id của từng item khác tham số id truyền vào
  * B3. Xoá xong cập nhật lại bảng và giá (đi sử dụng hàm capNhatSP).
  */
-const xoaSP= (id) =>{
+const xoaSP = (id) => {
   //C1:
   // let viTri = cartArray.findIndex((item) => item.id == id);
   // cartArray.splice(viTri, 1);
   //C2:
   cartArray = cartArray.filter((item) => item.id != id);
   capNhatSP();
-}
+};
 
 //12. NÚT CLEAR TẤT CẢ SẢN PHẨM.
 const clearCart = () => {
-  const items = document.querySelectorAll('.cartDiv');
-  if(items.length <= 0){
+  const items = document.querySelectorAll(".cartDiv");
+  if (items.length <= 0) {
     tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
-    // return;  
-  }
-  else if(items.length >= 1){
-    items.forEach(item => (item.remove()));
+    // return;
+  } else if (items.length >= 1) {
+    items.forEach((item) => item.remove());
     subtotal.textContent = "Subtotal (0 items): $0";
     totalQuantity.textContent = 0;
     tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
     // return;
   }
-  localStorage.setItem('cartArray', JSON.stringify([]));
-}
+  localStorage.setItem("cartArray", JSON.stringify([]));
+};
 
 //12. NÚT THANH TOÁN (PURCHASE).
-const modal = domID('modal');
+const modal = domID("modal");
 const buy = () => {
-  const items = document.querySelectorAll('.cartDiv');
-  items.forEach(item => (item.remove()));
-  if(items.length === 0){
+  const items = document.querySelectorAll(".cartDiv");
+  items.forEach((item) => item.remove());
+  if (items.length === 0) {
     tblCart.innerHTML = `<p class="text-center text-3xl text-red-600 my-6">There is no order. Please make a first order.</p>`;
-  }else{
+  } else {
     modal.classList.toggle("open-modal");
   }
   subtotal.textContent = "Subtotal (0 items): $0";
   totalQuantity.textContent = 0;
-  localStorage.setItem('cartArray', JSON.stringify([]));
-} 
+  localStorage.setItem("cartArray", JSON.stringify([]));
+};
 //NÚT OK
-const btnOK = () =>{
+const btnOK = () => {
   console.log(123);
   modal.classList.toggle("open-modal");
-}
+};
