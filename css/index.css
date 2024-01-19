@@ -59,6 +59,8 @@
 /* MODAL PRODUCT */
 .modal {
   width: 475px;
+  height: 650px;
+  overflow-y: scroll !important;
   display: block;
   position: absolute;
   top: 0;
@@ -66,7 +68,6 @@
   border-radius: 6px;
   transform: translate(-50%, 10%);
   background: #edf6f9;
-  height: auto;
   padding: 5px 30px;
   text-align: center;
   transition: 0.3s;
@@ -77,9 +78,13 @@
 .nhapChiTiet{
   margin-bottom: 35px;
 }
+.nhapChiTiet textarea{
+  height: 60px;
+}
 .input-group-text{
   padding-bottom: 14px;
 }
+
 
 /* HEADER */
 header {

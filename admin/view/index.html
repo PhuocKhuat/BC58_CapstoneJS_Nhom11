@@ -98,11 +98,16 @@
         <table class="table table-bordered table-hover myTable">
           <thead class="text-primary">
             <tr>
-              <th>ID</th>
-              <th>Phone Name</th>
+              <th>Id</th>
+              <th>Name</th>
               <th>Price</th>
-              <th>Photo</th>
-              <th>Discription</th>									
+              <th>Screen</th>
+              <th>backCamera</th>
+              <th>frontCamera</th>
+              <th>Image</th>
+              <th>Type</th>
+              <th>Instock</th>
+              <th>Description</th>									
               <th><i class="fa fa-cog p-2"></i></i>Action</th>
             </tr>
           </thead>
@@ -135,27 +140,26 @@
           <h2 class="header-title modal-title" id="exampleModalLabel" >Add product</h2>
         </div>
 				<!-- MODAL BODY -->
-				<div class="modal-body" >
+				<div class="modal-body modalBody" >
 					<form role="form">
             <!-- MÃ -->
-						<div class="form-group nhapChiTiet">
+						<!-- <div class="form-group nhapChiTiet">
 							<div class="input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa   
-                  fa-sort-numeric-down"></i></span>
+									<span class="input-group-text"><i class="fa fa-info"></i></span>
 								</div>
-								<input type="text" name="tk" id="idSP" class="form-control input-sm" placeholder="Enter product code">
+								<input type="number" name="id" id="id" class="form-control input-sm" placeholder="Enter product Id">
 							</div>
-              <!-- TB MÃ -->
 							<span class="sp-thongbao" id="tbIDSP"></span>
-						</div>
+						</div> -->
+            <!-- TB MÃ -->
             <!-- TÊN -->
 						<div class="form-group nhapChiTiet">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
 								</div>
-								<input type="name" name="name" id="name" class="form-control input-sm" placeholder="Enter name product">
+								<input type="name" name="nameSP" id="nameSP" class="form-control input-sm" placeholder="Enter name product">
 							</div>
               <!-- TB TÊN -->
 							<span class="sp-thongbao" id="tbTen"></span>
@@ -166,21 +170,76 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-money-bill"></i></span>
                 </div>
-                <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Enter price product">
+                <input type="number" name="priceSP" id="priceSP" class="form-control input-sm" placeholder="Enter price product">
               </div>
               <!-- TB GIÁ TIỀN -->
               <span class="sp-thongbao" id="tbGia"></span>
             </div>
+            <!-- MÀN HÌNH -->
+            <div class="form-group nhapChiTiet">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-portrait"></i></span>
+								</div>
+								<input type="text" name="screen" id="screen" class="form-control input-sm" placeholder="Enter screen product">
+							</div>
+              <!-- TB MÀN HÌNH -->
+							<span class="sp-thongbao" id="tbManHinh"></span>
+						</div>
+            <!-- CAMERA SAU -->
+            <div class="form-group nhapChiTiet">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-mobile"></i></span>
+								</div>
+								<input type="text" name="backCamera" id="backCamera" class="form-control input-sm" placeholder="Enter back camera product">
+							</div>
+              <!-- TB CAM TRƯỚC -->
+							<span class="sp-thongbao" id="tbCamSau"></span>
+						</div>
+            <!-- CAMERA TRƯỚC -->
+            <div class="form-group nhapChiTiet">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-mobile-alt"></i></span>
+								</div>
+								<input type="text" name="frontCamera" id="frontCamera" class="form-control input-sm" placeholder="Enter front camera product">
+							</div>
+              <!-- TB CAM TRƯỚC -->
+							<span class="sp-thongbao" id="tbCamTruoc"></span>
+						</div>
             <!-- HÌNH ẢNH -->
 						<div class="form-group nhapChiTiet">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-image"></i></span>
 								</div>
-								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Enter image product">
+								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Enter image link product">
 							</div>
               <!-- TB HÌNH ẢNH -->
 							<span class="sp-thongbao" id="tbHinhAnh"></span>
+						</div>
+            <!-- LOẠI ĐIỆN THOẠI-->
+						<div class="form-group nhapChiTiet">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fab fa-typo3"></i></span>
+								</div>
+								<input type="text" name="type" id="type" class="form-control input-sm" placeholder="Enter type product">
+							</div>
+              <!-- TB LOẠI -->
+							<span class="sp-thongbao" id="tbLoai"></span>
+						</div>
+            <!-- SỐ LƯỢNG-->
+						<div class="form-group nhapChiTiet">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+								</div>
+								<input type="number" name="quantitySP" id="quantitySP" class="form-control input-sm" placeholder="Enter quantity product">
+							</div>
+              <!-- TB LOẠI -->
+							<span class="sp-thongbao" id="tbSoLuong"></span>
 						</div>
 						<!-- MÔ TẢ -->
 						<div class="form-group nhapChiTiet">

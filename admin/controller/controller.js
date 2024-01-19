@@ -1,4 +1,4 @@
-function rennderDssp(dssp) {
+function renderDssp(dssp) {
   var contentHTML = "";
   for (var i = 0; i < dssp.length; i++) {
     var data = dssp[i];
@@ -6,11 +6,16 @@ function rennderDssp(dssp) {
             <td>${data.id}</td>
             <td>${data.name}</td>
             <td>${data.price}</td>
-            <td>${data.img}</td>
+            <td>${data.screen}</td>
+            <td>${data.backCamera}</td>
+            <td>${data.frontCamera}</td>
+            <td><img src=${data.img} class="w-20" alt="Phone Image"/></td>
+            <td>${data.type}</td>
+            <td>${data.instock}</td>
             <td>${data.desc}</td>
             <td>
-            <button class="btn btn-danger">Delete</button>
-            <button class="btn btn-primary">Edit</button>
+            <button class="btn btn-danger" onclick="deleteProduct(${data.id})">Delete</button>
+            <button class="btn btn-warning" data-bs-toggle ="modal" data-bs-target ="#exampleModal" onclick="editProduct(${data.id})" >Edit</button>
             </td>
         </tr>`;
     contentHTML = contentHTML + trString;
@@ -18,37 +23,45 @@ function rennderDssp(dssp) {
   document.getElementById("tableDanhSach").innerHTML = contentHTML;
 }
 
-function rennderProductlist(productArr) {
-  var contentHTML = "";
-  for (var i = 0; i < productArr.length; i++) {
-    var product = productArr[i];
-    var trString = `<tr>
-            <td>${product.id}</td>
-            <td>${product.name}</td>
-            <td>${product.price}</td>
-            <td><img src=${product.img} class="w-20 ms-5"/></td>
-            <td>${product.desc}</td>
-            <td>
-            <button onclick=deleteProduct(${product.id}) class="btn btn-danger">Delete</button>
-            <button class="btn btn-warning">Edit</button>
-            </td>
-        </tr>`;
-    contentHTML += trString;
-  }
-  document.getElementById("tableDanhSach").innerHTML = contentHTML;
-}
+// function rennderProductlist(productArr) {
+//   var contentHTML = "";
+//   for (var i = 0; i < productArr.length; i++) {
+//     var product = productArr[i];
+//     var trString = `<tr>
+//             <td>${product.id}</td>
+//             <td>${product.name}</td>
+//             <td>${product.price}</td>
+//             <td><img src=${product.img}/></td>
+//             <td>${product.desc}</td>
+//             <td>
+//             <button class="btn btn-danger">Delete</button>
+//             <button class="btn btn-warning">Edit</button>
+//             </td>
+//         </tr>`;
+//     contentHTML += trString;
+//   }
+//   document.getElementById("tableDanhSach").innerHTML = contentHTML;
+// }
 
 function layThongTinSP() {
-  var _id = document.getElementById("idSP").value;
-  var _name = document.getElementById("name").value;
-  var _price = document.getElementById("price").value;
-  var _img = document.getElementById("photo").value;
-  var _desc = document.getElementById("desc").value;
+  var _name = domID("nameSP").value;
+  var _price = domID("priceSP").value*1;
+  var _screen = domID("screen").value;
+  var _backCamera = domID("backCamera").value;
+  var _fontCamera = domID("frontCamera").value;
+  var _img = domID("photo").value;
+  var _type = domID("type").value;
+  var _instock = domID("quantitySP").value;
+  var _desc = domID("desc").value;
   return {
-    id: _id,
     name: _name,
     price: _price,
+    screen: _screen,
+    backCamera: _backCamera,
+    frontCamera: _fontCamera,
     img: _img,
+    type: _type,
+    instock: _instock,
     desc: _desc
   };
 }
