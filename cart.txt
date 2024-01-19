@@ -175,38 +175,28 @@ const clearCart = () => {
   capNhatSP();
 }
 
-
-
 const themSP = (id) => {
-  axios({
-    url: `https://653122dc4d4c2e3f333c71dd.mockapi.io/QDDT/${id}`,
-    method: "GET",
-  })
-    .then((res) => {
-      // console.log(res.data);
-      let index = cartArray.findIndex(item => item.id === id);
-      if (index !== -1) {
-        changeUnits("plus", id);
-      }
-      //
-      else {
-        let product = res.data;
-        cartArray.push({
-          ...product,
-          quantity: 1,
-        });
-        //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
-        // console.log("cartArray", cartArray);
-      }
-      capNhatSP();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   //B6. Sử dụng SOME để kiểm tra sản phẩm dựa theo id đã tồn tại hay chưa.
-
+  if(cartArray.some((item) => item.id === id)){
+    changeUnits('plus', id);
+  }
+  // 
+  else{
+    //B4. Tìm sản phẩm trong products ~ FIND.
+      const item = res.data.find((product) => product.id === id)	;
+    console.log("item", item);
+    //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
+    cartArray.push({
+      ...item,
+      quantity: 1,     
+    });
+    // console.log("cartArray", cartArray);
+  }
   //B8. Cập nhật bảng giỏ hàng.
-};
+  capNhatSP();
+}
+
+
 
 let index = cartArray.findIndex(item => item.id === id);
       if (index === -1) {
