@@ -27,26 +27,27 @@ capNhatSP();
  * B8. Thêm xong thì cập nhật lại bảng giỏ hàng, giá tiền, số lượng nên tạo trước hàm capNhatSP (để các điều kiện cần vào).
  */
 //B3. Tạo 1 hàm thêm sản phẩm vào giỏ hàng.
-const themSP = (id, sP) => {
+
+const themSP = (id) => {
   //B6. Sử dụng SOME để kiểm tra sản phẩm dựa theo id đã tồn tại hay chưa.
-  if (cartArray.some((item) => item.id === id)) {
-    changeUnits("plus", id);
+  if(cartArray.some((item) => item.id === id)){
+    changeUnits('plus', id);
   }
-  //
-  else {
+  // 
+  else{
     //B4. Tìm sản phẩm trong products ~ FIND.
-    const item = products.find((product) => product.id === id);
+      const item = products.find((product) => product.id === id);
     console.log("item", item);
     //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
     cartArray.push({
       ...item,
-      quantity: 1,
+      quantity: 1,     
     });
     // console.log("cartArray", cartArray);
   }
   //B8. Cập nhật bảng giỏ hàng.
   capNhatSP();
-};
+}
 
 //CẬP NHẬT SẢN PHẨM.
 /**

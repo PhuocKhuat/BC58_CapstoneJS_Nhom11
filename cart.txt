@@ -183,7 +183,7 @@ const themSP = (id) => {
   // 
   else{
     //B4. Tìm sản phẩm trong products ~ FIND.
-      const item = res.data.find((product) => product.id === id)	;
+      const item = products.find((product) => product.id === id)	;
     console.log("item", item);
     //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
     cartArray.push({
@@ -196,7 +196,65 @@ const themSP = (id) => {
   capNhatSP();
 }
 
+const themSP = (id)=>{
+  axios({
+    url: "https://653122dc4d4c2e3f333c71dd.mockapi.io/QDDT",
+    method: "GET",
+  })
+  .then(function(res)  {
+    console.log("🚀 ~ .then ~ res:", res)
+    products = res.data;
+    console.log("🚀 ~ .then ~ products:", products)
+    if(cartArray.some((item) => item.id === id)){
+      changeUnits('plus', id);
+    }
+    // 
+    else{
+      //B4. Tìm sản phẩm trong products ~ FIND.
+        const item = products.find((product) => product.id === id)	;
+      console.log("item", item);
+      //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
+      cartArray.push({
+        ...item,
+        quantity: 1,     
+      });
+      // console.log("cartArray", cartArray);
+    }
+    })
+  .catch(function(err)  {
+       console.log(err);
+  });
+}
 
+const themSP = (id)=>{
+  axios({
+    url: "https://653e7b249e8bd3be29df5d3a.mockapi.io/cartItem",
+    method: "GET",
+  })
+  .then(function(res)  {
+    console.log("🚀 ~ .then ~ res:", res)
+    if(cartArray.some((item) => item.id === id)){
+      changeUnits('plus', id);
+    }
+    // 
+    else{
+      product = res.data;
+      //B4. Tìm sản phẩm trong products ~ FIND.
+        const item = product.find((product) => product.id*1 === id);
+      console.log("item", item);
+      //B5. Thêm sản phẩm vào mảng rỗng, thêm quantity.
+      cartArray.push({
+        ...item,
+        quantity: 1,     
+      });
+      // console.log("cartArray", cartArray);
+    }
+    capNhatSP();
+    })
+  .catch(function(err)  {
+       console.log(err);
+  });
+}
 
 let index = cartArray.findIndex(item => item.id === id);
       if (index === -1) {

@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 83%;
   margin: 0 auto;
 }
 
@@ -85,12 +85,12 @@
   padding-bottom: 14px;
 }
 
-
 /* HEADER */
 header {
   position: initial;
   z-index: 100;
   overflow: hidden;
+  position: relative;
   width: 100%;
   background: var(--secondary-color) !important;
 }
@@ -103,13 +103,10 @@ header .cover {
   backdrop-filter: blur(5px);
   z-index: 9;
 }
-header .container {
-  width: 90%;
-  margin: 0 auto;
-}
 header .logo {
   position: relative;
   color: var(---third-color);
+  left: 25px;
 }
 header .logo a {
   position: relative;
@@ -123,7 +120,7 @@ header .logo a:hover {
 header .home {
   position: absolute;
   top: 0;
-  left: 300px;
+  left: 362px;
 }
 header .home a {
   color: var(---third-color);
@@ -142,7 +139,7 @@ header .home .fa-home:before {
 header .admin {
   position: absolute;
   top: 0;
-  left: 400px;
+  left: 435px;
 }
 header .admin a {
   color: var(---third-color);
@@ -153,6 +150,10 @@ header .admin a {
 header .admin a:hover {
   color: #73FBD3;
   text-decoration: none;
+}
+header .admin .fa-store-alt{
+  position: absolute;
+  left: 7px;
 }
 header .admin .fa-user-gear:before {
   position: relative;
@@ -178,11 +179,19 @@ header #theme {
   height: 50px;
   cursor: pointer;
 }
+header .nav{
+  position: relative;
+}
 header .nav .fa-shopping-cart {
   color: var(---third-color);
 }
 header .nav .fa-shopping-cart:hover {
   color: #73FBD3;
+}
+header .nav #btnCart{
+  position: absolute;
+  top: 27px;
+  right: 46px;
 }
 header .nav .totalQuantity {
   width: 20px;
@@ -191,8 +200,9 @@ header .nav .totalQuantity {
   line-height: 20px;
   background: #ffb703;
   text-align: center;
-  position: relative;
-  top: 8px;
+  position: absolute;
+  top: 11px;
+  right: 25px;
 }
 .header-title{
   padding-left: 100px;
@@ -628,16 +638,21 @@ margin-bottom: 30px;
 }
 
 /* RESPONSIVE */
+@media screen and (max-width: 1286px) {
+  header #theme{
+    position: relative;
+    left: 150px;
+  }
+}
 @media screen and (max-width: 1248px) {
   header #btnSearchSP {
     left: 1020px;
   }
   header #theme {
-    left: 226px;
+    left: 136px;
   }
-  header .nav {
-    position: relative;
-    left: 105px;
+  .container{
+    width: 90%;
   }
 }
 @media screen and (max-width: 1230px) {
@@ -647,7 +662,7 @@ margin-bottom: 30px;
 }
 @media screen and (max-width: 1200px) {
   header .nav {
-    left: 84px;
+    left: 3px;
   }
   .cart #content {
     transform: translateX(68%);
@@ -662,6 +677,21 @@ margin-bottom: 30px;
   }
   .cart #content {
     transform: translateX(68%);
+  }
+}
+@media screen and (max-width: 1150px) {
+  .container {
+    width: 98%;
+    margin: 0;
+  }
+  .inputBody{
+    width: 93vw;
+  }
+  .myCardHeader{
+    width: 94vw;
+  }
+  .card{
+    width: 94vw;
   }
 }
 @media screen and (max-width: 1138px) {
@@ -679,6 +709,18 @@ margin-bottom: 30px;
     height: 28px;
     line-height: 12px;
   }
+  header .nav {
+    position: absolute;
+    right: -7px;
+  }
+  header #theme {
+    left: 15px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  header #theme {
+    left: -15px;
+}
 }
 @media screen and (max-width: 1105px) {
   header #btnSearchSP {
@@ -690,6 +732,9 @@ margin-bottom: 30px;
   .cart #content .final .action .clear {
     left: 203px;
   }
+  header #theme {
+    left: -60px;
+}
 }
 @media screen and (max-width: 1084px) {
   header #btnSearchSP {
@@ -729,7 +774,7 @@ margin-bottom: 30px;
     padding-left: 139px;
   }
 }
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1036px) {
   header #btnSearchSP {
     left: 826px;
   }
@@ -740,7 +785,7 @@ margin-bottom: 30px;
     left: 130px;
   }
 }
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1027px) {
   header #btnSearchSP {
     left: 760px;
   }
@@ -756,9 +801,9 @@ margin-bottom: 30px;
     top: 0;
     left: 360px;
   }
-  header #theme {
-    left: 177px;
-  }
+  header .admin {
+    left: 442px;
+}
 }
 @media screen and (max-width: 1020px) {
   header .nav {
@@ -773,6 +818,16 @@ margin-bottom: 30px;
   .cart #content h2 {
     left: 285px;
   }
+}
+@media screen and (max-width: 1006px) {
+   header #theme{
+    left: 100px;
+   }
+}
+@media screen and (max-width: 945px) {
+  header #theme{
+    left: 68px;
+   }
 }
 @media screen and (max-width: 938px) {
   .cart #content .final .subtotal {
@@ -798,19 +853,19 @@ margin-bottom: 30px;
   header #btnSearchSP {
     left: 694px;
   }
-  header #theme {
-    left: 130px;
-  }
   .cart #content .final .action .clear {
     left: 121px;
   }
+  header #theme{
+    left: 34px;
+  }
 }
-@media screen and (max-width: 888px) {
+@media screen and (max-width: 880px) {
   header .home {
     left: 250px;
   }
   header .admin {
-    left: 304px;
+    left: 325px;
   }
   header #btnSearchSP {
     left: 684px;
@@ -818,13 +873,13 @@ margin-bottom: 30px;
   header .nav {
     left: 61px;
   }
+  header #theme {
+    left: 3px;
+}
 }
 @media screen and (max-width: 878px) {
   header .logo {
     right: 28px;
-  }
-  header .admin {
-    left: 274px;
   }
   header #searchSP {
     left: 376px;
@@ -834,9 +889,6 @@ margin-bottom: 30px;
   }
   header .nav {
     left: 45px;
-  }
-  header #theme {
-    left: 100px;
   }
 }
 @media screen and (max-width: 870px) {
@@ -858,6 +910,9 @@ margin-bottom: 30px;
   .cart #content .cart-items .thProduct span {
     font-size: 1.3rem;
   }
+  header .admin {
+    left: 286px;
+}
 }
 @media screen and (max-width: 846px) {
   header .home {
@@ -871,6 +926,9 @@ margin-bottom: 30px;
   }
   header #btnSearchSP {
     left: 609px;
+  }
+  header #theme {
+    left: -36px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -891,7 +949,7 @@ margin-bottom: 30px;
     left: 557px;
   }
   header #theme {
-    left: 77px;
+    left: -60px;
   }
   header .nav {
     left: 28px;
@@ -914,9 +972,6 @@ margin-bottom: 30px;
   header #btnSearchSP {
     left: 532px;
   }
-  header #theme {
-    left: 77px;
-  }
   header .nav {
     left: 28px;
   }
@@ -926,7 +981,7 @@ margin-bottom: 30px;
     left: 517px;
   }
   header #theme {
-    left: 87px;
+    left: -20px;
   }
   .cart #content {
     right: 333px;
@@ -943,12 +998,19 @@ margin-bottom: 30px;
     left: 300px;
   }
   header .admin {
-    left: 210px;
+    left: 254px;
   }
   header #btnSearchSP {
     left: 488px;
   }
+  header #theme {
+    left: -40px;
+  }
+  header .home {
+    left: 193px;
 }
+}
+/* TỚI ĐÂY */
 @media screen and (max-width: 671px) {
   .cart #content {
     right: 333px;

@@ -23,26 +23,6 @@ function renderDssp(dssp) {
   document.getElementById("tableDanhSach").innerHTML = contentHTML;
 }
 
-// function rennderProductlist(productArr) {
-//   var contentHTML = "";
-//   for (var i = 0; i < productArr.length; i++) {
-//     var product = productArr[i];
-//     var trString = `<tr>
-//             <td>${product.id}</td>
-//             <td>${product.name}</td>
-//             <td>${product.price}</td>
-//             <td><img src=${product.img}/></td>
-//             <td>${product.desc}</td>
-//             <td>
-//             <button class="btn btn-danger">Delete</button>
-//             <button class="btn btn-warning">Edit</button>
-//             </td>
-//         </tr>`;
-//     contentHTML += trString;
-//   }
-//   document.getElementById("tableDanhSach").innerHTML = contentHTML;
-// }
-
 function layThongTinSP() {
   var _name = domID("nameSP").value;
   var _price = domID("priceSP").value*1;
