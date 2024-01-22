@@ -1,176 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- TAILWIND CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css"
-      integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- MY CSS  -->
-    <link rel="stylesheet" href="../../css/index.css" />
-    
-  </head>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  <body>
-    <!-- Button trigger modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
-      Launch demo modal
-    </button>
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: red;
+  border-radius: 10px;
+}
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true" >
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-          <header class="modal-title head-form mb-0" id="exampleModalLabel">
-            <h2 id="header-title">Log In</h2>
-          </header>
-        </div>
+.topnav #myLinks {
+  display: none;
+}
 
-				<!-- Modal body -->
-				<div class="modal-body" >
-					<form role="form">
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
-								</div>
-								<input type="text" name="tk" id="idSP" class="form-control input-sm" placeholder="Nhập mã sản phẩm">
-							</div>
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
 
-							<span class="sp-thongbao" id="tbIDSP"></span>
-						</div>
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
-								</div>
-								<input type="name" name="name" id="name" class="form-control input-sm" placeholder="Nhập tên sản phẩm">
-							</div>
-							<span class="sp-thongbao" id="tbTen"></span>
-						</div>
-            
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
-                </div>
-                <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Nhập giá tiền">
-              </div>
-              <span class="sp-thongbao" id="tbGia"></span>
-            </div>
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-image"></i></span>
-								</div>
-								<input type="text" name="photo" id="photo" class="form-control input-sm" placeholder="Nhập hình ảnh">
-							</div>
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
 
-							<span class="sp-thongbao" id="tbHinhAnh"></span>
-						</div>
-						
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="material-icons">description</i></span>
-								</div>
-								<input type="text" name="desc" id="desc" class="form-control input-sm" placeholder="Mô tả sản phẩm">
-							</div>
-							<span class="sp-thongbao" id="tbMoTa"></span>
-						</div>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
 
-					</form>
-				</div>
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="#home" class="active">Logo</a>
+  <div id="myLinks">
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
 
-				<!-- Modal footer -->
-				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemSP" type="button" class="btn btn-success">Thêm</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
-					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-				</div>
+<div style="padding-left:16px">
+  <h3>Vertical Mobile Navbar</h3>
+  <p>This example demonstrates how a navigation menu on a mobile/smart phone could look like.</p>
+  <p>Click on the hamburger menu (three bars) in the top right corner, to toggle the menu.</p>
+</div>
 
-			</div>
-		</div>
-	</div>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
+<!-- End smartphone / tablet look -->
+</div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+</body>
 </html>

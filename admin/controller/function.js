@@ -5,7 +5,7 @@ function turnOffLoading() {
   document.getElementById("spinner").style.display = "none";
 }
 
-//Theme
+//THEME
 const theme = domID("theme");
 theme.onclick = () => {
   document.body.classList.toggle("darkTheme");
@@ -14,6 +14,10 @@ theme.onclick = () => {
   } else {
     theme.src = "../../asset/img/moon.png";
   }
+};
+const themes = domID("themes");
+themes.onclick = () => {
+  document.body.classList.toggle("darkThemes");
 };
 
 const findProduct = (productAPI) => {

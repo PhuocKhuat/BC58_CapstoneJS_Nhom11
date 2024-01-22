@@ -25,7 +25,7 @@
   <!-- SPINNER -->
   <div id="spinner"></div>
   <!-- HEADER -->
-  <header class="shadow-xl">
+  <div class="shadow-xl header">
     <div class="cover" style="display: none;" ></div>
         <div class="cover purchase-cover" id="coverHeader"></div>
     <div class="container h-20 flex justify-between"> 
@@ -54,8 +54,17 @@
           <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
           <span class="totalQuantity">0</span>
         </p>
+        <div class="topNav">
+          <div id="myLinks">
+            <a href="#">Home</a>
+            <a href="../../admin/view/index.html">Admin</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
     </div>
-  </header>
+  </div>
   <!-- MODAL -->
   <div class="modals" id="modal" style="position: fixed; z-index: 101;">
     <i class="fa fa-check mb-2"></i>
