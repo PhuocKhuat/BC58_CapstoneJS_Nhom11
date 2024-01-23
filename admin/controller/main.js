@@ -80,6 +80,8 @@ function editProduct(id) {
       domID("type").value = product.type;
       domID("quantitySP").value = product.instock;
       domID("desc").value = product.desc;
+      btnCapNhat.style.display = "block";
+      btnThemSP.style.display = "none";
       turnOffLoading();
     })
     .catch((err) => {

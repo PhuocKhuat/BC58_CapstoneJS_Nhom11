@@ -15,10 +15,6 @@ theme.onclick = () => {
     theme.src = "../../asset/img/moon.png";
   }
 };
-const themes = domID("themes");
-themes.onclick = () => {
-  document.body.classList.toggle("darkThemes");
-};
 
 const findProduct = (productAPI) => {
   //TÌM KIỂM SẢN PHẨM THEO TÊN.
@@ -42,3 +38,12 @@ const findProduct = (productAPI) => {
     }
   });
 };
+
+const btnCapNhat = domID("btnCapNhat");
+btnCapNhat.style.display = "block";
+const btnThemSP = domID("btnThemSP");
+btnThemSP.style.display = "block";
+domID("btnThem").onclick = () => {
+  btnCapNhat.style.display = "none";
+  btnThemSP.style.display = "block";
+}

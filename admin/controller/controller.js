@@ -14,8 +14,8 @@ function renderDssp(dssp) {
             <td>${data.instock}</td>
             <td>${data.desc}</td>
             <td>
-            <button class="btn btn-danger" onclick="deleteProduct(${data.id})">Delete</button>
-            <button class="btn btn-warning" data-bs-toggle ="modal" data-bs-target ="#exampleModal" onclick="editProduct(${data.id})" >Edit</button>
+            <button class="btn btn-warning" data-bs-toggle ="modal" data-bs-target ="#exampleModal" id="editSP" onclick="editProduct(${data.id})" >Edit</button>
+            <button class="btn btn-danger" onclick="deleteProduct(${data.id})" class="deleteSP">Delete</button>
             </td>
         </tr>`;
     contentHTML = contentHTML + trString;
