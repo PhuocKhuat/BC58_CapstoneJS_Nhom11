@@ -43,9 +43,9 @@ const theme = domID('theme');
 theme.onclick = () =>{
 document.body.classList.toggle("darkTheme");
 if(document.body.classList.contains("darkTheme")){
-   theme.src = '../../asset/img/sun.png';
+   theme.src = './asset/img/sun.png';
 } else{
-  theme.src = '../../asset/img/moon.png';
+  theme.src = './asset/img/moon.png';
 }
 }
 
