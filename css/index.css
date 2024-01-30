@@ -86,11 +86,11 @@
 
 /* HEADER */
 header {
-  position: initial;
   z-index: 100;
   overflow: hidden;
-  position: relative;
+  position: fixed;
   width: 100%;
+  bottom: 658px;
   background: var(--secondary-color) !important;
 }
 header .cover {
@@ -316,16 +316,19 @@ header .nav .totalQuantity {
   position: relative;
   top: 8px;
 }
-table td{
+.headerCard .card {
+  padding-top: 82px;
+}
+table td {
   padding: 10px;
 }
-table td{
+table td {
   padding: 10px;
 }
-table #editSP{
+table #editSP {
   margin-bottom: 10px;
 }
-table #deleteSP{
+table #deleteSP {
   margin-bottom: 10px;
 }
 /* DARK THEME */
@@ -385,10 +388,25 @@ table #deleteSP{
   background-color: #333;
   position: relative;
 }
+.topnavv {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
 .topNav {
   display: none;
 }
+.topNavv {
+  display: none;
+}
 .topNav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+.topNavv a {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
@@ -402,11 +420,31 @@ table #deleteSP{
   top: 0;
   font-size: 34px;
 }
+.topNavv a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 34px;
+}
 .topNav a:hover {
   background-color: #ddd;
   color: black;
 }
+.topNavv a:hover {
+  background-color: #ddd;
+  color: black;
+}
 .topNav #myLinks {
+  display: block;
+  position: fixed;
+  top: 80px;
+  background-color: #333333;
+  right: 0px;
+  width: 98vw;
+  height: 115px;
+}
+.topNavv #myLinkss {
   display: block;
   position: fixed;
   top: 80px;
@@ -868,10 +906,6 @@ footer .copyright:hover {
   .cart #content {
     transform: translateX(68%);
   }
-  .header .nav .totalQuantity {
-    top: -13px;
-    left: -3px;
-  }
 }
 @media screen and (max-width: 1173px) {
   .header .nav {
@@ -893,7 +927,7 @@ footer .copyright:hover {
   .myCardHeader {
     width: 94vw;
   }
-  .card {
+  .headerCard .card {
     width: 94vw;
   }
 }
@@ -919,6 +953,18 @@ footer .copyright:hover {
     left: 88vw;
   }
 }
+@media screen and (max-width: 1127px) {
+  .header .nav .totalQuantity {
+    top: -55px;
+    left: 29px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .header .nav .totalQuantity {
+    top: -19px;
+    left: 0px;
+  }
+}
 @media screen and (max-width: 1105px) {
   .cart #content .cart-items .thProduct span {
     margin-left: 19px;
@@ -935,10 +981,10 @@ footer .copyright:hover {
   .header .nav {
     left: 94vw;
   }
-  .header .nav .totalQuantity {
+  /* .header .nav .totalQuantity {
     top: -55px;
     left: 27px;
-  }
+  } */
 }
 @media screen and (max-width: 1084px) {
   .header #btnSearchSP {
@@ -1057,6 +1103,11 @@ footer .copyright:hover {
   header .card {
     margin: 0 !important;
     margin-top: 30px !important;
+  }
+}
+@media screen and (max-width: 970px) {
+  header{
+    bottom: 640px;
   }
 }
 @media screen and (max-width: 945px) {
@@ -1269,7 +1320,7 @@ footer .copyright:hover {
   }
   .card {
     margin: 0 !important;
-  } 
+  }
   .header .nav {
     left: 89vw;
   }
@@ -1303,10 +1354,17 @@ footer .copyright:hover {
   }
 }
 @media screen and (max-width: 768px) {
-  table th:nth-child(4), table th:nth-child(5), table th:nth-child(6){
+  header {
+    bottom: 658px;
+  }
+  table th:nth-child(4),
+  table th:nth-child(5),
+  table th:nth-child(6) {
     display: none;
   }
-  table td:nth-child(4), table td:nth-child(5), table td:nth-child(6){
+  table td:nth-child(4),
+  table td:nth-child(5),
+  table td:nth-child(6) {
     display: none;
   }
 }
@@ -1355,10 +1413,10 @@ footer .copyright:hover {
   header .home {
     left: 193px;
   }
-  table th:nth-child(9){
+  table th:nth-child(9) {
     display: none;
   }
-  table td:nth-child(9){
+  table td:nth-child(9) {
     display: none;
   }
 }
@@ -1369,6 +1427,9 @@ footer .copyright:hover {
   }
 }
 @media screen and (max-width: 651px) {
+  .modal {
+    display: none;
+  }
   .cart #content {
     width: 79%;
   }
@@ -1405,11 +1466,19 @@ footer .copyright:hover {
     left: 73px;
   }
 }
+@media screen and (max-width: 643px) {
+  header .home {
+    left: 145px;
+  }
+  header .admin {
+    left: 210px;
+  }
+}
 @media screen and (max-width: 640px) {
-  table th:nth-child(10){
+  table th:nth-child(10) {
     display: none;
   }
-  table td:nth-child(10){
+  table td:nth-child(10) {
     display: none;
   }
 }
@@ -1445,17 +1514,14 @@ footer .copyright:hover {
   .cart #content .final .subtotal {
     width: 85vw;
   }
-  header .home {
-    left: 102px;
-  }
-  header .admin {
-    left: 148px;
-  }
   header #searchSP {
     left: 238px;
   }
   header #btnSearchSP {
     left: 394px;
+  }
+  header #theme {
+    left: 58px;
   }
 }
 @media screen and (max-width: 551px) {
@@ -1493,10 +1559,10 @@ footer .copyright:hover {
   }
 }
 @media screen and (max-width: 516px) {
-  table th:nth-child(8){
+  table th:nth-child(8) {
     display: none;
   }
-  table td:nth-child(8){
+  table td:nth-child(8) {
     display: none;
   }
 }
@@ -1521,16 +1587,23 @@ footer .copyright:hover {
   .header .nav {
     left: 71vw;
   }
+  .topNavv {
+    display: block;
+  }
+  header .home,
+  header .admin {
+    display: none;
+  }
+  .topNavv #myLinkss {
+    position: fixed;
+  }
 }
 @media screen and (max-width: 495px) {
-  header .logo {
-    opacity: 0;
+  header #theme {
+    left: 32px;
   }
-  header .home {
-    left: 30px;
-  }
-  header .admin {
-    left: 84px;
+  header .modal {
+    width: 91vw;
   }
   header #btnSearchSP {
     left: 310px;
@@ -1538,8 +1611,8 @@ footer .copyright:hover {
   header #searchSP {
     left: 174px;
   }
-  header #btnSearchSP {
-    left: 302px;
+  header .nav {
+    left: 58px;
   }
   .cart #content {
     width: 101%;
@@ -1547,6 +1620,14 @@ footer .copyright:hover {
   .cart #content .cart-items .thProduct span {
     font-size: 1.1rem;
   }
+  header #theme {
+    left: 34px;
+  }
+}
+@media screen and (max-width: 484px) {
+  header {
+    bottom: 640px;
+}
 }
 @media screen and (max-width: 484px) {
   .cart #content {
@@ -1560,6 +1641,9 @@ footer .copyright:hover {
   .units .minus,
   .units .plus {
     padding-right: 0px;
+  }
+  .modal{
+  width: 95vw;
   }
 }
 @media screen and (max-width: 457px) {
@@ -1582,14 +1666,14 @@ footer .copyright:hover {
   }
   /* ĐẾN 640px phần header */
 }
-@media screen and (max-width: 457px) {
+@media screen and (max-width: 437px) {
   .cart #content {
     right: 296px;
   }
-  table th:nth-child(3){
+  table th:nth-child(3) {
     display: none;
   }
-  table td:nth-child(3){
+  table td:nth-child(3) {
     display: none;
   }
 }
@@ -1612,33 +1696,58 @@ footer .copyright:hover {
   .units .plus {
     width: 28px;
   }
-  @media screen and (max-width: 393px) {
-    .cart #content {
-      width: 114%;
-    }
-    .thProduct {
-      margin-left: 36px;
-    }
-    .cart #content .cart-items .empty-cart .sPcom4 {
-      font-size: 13px;
-    }
+  header #theme {
+    left: 14px;
   }
-  @media screen and (max-width: 373px) {
-    .cart #content {
-      right: 271px;
-      width: 111%;
-    }
-    .cart #content .cart-items .thProduct span {
-      font-size: 1rem;
-    }
-  }
-  @media screen and (max-width: 346px) {
-    .cart #content {
-      right: 246px;
-    }
-    .cart #content .final .action .clear {
-      left: 33px;
-    }
-  }
-  /*# sourceMappingURL=index.css.map */
 }
+@media screen and (max-width: 393px) {
+  .cart #content {
+    width: 114%;
+  }
+  .thProduct {
+    margin-left: 36px;
+  }
+  .cart #content .cart-items .empty-cart .sPcom4 {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 373px) {
+  .cart #content {
+    right: 271px;
+    width: 111%;
+  }
+  .cart #content .cart-items .thProduct span {
+    font-size: 1rem;
+  }
+  .topNavv #myLinkss {
+    right: 6px;
+    width: 94vw;
+    position: relative;
+  }
+  header .nav {
+    left: 212px;
+  }
+  header #theme {
+    left: 123px;
+  }
+  header .logo a span {
+    margin-top: 4px;
+  }
+}
+@media screen and (max-width: 361px) {
+  header .nav {
+    left: 186px;
+  }
+  header #theme {
+    left: 94px;
+}
+}
+@media screen and (max-width: 346px) {
+  .cart #content {
+    right: 246px;
+  }
+  .cart #content .final .action .clear {
+    left: 33px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

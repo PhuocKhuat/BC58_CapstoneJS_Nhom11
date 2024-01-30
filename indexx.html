@@ -33,11 +33,11 @@
       referrerpolicy="no-referrer"
     />
     <!-- CAROUSEL -->
-    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
 
     <!-- MY CSS  -->
-    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     
@@ -56,19 +56,28 @@
             <a href="#" class="flex flex-col space-y-2"><i class="fas fa-home fa-xl mb-1"></i><span>Home</span></a>
            </p>
            <p class="admin">
-            <a href="../../customer/view/index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
+            <a href="./index.html" class="flex flex-col space-y-3"><i class="fa-solid fa-xl fa fa-store-alt"></i><span>Strore</span></a>
            </p>
         </p>
           
-        <img src="../../asset/img/moon.png" id="theme" alt="">
+        <img src="./asset/img/moon.png" id="theme" alt="">
         <p class="nav">
           <button onclick="sideNav()" id="btnCart"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></button>
           <span class="totalQuantity">0</span>
         </p>
+        <div class="topNavv">
+          <div id="myLinkss">
+            <a href="#">Home</a>
+            <a href="./index.html">Store</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunctions()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
     </div>
   </header>
 
-  <div class="container">
+  <div class="container headerCard">
     <div class="card text-center m-4">
       <!-- Header -->
       <div class="card-header myCardHeader">
@@ -256,8 +265,8 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemSP" type="button" class="btn btn-success">Add</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Update</button>
+					<button id="btnThemSP" type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Add</button>
+					<button id="btnCapNhat" type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Update</button>
 					<button id="btnDong" type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
 				</div>
 
@@ -305,15 +314,15 @@
     ></script>
 
     <!-- METHOD JS -->
-    <script src="../controller/method.js"></script>
+    <script src="./admin/controller/method.js"></script>
     <!-- FUNCTION JS -->
-    <script src="../controller/function.js"></script>
+    <script src="./admin/controller/function.js"></script>
     <!-- MODEL JS -->
-    <script src="/admin/model/model.js"></script>
+    
     <!-- CONTROLLER -->
-    <script src="/admin/controller/controller.js"></script>
+    <script src="./admin/controller/controller.js"></script>
     <!-- MY JS -->
-    <script src="/admin/controller/main.js"></script>
+    <script src="./admin/controller/main.js"></script>
 
   </body>
 </html>

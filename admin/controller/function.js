@@ -47,3 +47,18 @@ domID("btnThem").onclick = () => {
   btnCapNhat.style.display = "none";
   btnThemSP.style.display = "block";
 }
+
+//NAV MOBILE
+function myFunctions() {
+  var x = document.getElementById("myLinkss");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+// const modal = domID("exampleModal");
+// modal.style.display = "none";
+// domID("editSP").onclick = () =>{ 
+//   modal.style.display = "block";
+// }
