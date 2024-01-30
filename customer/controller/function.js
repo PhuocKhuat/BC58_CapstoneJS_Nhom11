@@ -11,14 +11,18 @@ function turnOffLoading(){
 const content = domID('content');
 const cover = domID('cover');
 const coverHeader = domID('coverHeader');
+const coverNav = domID('coverNav');
 const coverBanner = domID('coverBanner');
+const coverCate = domID('coverCate');
 const coverFooter = domID('coverFooter');
 const sideNav = () => {
 content.style.transition = "0.3s";  
 content.style.transform = "translateX(70%)";
 cover.style.transform = "translateX(0px)";
 coverHeader.style.transform = "translateX(0px)";
+coverNav.style.transform = "translateX(0px)";
 coverBanner.style.transform = "translateX(0px)";
+coverCate.style.transform = "translateX(0px)";
 coverFooter.style.transform = "translateX(0px)";
 }
 const closes = () => {
@@ -26,7 +30,9 @@ content.style.transition = "0.3s";
 content.style.transform ="translateX(170%)";
 cover.style.transform = "translateX(100%)";
 coverHeader.style.transform = "translateX(100%)";
+coverNav.style.transform = "translateX(100%)";
 coverBanner.style.transform = "translateX(100%)";
+coverCate.style.transform = "translateX(100%)";
 coverFooter.style.transform = "translateX(100%)";
 }
 
